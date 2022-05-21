@@ -1,6 +1,5 @@
 import {GlobalConfig} from 'payload/types'
 import payload from 'payload'
-import {Team} from '../payload-types'
 
 const Sponsors: GlobalConfig = {
   slug: 'sponsors',

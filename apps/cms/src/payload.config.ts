@@ -6,6 +6,7 @@ import Teams from './collections/Teams'
 import TeamGroups from './collections/TeamGroups'
 import Sponsors from './collections/Sponsors'
 import Blogs from './collections/Blogs'
+import Overview from './collections/Overview'
 
 export default buildConfig({
   serverURL: 'http://localhost:3000',
@@ -19,6 +20,7 @@ export default buildConfig({
     Users,
   ],
   globals: [
+    Overview,
     TeamGroups,
     Sponsors,
   ],
