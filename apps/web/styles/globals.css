@@ -1,12 +1,9 @@
-body {
-  margin: 0;
-}
-
 html, body {
-  min-height: 100vh;
+    -webkit-font-smoothing: unset !important;
+    -moz-osx-font-smoothing: unset !important;
 }
 
 a {
-  color: inherit;
-  text-decoration: inherit;
+    color: inherit;
+    text-decoration: inherit;
 }
