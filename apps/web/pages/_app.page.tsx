@@ -48,9 +48,10 @@ function MyApp({Component, pageProps}: AppProps) {
             flexGrow: 1,
             height: '100vh',
             position: 'relative',
+            overflow: 'hidden',
           }}>
             <AnimatePresence initial={false}>
-              <Component prevHrefIndex={prevHrefIndex} {...pageProps}/>
+              <Component key={router.route} prevHrefIndex={prevHrefIndex} {...pageProps}/>
             </AnimatePresence>
           </Box>
         </Group>}

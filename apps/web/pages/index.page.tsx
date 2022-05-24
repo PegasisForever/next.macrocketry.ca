@@ -140,7 +140,7 @@ function SponsorBanner() {
 
 type PageProp = TopLevelPageProps & { numberCardData: Array<{ number: number, title: string }> }
 
-function Home(props: PageProp) {
+export default function Home(props: PageProp) {
   const {classes, theme} = useStyles()
 
   return <RightPanelContainer hrefIndex={0} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
@@ -206,8 +206,6 @@ function Home(props: PageProp) {
     </Stack>
   </RightPanelContainer>
 }
-
-export default Home
 
 export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>> = async () => {
   return {
