@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import type {AppProps} from 'next/app'
 import {Box, Global, Group, MantineProvider} from '@mantine/core'
-import {domMax, LazyMotion} from 'framer-motion'
+import {AnimatePresence, domMax, LazyMotion} from 'framer-motion'
 import {getSideBarIndex} from './nav/common'
 import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
@@ -47,8 +47,11 @@ function MyApp({Component, pageProps}: AppProps) {
             boxShadow: '0 3px 100px #00000029',
             flexGrow: 1,
             height: '100vh',
+            position: 'relative',
           }}>
-            <Component prevHrefIndex={prevHrefIndex} {...pageProps}/>
+            <AnimatePresence initial={false}>
+              <Component prevHrefIndex={prevHrefIndex} {...pageProps}/>
+            </AnimatePresence>
           </Box>
         </Group>}
     </MantineProvider>
