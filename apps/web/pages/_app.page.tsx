@@ -7,6 +7,7 @@ import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
 import SideBar from './nav/SideBar'
 import { initRecaptcha } from './recaptcha'
+import { ModalsProvider } from '@mantine/modals'
 
 initRecaptcha()
 
@@ -51,27 +52,29 @@ function MyApp({Component, pageProps}: AppProps) {
       }}
       withGlobalStyles
       withNormalizeCSS>
-      <Global styles={{
-        body: {
-          margin: 0,
-          minHeight: '100vh',
-        },
-      }}/>
-      {sideBarIndex === -1 ? <Component prevHrefIndex={prevHrefIndex} {...pageProps}/> :
-        <Group spacing={0}>
-          <SideBar data={pageProps.sideBarData}/>
-          <Box sx={{
-            boxShadow: '0 3px 100px #00000029',
-            flexGrow: 1,
-            height: '100vh',
-            position: 'relative',
-            overflow: 'hidden',
-          }}>
-            <AnimatePresence initial={false}>
-              <Component key={router.route} prevHrefIndex={prevHrefIndex} {...pageProps}/>
-            </AnimatePresence>
-          </Box>
-        </Group>}
+      <ModalsProvider>
+        <Global styles={{
+          body: {
+            margin: 0,
+            minHeight: '100vh',
+          },
+        }}/>
+        {sideBarIndex === -1 ? <Component prevHrefIndex={prevHrefIndex} {...pageProps}/> :
+          <Group spacing={0}>
+            <SideBar data={pageProps.sideBarData}/>
+            <Box sx={{
+              boxShadow: '0 3px 100px #00000029',
+              flexGrow: 1,
+              height: '100vh',
+              position: 'relative',
+              overflow: 'hidden',
+            }}>
+              <AnimatePresence initial={false}>
+                <Component key={router.route} prevHrefIndex={prevHrefIndex} {...pageProps}/>
+              </AnimatePresence>
+            </Box>
+          </Group>}
+      </ModalsProvider>
     </MantineProvider>
   </LazyMotion>
 }

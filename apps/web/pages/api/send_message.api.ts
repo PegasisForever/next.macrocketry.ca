@@ -25,7 +25,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     console.log('score:', recaptchaScore)
 
     let emailSent = false
-    if (recaptchaScore > 0.5) {
+    if (recaptchaScore > 0.5 && process.env.NODE_ENV !== 'development') {
       try {
         console.log('Sending email.....')
         await sgMail.send({
@@ -66,7 +66,7 @@ mutation {
     name
   }
 }
-`,undefined,{
+`, undefined, {
       Authorization: `User API-Key ${process.env.PAYLOAD_KEY}`,
     })
 

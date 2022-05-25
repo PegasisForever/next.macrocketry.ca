@@ -1826,12 +1826,12 @@
   resolved "https://registry.yarnpkg.com/@jsdevtools/ono/-/ono-7.1.3.tgz#9df03bbd7c696a5c58885c34aa06da41c8543796"
   integrity sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==
 
-"@mantine/core@^4.2.5":
-  version "4.2.5"
-  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-4.2.5.tgz#cc139992b3980043fce17db50e09e25dab261fe0"
-  integrity sha512-A/mixxpmCsA9acYVrCAurHrj/ikyLGksPqFILPJJpjC4uUDm85HHqVUa209VVLAKlvr26tX6CzDVqUeSe6s3Zg==
+"@mantine/core@^4.2.6":
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-4.2.6.tgz#cc3f762fc45ed393f3a5f8935c3182525c719e94"
+  integrity sha512-Qk8tgChW+T4pb0aV54vzG5haZzZJleeh1c//K9pMvsil8i9VDuHgPkZoo6dTglyJnpxthlrKpbX/D5NNi5pQoQ==
   dependencies:
-    "@mantine/styles" "4.2.5"
+    "@mantine/styles" "4.2.6"
     "@popperjs/core" "^2.9.3"
     "@radix-ui/react-scroll-area" "^0.1.1"
     react-popper "^2.2.5"
@@ -1842,10 +1842,15 @@
   resolved "https://registry.yarnpkg.com/@mantine/form/-/form-4.2.6.tgz#63ddebe59ccb3a7663a106b2d2694d3def93f5e3"
   integrity sha512-irF6BkwHF74m8kGygaPjSAcMW/7+73nLBQZNxydzWbhNPyHtUVKCoRGKAnfeapTgX8aDP4c2+8zMtB76+bpOow==
 
-"@mantine/hooks@^4.2.5":
-  version "4.2.5"
-  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-4.2.5.tgz#b1c964e6f59b5d86fb579a43daea158a7ec9d6aa"
-  integrity sha512-CEpdUXPAC28rXosgo/Wxvs3ch9qC+QYfqh4AFkOH0+EKdlXkD1xRN8vv6pd5AHJtRZvGf7CZDuGKSjWgssvgeA==
+"@mantine/hooks@^4.2.6":
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-4.2.6.tgz#8787316b2d2a0106c9aed0f2e284c096b0e3d985"
+  integrity sha512-SEdnh/ugmYL819ssPK0pRNZO+/gq709BwxfzhA2x7QsdQBlcrXU0vrrckhnScTG/iqlVxNDi36Yhl31JIBmd/Q==
+
+"@mantine/modals@^4.2.6":
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/@mantine/modals/-/modals-4.2.6.tgz#ee915aaff483d471309b9fdb981a79391a7ad356"
+  integrity sha512-lyigD8ZZhKQ2/nCMa9vNz22DGuaEwz+2kUDQrGJK3zUgyTIxe78aTLTS2YPxfFGPhUsTjkHLl6Cnyl7ghc3QuQ==
 
 "@mantine/next@^4.2.5":
   version "4.2.5"
@@ -1872,6 +1877,18 @@
   version "4.2.5"
   resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-4.2.5.tgz#a8e5bd6f601dee63aeedc5f09f2098dd1473d2da"
   integrity sha512-A6sIm3+Aa4ZqpaIqpmiaCmkAJI4ow9vwmCgpvuwWYCspBhWTWQWtdpnNyWfnTjszYY1uSnx9mb50JlIsglgLNQ==
+  dependencies:
+    "@emotion/cache" "11.7.1"
+    "@emotion/react" "11.7.1"
+    "@emotion/serialize" "1.0.2"
+    "@emotion/utils" "1.0.0"
+    clsx "^1.1.1"
+    csstype "3.0.9"
+
+"@mantine/styles@4.2.6":
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-4.2.6.tgz#e29fe7f763dddd0af9624aaa7c3fe4b4181688be"
+  integrity sha512-Tt8BSDFTErNz7BSTzD1m9/sDoShK9E1xHZ91LEEall3ibTKmkJwV+0ptJ0eyT7ZEPqa8iXsLpWjNNONYPW4F7g==
   dependencies:
     "@emotion/cache" "11.7.1"
     "@emotion/react" "11.7.1"

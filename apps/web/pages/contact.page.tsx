@@ -3,15 +3,18 @@ import RightPanelContainer from './RightPanelContainer'
 import {GetStaticProps} from 'next'
 import {getSideBarData} from './nav/sideBarDataHelper'
 import PageTitle from './components/PageTItle'
-import {Box, Button, Group, Stack, Textarea, TextInput} from '@mantine/core'
+import {Box, Button, Group, Stack, Textarea, TextInput, Title, useMantineTheme} from '@mantine/core'
 import {Send} from 'tabler-icons-react'
 import {useForm} from '@mantine/form'
 import {useState} from 'react'
 import {getRecaptcha} from './recaptcha'
+import {useModals} from '@mantine/modals'
 
 type PageProp = TopLevelPageProps
 
 export default function Teams(props: PageProp) {
+  const theme = useMantineTheme()
+  const modals = useModals()
   const form = useForm({
     initialValues: {
       name: '',
@@ -25,6 +28,26 @@ export default function Teams(props: PageProp) {
   })
   const [isSending, setIsSending] = useState(false)
 
+  const showModal = (message: string) => {
+    const id = modals.openModal({
+      centered: true,
+      overlayBlur: 10,
+      overlayColor: theme.fn.rgba(theme.black, 0.4),
+      withCloseButton: false,
+      padding: 'xl',
+      children: <Stack align={'center'}>
+        <Title order={2} sx={{
+          fontWeight: 500,
+          textAlign: 'center',
+        }}>
+          {message}
+        </Title>
+        <Button size={'md'} onClick={() => modals.closeModal(id)}>
+          OK
+        </Button>
+      </Stack>,
+    })
+  }
 
   return <RightPanelContainer hrefIndex={6} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
     <Stack p={64} justify={'center'} align={'center'} sx={{
@@ -55,8 +78,12 @@ export default function Teams(props: PageProp) {
           if (res.status >= 500) {
             throw new Error(`Server responded with code ${res.status}: ${await res.text()}`)
           }
+
+          showModal('Message sent! We will get back to you as soon as possible.')
+          form.reset()
         } catch (e) {
           console.error(e)
+          showModal('Failed to send message, please check your network.')
         } finally {
           setIsSending(false)
         }
