@@ -7,6 +7,7 @@ import TeamGroups from './collections/TeamGroups'
 import Sponsors from './collections/Sponsors'
 import Blogs from './collections/Blogs'
 import Overview from './collections/Overview'
+import Recruitment from './collections/Recruitment'
 
 export default buildConfig({
   serverURL: 'http://localhost:3000',
@@ -23,6 +24,7 @@ export default buildConfig({
     Overview,
     TeamGroups,
     Sponsors,
+    Recruitment,
   ],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),

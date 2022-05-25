@@ -9,7 +9,7 @@ const Sponsors: GlobalConfig = {
       if (!user) return false
       if (user.admin) return true
 
-      const {docs:[businessTeam]} = await payload.find({
+      const {docs: [businessTeam]} = await payload.find({
         collection: 'teams',
         where: {
           urlName: {
@@ -19,7 +19,7 @@ const Sponsors: GlobalConfig = {
         overrideAccess: true,
       })
 
-      return businessTeam.members.find(member=>member.user.id===user.id)
+      return businessTeam.members.find(member => member.user.id === user.id)
     },
   },
   fields: [

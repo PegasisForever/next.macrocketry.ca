@@ -13,7 +13,7 @@ const useStyles = createStyles(theme => ({
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: theme.white,
+    backgroundColor: theme.colors.gray[0],
     overflowY: 'auto',
   },
 }))
