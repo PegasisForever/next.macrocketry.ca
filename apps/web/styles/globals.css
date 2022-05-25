@@ -7,3 +7,7 @@ a {
     color: inherit;
     text-decoration: inherit;
 }
+
+.grecaptcha-badge {
+    visibility: hidden;
+}
