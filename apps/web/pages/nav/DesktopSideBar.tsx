@@ -10,7 +10,7 @@ export default function DesktopSideBar(props: { data: SideBarData }) {
   }}>
     <SideBarLogo/>
     <NavLinks data={props.data}/>
-    <Link href={''} passHref>
+    <Link href={'/admin'} passHref>
       <Anchor color={'dimmed'}>
         Member Login
       </Anchor>

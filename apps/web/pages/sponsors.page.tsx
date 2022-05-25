@@ -60,7 +60,7 @@ export default function SponsorsPage(props: PageProp) {
   return <RightPanelContainer hrefIndex={4} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
     <Stack align={'center'} spacing={0}>
       <Title mt={64} order={2} sx={{
-        backgroundColor: theme.colors.mac[6],
+        backgroundColor: theme.colors.blue[6],
         color: theme.white,
         fontSize: 36,
         fontWeight: 400,
@@ -71,10 +71,10 @@ export default function SponsorsPage(props: PageProp) {
       </Title>
       <Anchor href={'/Sponsorship Package 2022 V1.pdf'} target={'_blank'} rel={'noreferrer'} sx={{
         fontSize: 24,
-        color: theme.colors.mac[6],
+        color: theme.colors.blue[6],
         textDecoration: 'underline',
         textUnderlineOffset: 1,
-        textDecorationColor: theme.colors.mac[6],
+        textDecorationColor: theme.colors.blue[6],
         marginTop: 4,
         '& > *': {
           verticalAlign: 'middle',

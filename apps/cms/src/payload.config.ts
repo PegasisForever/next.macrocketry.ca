@@ -8,6 +8,7 @@ import Sponsors from './collections/Sponsors'
 import Blogs from './collections/Blogs'
 import Overview from './collections/Overview'
 import Recruitment from './collections/Recruitment'
+import Messages from './collections/Messages'
 
 export default buildConfig({
   serverURL: 'http://localhost:3000',
@@ -19,6 +20,7 @@ export default buildConfig({
     Blogs,
     Media,
     Users,
+    Messages,
   ],
   globals: [
     Overview,

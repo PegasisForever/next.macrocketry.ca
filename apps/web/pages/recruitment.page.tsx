@@ -4,7 +4,8 @@ import RightPanelContainer from './RightPanelContainer'
 import {getSideBarData} from './nav/sideBarDataHelper'
 import {Button, Divider, Group, Paper, Stack, Title} from '@mantine/core'
 import {gql, request} from 'graphql-request'
-import {RichText, RichTextData} from './RichText'
+import {RichText, RichTextData} from './components/RichText'
+import PageTitle from './components/PageTItle'
 
 
 type Position = {
@@ -18,12 +19,9 @@ type PageProp = TopLevelPageProps & { positions: Position[] }
 export default function RecruitmentPage(props: PageProp) {
   return <RightPanelContainer hrefIndex={5} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
     <Stack p={64} pt={24} spacing={32}>
-      <Title order={2} sx={{
-        fontWeight: 400,
-        fontSize: 80,
-      }}>
+      <PageTitle>
         Recruitment
-      </Title>
+      </PageTitle>
       {props.positions.map(position => <Paper key={position.name} shadow={'md'} withBorder p={32} pt={24}>
         <Group align={'center'} position={'apart'}>
           <Title order={3} sx={{
@@ -34,7 +32,7 @@ export default function RecruitmentPage(props: PageProp) {
             {position.name}
           </Title>
 
-          <Button color={'mac'} size={'md'}>
+          <Button size={'md'}>
             Apply
           </Button>
         </Group>

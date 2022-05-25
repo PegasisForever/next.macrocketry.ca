@@ -30,7 +30,7 @@ export async function getSideBarData(): Promise<SideBarData> {
       children: 'Recruitment',
     },
     {
-      href: '/contact_us',
+      href: '/contact',
       children: 'Contact Us',
     },
   ]

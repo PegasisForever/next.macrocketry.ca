@@ -6,6 +6,9 @@ import {getSideBarIndex} from './nav/common'
 import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
 import SideBar from './nav/SideBar'
+import { initRecaptcha } from './recaptcha'
+
+initRecaptcha()
 
 function MyApp({Component, pageProps}: AppProps) {
   const router = useRouter()
@@ -32,7 +35,7 @@ function MyApp({Component, pageProps}: AppProps) {
           fontFamily: '"Barlow", sans-serif',
         },
         colors: {
-          mac: [
+          blue: [
             '#88506C',
             '#824262',
             '#7E3559',

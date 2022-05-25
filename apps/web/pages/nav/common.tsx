@@ -17,7 +17,7 @@ function NavLink(props: PropsWithChildren<{ href: string }>) {
   const selected = normalizeHref(router.route) === normalizeHref(props.href)
   return <Link href={props.href} passHref>
     <Anchor style={{
-      color: selected ? theme.colors.mac[6] : theme.colors.gray[6],
+      color: selected ? theme.colors.blue[6] : theme.colors.gray[6],
       fontSize: selected ? 30 : 24,
       lineHeight: selected ? '45px' : '36px',
     }} sx={{
@@ -68,7 +68,7 @@ const normalizedSideBarHrefs = [
   '/blogs',
   '/sponsors',
   '/recruitment',
-  '/contact_us',
+  '/contact',
 ]
 
 export function getSideBarIndex(href: string): number {

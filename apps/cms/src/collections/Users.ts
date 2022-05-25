@@ -3,12 +3,14 @@ import {accessOnlyAdmin} from '../accessOnlyAdmin'
 
 const Users: CollectionConfig = {
   slug: 'users',
-  auth: true,
+  auth: {
+    useAPIKey: true,
+  },
   admin: {
     useAsTitle: 'name',
   },
   access: {
-    create: () => false,
+    create: accessOnlyAdmin,
     delete: () => false,
     read: () => true,
     update: ({req: {user}}) => {
