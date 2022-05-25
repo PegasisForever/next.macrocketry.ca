@@ -7,6 +7,7 @@ import rocketBg from './rocketBg.png'
 import {useState} from 'react'
 import {useEffectOnce, useInterval} from 'react-use'
 import {Anchor, Box, createStyles, Group, Stack, Text, Title, useMantineTheme} from '@mantine/core'
+import {gql, request} from 'graphql-request'
 
 const useStyles = createStyles(theme => ({
   backgroundImage: {
@@ -132,7 +133,7 @@ function SponsorBanner() {
       textDecoration: 'underline',
       textUnderlineOffset: 1,
       textDecorationColor: theme.white,
-    }} className={'underline text-white pl-4'} href={'/Sponsorship Package 2022 V1.pdf'} target={'_blank'} rel={'noreferrer'}>
+    }} href={'/Sponsorship Package 2022 V1.pdf'} target={'_blank'} rel={'noreferrer'}>
       Sponsor Package
     </Anchor>
   </Group>
@@ -208,24 +209,38 @@ export default function Home(props: PageProp) {
 }
 
 export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>> = async () => {
+  const res = await request(process.env.PAYLOAD_CONFIG_PATH!, gql`
+{
+  Users {
+    totalDocs
+  }
+  
+  Overview {
+    launches
+    successes
+    rocketModels
+  }
+}
+`)
+
   return {
     props: {
       sideBarData: await getSideBarData(),
       numberCardData: [
         {
-          number: 14,
+          number: res.Overview.launches,
           title: 'LAUNCHES',
         },
         {
-          number: 14,
+          number: res.Overview.successes,
           title: 'SUCCESSES',
         },
         {
-          number: 4,
+          number: res.Overview.rocketModels,
           title: 'ROCKET MODELS',
         },
         {
-          number: 0,
+          number: res.Users.totalDocs,
           title: 'MEMBERS',
         },
       ],

@@ -17,12 +17,15 @@ function NavLink(props: PropsWithChildren<{ href: string }>) {
   const selected = normalizeHref(router.route) === normalizeHref(props.href)
   return <Link href={props.href} passHref>
     <Anchor style={{
-      color: selected ? '#7A003C' : theme.colors.gray[6],
+      color: selected ? theme.colors.mac[6] : theme.colors.gray[6],
       fontSize: selected ? 30 : 24,
       lineHeight: selected ? '45px' : '36px',
     }} sx={{
       fontWeight: 500,
       letterSpacing: 1.5,
+      transitionProperty: 'color, font-size, line-height',
+      transitionDuration: '250ms',
+      transitionTimingFunction: 'ease-in-out',
     }}>
       {props.children}
     </Anchor>

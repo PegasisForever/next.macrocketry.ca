@@ -10,6 +10,7 @@ const Users: CollectionConfig = {
   access: {
     create: () => false,
     delete: () => false,
+    read: () => true,
     update: ({req: {user}}) => {
       if (!user) return false
       if (user.admin) {

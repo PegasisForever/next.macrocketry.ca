@@ -31,6 +31,20 @@ function MyApp({Component, pageProps}: AppProps) {
         headings: {
           fontFamily: '"Barlow", sans-serif',
         },
+        colors: {
+          mac: [
+            '#88506C',
+            '#824262',
+            '#7E3559',
+            '#7B2851',
+            '#791B49',
+            '#790D42',
+            '#7A003C', // main color
+            '#630B36',
+            '#511231',
+            '#43162C',
+          ],
+        },
       }}
       withGlobalStyles
       withNormalizeCSS>
