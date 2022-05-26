@@ -12,7 +12,7 @@ import Messages from './collections/Messages'
 import {BigLogo, Logo} from './CustomComponents'
 
 export default buildConfig({
-  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL ?? 'http://localhost:3000',
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL ?? 'http://localhost:3001',
   admin: {
     user: Users.slug,
     webpack: config => ({

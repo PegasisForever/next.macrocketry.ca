@@ -92,7 +92,7 @@ export default function SponsorsPage(props: PageProp) {
 }
 
 export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>> = async () => {
-  const res = await request(process.env.NEXT_PUBLIC_PAYLOAD_GRAPHQL_PATH!, gql`
+  const res = await request(process.env.PAYLOAD_GRAPHQL_PATH!, gql`
 {
   Sponsors {
     tiers {

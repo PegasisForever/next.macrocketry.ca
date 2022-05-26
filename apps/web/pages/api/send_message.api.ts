@@ -50,7 +50,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     }
 
-    await request(process.env.NEXT_PUBLIC_PAYLOAD_GRAPHQL_PATH!, gql`
+    await request(process.env.PAYLOAD_GRAPHQL_PATH!, gql`
 mutation {
   createContactMessage (data: {
     recaptchaScore: ${JSON.stringify(recaptchaScore)},

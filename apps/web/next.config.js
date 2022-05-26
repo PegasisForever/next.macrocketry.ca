@@ -18,6 +18,26 @@ const nextConfig = {
         destination,
         permanent: false,
     })),
+    rewrites: () => {
+        return {
+            afterFiles: [
+                {
+                    source: '/admin/:path*',
+                    destination: `${process.env.PAYLOAD_INTERNAL_URL}/admin/:path*`,
+                },
+                {
+                    source: '/api/:path*',
+                    destination: `${process.env.PAYLOAD_INTERNAL_URL}/api/:path*`,
+                },
+            ],
+            fallback: process.env.NODE_ENV === 'development' ? [
+                {
+                    source: '/:path*',
+                    destination: `${process.env.PAYLOAD_INTERNAL_URL}/:path*`,
+                },
+            ] : undefined,
+        }
+    },
 }
 
 module.exports = nextConfig
