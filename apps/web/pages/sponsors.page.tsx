@@ -5,7 +5,7 @@ import RightPanelContainer from './RightPanelContainer'
 import {gql, request} from 'graphql-request'
 import {Anchor, Box, Group, Stack, Title, useMantineTheme} from '@mantine/core'
 import {FileText} from 'tabler-icons-react'
-import {prepareImageFromUrl, ProcessedImage} from './ssrUtils'
+import {getGraphQLUrl, prepareImageFromUrl, ProcessedImage} from './ssrUtils'
 import Image from 'next/image'
 
 type SponsorTier = {
@@ -92,7 +92,7 @@ export default function SponsorsPage(props: PageProp) {
 }
 
 export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>> = async () => {
-  const res = await request(process.env.PAYLOAD_GRAPHQL_PATH!, gql`
+  const res = await request(getGraphQLUrl(), gql`
 {
   Sponsors {
     tiers {

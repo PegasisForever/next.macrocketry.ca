@@ -6,6 +6,7 @@ import {Button, Divider, Group, Paper, Stack, Text, Title} from '@mantine/core'
 import {gql, request} from 'graphql-request'
 import {RichText, RichTextData} from './components/RichText'
 import PageTitle from './components/PageTItle'
+import {getGraphQLUrl} from './ssrUtils'
 
 
 type Position = {
@@ -50,7 +51,7 @@ export default function RecruitmentPage(props: PageProp) {
 
 
 export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>> = async () => {
-  const res = await request(process.env.PAYLOAD_GRAPHQL_PATH!, gql`
+  const res = await request(getGraphQLUrl(), gql`
 {
   Recruitment {
     positions {

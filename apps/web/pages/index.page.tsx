@@ -8,6 +8,7 @@ import {useState} from 'react'
 import {useEffectOnce, useInterval} from 'react-use'
 import {Anchor, Box, createStyles, Group, Stack, Text, Title, useMantineTheme} from '@mantine/core'
 import {gql, request} from 'graphql-request'
+import {getGraphQLUrl} from './ssrUtils'
 
 const useStyles = createStyles(theme => ({
   backgroundImage: {
@@ -209,7 +210,7 @@ export default function Home(props: PageProp) {
 }
 
 export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>> = async () => {
-  const res = await request(process.env.PAYLOAD_GRAPHQL_PATH!, gql`
+  const res = await request(getGraphQLUrl(), gql`
 {
   Users {
     totalDocs

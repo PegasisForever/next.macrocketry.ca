@@ -42,3 +42,7 @@ export async function prepareImageFromUrl(imageUrl: string): Promise<ProcessedIm
     height,
   }
 }
+
+export function getGraphQLUrl() {
+  return `${process.env.PAYLOAD_INTERNAL_URL}/api/graphql`
+}

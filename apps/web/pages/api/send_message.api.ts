@@ -4,6 +4,7 @@ import {z} from 'zod'
 import sgMail from '@sendgrid/mail'
 import {validateRecaptcha} from './recaptcha'
 import {gql, request} from 'graphql-request'
+import {getGraphQLUrl} from '../ssrUtils'
 
 require('dotenv').config()
 
@@ -50,7 +51,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     }
 
-    await request(process.env.PAYLOAD_GRAPHQL_PATH!, gql`
+    await request(getGraphQLUrl(), gql`
 mutation {
   createContactMessage (data: {
     recaptchaScore: ${JSON.stringify(recaptchaScore)},
@@ -66,7 +67,7 @@ mutation {
   }
 }
 `, undefined, {
-      Authorization: `User API-Key ${process.env.PAYLOAD_KEY}`,
+      Authorization: `User API-Key ${process.env.PAYLOAD_API_KEY}`,
     })
 
     console.log({
