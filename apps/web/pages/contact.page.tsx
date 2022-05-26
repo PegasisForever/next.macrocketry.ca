@@ -4,7 +4,7 @@ import {GetStaticProps} from 'next'
 import {getSideBarData} from './nav/sideBarDataHelper'
 import PageTitle from './components/PageTItle'
 import {Box, Button, Group, Stack, Textarea, TextInput, Title, useMantineTheme} from '@mantine/core'
-import {Send} from 'tabler-icons-react'
+import {IconSend} from '@tabler/icons'
 import {useForm} from '@mantine/form'
 import {useState} from 'react'
 import {getRecaptcha} from './recaptcha'
@@ -96,7 +96,7 @@ export default function Teams(props: PageProp) {
           <TextInput required size={'md'} label={'Email'} sx={{flexGrow: 1}} {...form.getInputProps('email')}/>
         </Group>
         <Textarea required size={'md'} label={'Message'} {...form.getInputProps('message')}/>
-        <Button type={'submit'} loading={isSending} sx={{alignSelf: 'flex-end'}} size={'md'} leftIcon={<Send size={20}/>} pl={16}>
+        <Button type={'submit'} loading={isSending} sx={{alignSelf: 'flex-end'}} size={'md'} leftIcon={<IconSend size={20}/>} pl={16}>
           Send
         </Button>
       </Box>

@@ -4,7 +4,7 @@ import {getSideBarData} from './nav/sideBarDataHelper'
 import RightPanelContainer from './RightPanelContainer'
 import {gql, request} from 'graphql-request'
 import {Anchor, Box, Group, Stack, Title, useMantineTheme} from '@mantine/core'
-import {FileText} from 'tabler-icons-react'
+import {IconFileText} from '@tabler/icons'
 import {getGraphQLUrl, prepareImageFromUrl, ProcessedImage} from './ssrUtils'
 import Image from 'next/image'
 
@@ -83,7 +83,7 @@ export default function SponsorsPage(props: PageProp) {
           marginLeft: 4,
         },
       }}>
-        <FileText/>
+        <IconFileText/>
         <span>Sponsor Package</span>
       </Anchor>
       {props.sponsorTiers.map(tier => <SponsorTierComponent key={tier.name} tier={tier}/>)}

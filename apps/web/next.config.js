@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+})
 
 const urlMapping = {
     '/home': '/',
@@ -10,7 +13,7 @@ const urlMapping = {
     '/recruit': '/recruitment',
 }
 
-const nextConfig = {
+const nextConfig = withBundleAnalyzer({
     reactStrictMode: true,
     pageExtensions: ['page.tsx', 'api.ts'],
     redirects: () => Object.entries(urlMapping).map(([source, destination]) => ({
@@ -38,6 +41,6 @@ const nextConfig = {
             ] : undefined,
         }
     },
-}
+})
 
 module.exports = nextConfig
