@@ -58,8 +58,8 @@ export default function SponsorsPage(props: PageProp) {
   const theme = useMantineTheme()
 
   return <RightPanelContainer hrefIndex={4} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
-    <Stack align={'center'} spacing={0}>
-      <Title mt={64} order={2} sx={{
+    <Stack py={64} align={'center'} spacing={0}>
+      <Title order={2} sx={{
         backgroundColor: theme.colors.blue[6],
         color: theme.white,
         fontSize: 36,

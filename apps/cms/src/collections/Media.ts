@@ -1,5 +1,6 @@
 import {CollectionConfig} from 'payload/types'
 import {accessOnlyAdmin} from '../accessOnlyAdmin'
+import {storageAfterDelete, storageAfterRead, storageBeforeChange} from './storageHooks'
 
 const Media: CollectionConfig = {
   slug: 'media',
@@ -8,12 +9,34 @@ const Media: CollectionConfig = {
     update: accessOnlyAdmin,
     delete: accessOnlyAdmin,
   },
+  hooks: {
+    beforeChange: [
+      storageBeforeChange,
+    ],
+    afterRead: [
+      storageAfterRead,
+    ],
+    afterDelete: [
+      storageAfterDelete,
+    ],
+  },
   upload: {
-    staticURL: '/media',
     staticDir: '../media',
     mimeTypes: ['image/*'],
+    adminThumbnail: ({doc}) => doc.url as string,
   },
-  fields: [],
+  fields: [
+    {
+      name: 'ref',
+      type: 'text',
+      access: {
+        update: () => false,
+      },
+      admin: {
+        condition: () => false,
+      },
+    },
+  ],
 }
 
 export default Media

@@ -10,10 +10,23 @@ import Overview from './collections/Overview'
 import Recruitment from './collections/Recruitment'
 import Messages from './collections/Messages'
 
+const storageHooksPath = path.resolve(__dirname, 'collections/storageHooks.ts')
+const mockModulePath = path.resolve(__dirname, 'mock.ts')
+
 export default buildConfig({
   serverURL: 'http://localhost:3000',
   admin: {
     user: Users.slug,
+    webpack: config => ({
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          [storageHooksPath]: mockModulePath,
+        },
+      },
+    }),
   },
   collections: [
     Teams,

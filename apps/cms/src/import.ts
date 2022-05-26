@@ -1,20 +1,13 @@
 import payload from 'payload'
-import {Media, Team, User} from './payload-types'
-import {initializeApp} from 'firebase-admin/app'
-import {credential} from 'firebase-admin'
+import {Media, Overview, Recruitment, Sponsors, Team, User} from './payload-types'
 import {getAuth} from 'firebase-admin/auth'
 import {getFirestore} from 'firebase-admin/firestore'
 import {getStorage} from 'firebase-admin/storage'
 import {generate} from 'generate-password'
 import path from 'path'
 import {TypeWithID} from 'payload/dist/collections/config/types'
-import applicationDefault = credential.applicationDefault
 
 export async function importFromFirestore() {
-  initializeApp({
-    credential: applicationDefault(),
-    storageBucket: 'macrocketry.appspot.com',
-  })
   const auth = getAuth()
   const db = getFirestore()
   const bucket = getStorage().bucket()
@@ -222,7 +215,7 @@ export async function importFromFirestore() {
     }
     sponsorGroups.sort((a, b) => a.order - b.order)
 
-    await payload.updateGlobal({
+    await payload.updateGlobal<Sponsors>({
       slug: 'sponsors',
       data: {
         tiers: sponsorGroups,
@@ -230,4 +223,22 @@ export async function importFromFirestore() {
       overrideAccess: true,
     })
   }
+
+  await payload.updateGlobal<Overview>({
+    slug: 'overview',
+    data: {
+      launches: 14,
+      successes: 14,
+      rocketModels: 4,
+    },
+    overrideAccess: true,
+  })
+
+  await payload.updateGlobal<Recruitment>({
+    slug: 'recruitment',
+    data: {
+      positions: [],
+    },
+    overrideAccess: true,
+  })
 }

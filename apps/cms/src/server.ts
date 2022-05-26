@@ -1,7 +1,15 @@
 import express from 'express'
 import payload from 'payload'
+import {initializeApp} from 'firebase-admin/app'
+import {credential} from 'firebase-admin'
 
 require('dotenv').config()
+
+initializeApp({
+  credential: credential.applicationDefault(),
+  storageBucket: 'macrocketry.appspot.com',
+})
+
 const app = express()
 
 // Initialize Payload
@@ -29,7 +37,9 @@ if (process.argv[2] === 'import') {
     res.redirect('/admin')
   })
 
-  app.listen(3000)
+  let port = parseInt(process.env.PORT)
+  if (isNaN(port)) port = 3000
+  app.listen(port)
 }
 
 

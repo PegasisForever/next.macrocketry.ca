@@ -2,7 +2,7 @@ import {GetStaticProps} from 'next'
 import {TopLevelPageProps} from './TopLevelPageProps'
 import RightPanelContainer from './RightPanelContainer'
 import {getSideBarData} from './nav/sideBarDataHelper'
-import {Button, Divider, Group, Paper, Stack, Title} from '@mantine/core'
+import {Button, Divider, Group, Paper, Stack, Text, Title} from '@mantine/core'
 import {gql, request} from 'graphql-request'
 import {RichText, RichTextData} from './components/RichText'
 import PageTitle from './components/PageTItle'
@@ -22,7 +22,7 @@ export default function RecruitmentPage(props: PageProp) {
       <PageTitle>
         Recruitment
       </PageTitle>
-      {props.positions.map(position => <Paper key={position.name} shadow={'md'} withBorder p={32} pt={24}>
+      {props.positions.length > 0 ? props.positions.map(position => <Paper key={position.name} shadow={'md'} withBorder p={32} pt={24}>
         <Group align={'center'} position={'apart'}>
           <Title order={3} sx={{
             whiteSpace: 'nowrap',
@@ -41,7 +41,9 @@ export default function RecruitmentPage(props: PageProp) {
           flexGrow: 1,
           flexShrink: 1,
         }}/>
-      </Paper>)}
+      </Paper>) : <Text size={'xl'}>
+        We don&apos;t have any open positions now, come back later!
+      </Text>}
     </Stack>
   </RightPanelContainer>
 }

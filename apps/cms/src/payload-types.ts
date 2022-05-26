@@ -8,31 +8,13 @@
 export interface Config {}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "sponsors".
+ * via the `definition` "overview".
  */
-export interface Sponsors {
+export interface Overview {
   id: string;
-  tiers?: {
-    name: string;
-    logoHeight: number;
-    sponsors?: {
-      url: string;
-      logo: string | Media;
-      id?: string;
-    }[];
-    id?: string;
-  }[];
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
+  launches: number;
+  successes: number;
+  rocketModels: number;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -78,6 +60,17 @@ export interface Team {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -85,6 +78,9 @@ export interface User {
   email?: string;
   resetPasswordToken?: string;
   resetPasswordExpiration?: string;
+  enableAPIKey?: boolean;
+  apiKey?: string;
+  apiKeyIndex?: string;
   loginAttempts?: number;
   lockUntil?: string;
   name: string;
@@ -94,6 +90,38 @@ export interface User {
     [k: string]: unknown;
   }[];
   linkedin?: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sponsors".
+ */
+export interface Sponsors {
+  id: string;
+  tiers?: {
+    name: string;
+    logoHeight: number;
+    sponsors?: {
+      url: string;
+      logo: string | Media;
+      id?: string;
+    }[];
+    id?: string;
+  }[];
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "recruitment".
+ */
+export interface Recruitment {
+  id: string;
+  positions?: {
+    name: string;
+    url: string;
+    description: {
+      [k: string]: unknown;
+    }[];
+    id?: string;
+  }[];
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -109,4 +137,16 @@ export interface Blog {
     user: string | User;
     id?: string;
   }[];
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "messages".
+ */
+export interface ContactMessage {
+  id: string;
+  name: string;
+  email: string;
+  message: string;
+  recaptchaScore: number;
+  emailSent: boolean;
 }
