@@ -22,6 +22,9 @@ const Sponsors: GlobalConfig = {
       return businessTeam.members.find(member => member.user.id === user.id)
     },
   },
+  admin:{
+    hideAPIURL: true,
+  },
   fields: [
     {
       name: 'tiers',

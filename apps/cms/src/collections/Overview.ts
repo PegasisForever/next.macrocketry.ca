@@ -7,6 +7,9 @@ const Overview: GlobalConfig = {
     read: () => true,
     update: accessOnlyAdmin,
   },
+  admin:{
+    hideAPIURL: true,
+  },
   fields: [
     {
       name:'launches',

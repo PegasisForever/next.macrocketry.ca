@@ -8,6 +8,8 @@ const Users: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name',
+    disableDuplicate: true,
+    hideAPIURL: true,
   },
   access: {
     create: accessOnlyAdmin,

@@ -4,6 +4,8 @@ const Blogs: CollectionConfig = {
   slug: 'blogs',
   admin: {
     useAsTitle: 'title',
+    disableDuplicate: true,
+    hideAPIURL: true,
   },
   access: {
     create: () => true,
@@ -13,6 +15,14 @@ const Blogs: CollectionConfig = {
     {
       name: 'title',
       type: 'text',
+      required: true,
+    },
+    {
+      name: 'summary',
+      type: 'richText',
+      admin: {
+        hideGutter: true,
+      },
       required: true,
     },
     {

@@ -1,9 +1,12 @@
 import Document, {DocumentContext, Head, Html, Main, NextScript} from 'next/document'
+import { createGetInitialProps } from '@mantine/next'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return {...initialProps}
+    return {
+      ...await Document.getInitialProps(ctx),
+      ...createGetInitialProps()(ctx),
+    }
   }
 
   render() {

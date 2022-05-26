@@ -7,6 +7,10 @@ const Messages: CollectionConfig = {
     singular: 'Contact Message',
     plural: 'Contact Messages',
   },
+  admin: {
+    disableDuplicate: true,
+    hideAPIURL: true,
+  },
   access: {
     create: accessOnlyAdmin,
     delete: accessOnlyAdmin,

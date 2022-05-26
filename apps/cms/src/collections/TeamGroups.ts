@@ -8,6 +8,9 @@ const TeamGroups: GlobalConfig = {
     read: () => true,
     update: accessOnlyAdmin,
   },
+  admin:{
+    hideAPIURL: true,
+  },
   fields: [
     {
       name: 'groups',

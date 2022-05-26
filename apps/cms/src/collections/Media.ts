@@ -9,6 +9,10 @@ const Media: CollectionConfig = {
     update: accessOnlyAdmin,
     delete: accessOnlyAdmin,
   },
+  admin: {
+    disableDuplicate: true,
+    hideAPIURL: true,
+  },
   hooks: {
     beforeChange: [
       storageBeforeChange,
