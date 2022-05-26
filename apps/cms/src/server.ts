@@ -39,7 +39,7 @@ if (process.argv[2] === 'import') {
 
   let port = parseInt(process.env.PORT)
   if (isNaN(port)) port = 3000
-  app.listen(port)
+  app.listen(port, '0.0.0.0')
 }
 
 

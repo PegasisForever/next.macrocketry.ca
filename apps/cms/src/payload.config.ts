@@ -9,12 +9,10 @@ import Blogs from './collections/Blogs'
 import Overview from './collections/Overview'
 import Recruitment from './collections/Recruitment'
 import Messages from './collections/Messages'
-
-const storageHooksPath = path.resolve(__dirname, 'collections/storageHooks.ts')
-const mockModulePath = path.resolve(__dirname, 'mock.ts')
+import {BigLogo, Logo} from './CustomComponents'
 
 export default buildConfig({
-  serverURL: 'http://localhost:3000',
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL ?? 'http://localhost:3000',
   admin: {
     user: Users.slug,
     webpack: config => ({
@@ -23,10 +21,17 @@ export default buildConfig({
         ...config.resolve,
         alias: {
           ...config.resolve.alias,
-          [storageHooksPath]: mockModulePath,
+          [path.resolve(__dirname, 'collections/storageHooks.ts')]: path.resolve(__dirname, 'mock.ts'),
         },
       },
     }),
+    components: {
+      graphics: {
+        Icon: Logo,
+        Logo: BigLogo,
+      },
+    },
+    indexHTML: path.resolve(__dirname, 'index.html'),
   },
   collections: [
     Teams,

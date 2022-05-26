@@ -3,13 +3,13 @@ import {nanoid} from 'nanoid'
 import {getStorage} from 'firebase-admin/storage'
 import {AfterDeleteHook, AfterReadHook, BeforeChangeHook} from 'payload/dist/collections/config/types'
 
-const bucketName = 'macrocketry-staging'
-const bucket = getStorage().bucket(bucketName)
+const bucketName = process.env.BUCKET
 
 export const storageBeforeChange: BeforeChangeHook = async ({data, req, operation, originalDoc}) => {
   const file = req.files.file
   const {ext} = path.parse(file.name)
   const ref = `images/${nanoid()}${ext}`
+  const bucket = getStorage().bucket(bucketName)
   await bucket.file(ref).save(req.files.file.data)
   data.ref = ref
   if (operation === 'update' && originalDoc.ref) {
@@ -26,6 +26,7 @@ export const storageAfterRead: AfterReadHook = async ({doc, req, query}) => {
 export const storageAfterDelete: AfterDeleteHook = async ({req, id, doc}) => {
   console.log(doc)
   if (doc.ref) {
+    const bucket = getStorage().bucket(bucketName)
     await bucket.file(doc.ref).delete()
   }
 }

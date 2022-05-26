@@ -17,6 +17,7 @@ RUN yarn install --network-timeout 100000
 
 COPY --from=pruner /server/out/full/ .
 WORKDIR /server/apps/cms
+ARG PAYLOAD_PUBLIC_SERVER_URL
 RUN yarn generate:types && yarn build
 
 ENTRYPOINT ["yarn", "serve"]

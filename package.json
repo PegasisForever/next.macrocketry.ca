@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build-server-docker": "docker build --platform amd64 -t gcr.io/macrocketry/cms --build-arg PAYLOAD_PUBLIC_SERVER_URL=https://cms-ojb3wvhrcq-uc.a.run.app -f apps/cms/Dockerfile .",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
