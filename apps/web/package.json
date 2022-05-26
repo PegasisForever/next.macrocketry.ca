@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env PAYLOAD_CONFIG_PATH=http://localhost:3000/api/graphql next dev --port 3001",
+    "dev": "cross-env NEXT_PUBLIC_PAYLOAD_GRAPHQL_PATH=http://localhost:3000/api/graphql next dev --port 3001",
     "build": "next build",
     "start": "next start --port 3001",
     "lint": "next lint"
