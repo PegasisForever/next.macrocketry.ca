@@ -9,12 +9,17 @@ import Blogs from './collections/Blogs'
 import Overview from './collections/Overview'
 import Recruitment from './collections/Recruitment'
 import Messages from './collections/Messages'
-import {BigLogo, Logo} from './CustomComponents'
+import {BeforeNavLinks, BigLogo, Logo} from './CustomComponents'
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL ?? 'http://localhost:3001',
   admin: {
     user: Users.slug,
+    css: path.resolve(__dirname, 'index.css'),
+    meta: {
+      titleSuffix: '| Macrocketry',
+      favicon: '/favicon-32x32.png',
+    },
     webpack: config => ({
       ...config,
       resolve: {
@@ -30,6 +35,9 @@ export default buildConfig({
         Icon: Logo,
         Logo: BigLogo,
       },
+      beforeNavLinks: [
+        BeforeNavLinks,
+      ],
     },
     indexHTML: path.resolve(__dirname, 'index.html'),
   },

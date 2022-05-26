@@ -1,0 +1,17 @@
+.back-to-main {
+    align-items: center;
+    column-gap: 4px;
+    margin-bottom: 2rem;
+}
+
+.back-to-main:hover {
+    text-decoration: underline;
+}
+
+.back-to-main:focus {
+    font-weight: 600;
+}
+
+.nav header {
+    margin-bottom: 0;
+}
