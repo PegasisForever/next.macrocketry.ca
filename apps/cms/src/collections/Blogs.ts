@@ -18,6 +18,12 @@ const Blogs: CollectionConfig = {
       required: true,
     },
     {
+      name: 'coverImage',
+      label: 'Cover Image',
+      type: 'upload',
+      relationTo: 'media',
+    },
+    {
       name: 'summary',
       type: 'richText',
       admin: {

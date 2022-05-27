@@ -6,7 +6,8 @@ import sharp from 'sharp'
 
 export type ProcessedImage = { url: string, blurURL: string, width: number, height: number }
 
-export async function prepareImageFromUrl(imageUrl: string): Promise<ProcessedImage> {
+export async function prepareImageFromUrl(imageUrl: string | null | undefined): Promise<ProcessedImage | null> {
+  if (!imageUrl) return null
   const parsedPath = path.parse((new url.URL(imageUrl)).pathname)
   const fileName = createHash('md5').update(parsedPath.base).digest('hex') + parsedPath.ext
   const downloader = new Downloader({

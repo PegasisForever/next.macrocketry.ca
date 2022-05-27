@@ -19,7 +19,11 @@ type PageProp = TopLevelPageProps & { positions: Position[] }
 
 export default function RecruitmentPage(props: PageProp) {
   return <RightPanelContainer hrefIndex={5} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
-    <Stack p={64} pt={24} spacing={32}>
+    <Stack p={64} pt={24} spacing={32} sx={{
+      maxWidth: 1200,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    }}>
       <PageTitle>
         Recruitment
       </PageTitle>
@@ -33,7 +37,7 @@ export default function RecruitmentPage(props: PageProp) {
             {position.name}
           </Title>
 
-          <Button size={'md'}>
+          <Button size={'md'} component={'a'} href={position.url} target={'_blank'} rel={'noreferrer'}>
             Apply
           </Button>
         </Group>

@@ -95,8 +95,8 @@ export default function Teams(props: PageProp) {
           <TextInput required size={'md'} label={'Name'} sx={{flexGrow: 1}} {...form.getInputProps('name')}/>
           <TextInput required size={'md'} label={'Email'} sx={{flexGrow: 1}} {...form.getInputProps('email')}/>
         </Group>
-        <Textarea required size={'md'} label={'Message'} {...form.getInputProps('message')}/>
-        <Button type={'submit'} loading={isSending} sx={{alignSelf: 'flex-end'}} size={'md'} leftIcon={<IconSend size={20}/>} pl={16}>
+        <Textarea autosize minRows={5} required size={'md'} label={'Message'}  {...form.getInputProps('message')}/>
+        <Button type={'submit'} loading={isSending} sx={{alignSelf: 'flex-end'}} size={'md'} leftIcon={<IconSend size={22}/>} pl={16}>
           Send
         </Button>
       </Box>
