@@ -6,8 +6,8 @@ import {getSideBarIndex} from './nav/common'
 import {useRouter} from 'next/router'
 import {useEffect, useState} from 'react'
 import SideBar from './nav/SideBar'
-import { initRecaptcha } from './recaptcha'
-import { ModalsProvider } from '@mantine/modals'
+import {initRecaptcha} from './recaptcha'
+import {ModalsProvider} from '@mantine/modals'
 
 initRecaptcha()
 
@@ -29,7 +29,8 @@ function MyApp({Component, pageProps}: AppProps) {
   const sideBarIndex = getSideBarIndex(router.route)
   return <LazyMotion features={domMax}>
     <MantineProvider
-      emotionOptions={{key: 'macrocketry'}}
+      // emotionOptions={{key: 'macrocketry'}}
+      // blocked by https://github.com/mantinedev/mantine-next-template/issues/16
       theme={{
         fontFamily: '"Barlow", sans-serif',
         headings: {
