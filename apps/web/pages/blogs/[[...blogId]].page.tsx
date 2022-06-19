@@ -2,15 +2,17 @@ import {GetStaticPaths, GetStaticProps} from 'next'
 import {TopLevelPageProps} from '../TopLevelPageProps'
 import RightPanelContainer from '../RightPanelContainer'
 import {getSideBarData} from '../nav/sideBarDataHelper'
-import {Anchor, Box, Button, Divider, Group, Stack, Text, Title, useMantineTheme} from '@mantine/core'
+import {Box, Button, Divider, Group, Stack, Text, Title, useMantineTheme} from '@mantine/core'
 import {RichText, RichTextData} from '../components/RichText'
 import PageTitle from '../components/PageTItle'
 import {getGraphQLUrl, prepareImageFromUrl, ProcessedImage} from '../ssrUtils'
 import {gql, request} from 'graphql-request'
 import TimeAgo from 'timeago-react'
 import Image from 'next/image'
-import {IconArrowRight, IconChevronLeft} from '@tabler/icons'
+import {IconArrowRight} from '@tabler/icons'
 import Link from 'next/link'
+import BlogArticle from './BlogArticle'
+import {AnimatePresence} from 'framer-motion'
 
 type BlogMeta = {
   id: string,
@@ -20,7 +22,7 @@ type BlogMeta = {
   coverImage: ProcessedImage | null,
 }
 
-type Blog = BlogMeta & {
+export type Blog = BlogMeta & {
   content: RichTextData,
   updatedAt: number,
   author: {
@@ -74,49 +76,36 @@ function BlogMetaComponent({meta}: { meta: BlogMeta }) {
 }
 
 export default function BlogsPage(props: PageProp) {
+  const theme = useMantineTheme()
+
   return <RightPanelContainer hrefIndex={3} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
-    {props.blog ? <Stack p={64} pt={24} spacing={0} sx={{
-      maxWidth: 1200,
-      marginLeft: 'auto',
-      marginRight: 'auto',
+    <Box sx={{
+      position: 'absolute',
+      left: 0,
+      top: 0,
+      right: 0,
+      bottom: 0,
+      overflowY:'auto',
     }}>
-      <Link href={'/blogs'} passHref>
-        <Anchor size={'lg'} sx={{
-          textUnderlineOffset: 1,
-          '& > *': {
-            verticalAlign: 'middle',
-          },
+      <Stack p={64} pt={24} spacing={32} sx={{
+        maxWidth: 1200,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      }}>
+        <PageTitle sx={{
+          marginBottom: 16,
         }}>
-          <IconChevronLeft/>
-          <span>Back</span>
-        </Anchor>
-      </Link>
-      <PageTitle size={60} sx={{
-        marginTop:16,
-        marginBottom: 0,
-        lineHeight: 1.2,
-      }}>
-        {props.blog.title}
-      </PageTitle>
-      <Text color={'dimmed'}>
-        <TimeAgo datetime={props.blog.createdAt}/>
-      </Text>
-      <RichText data={props.blog.content} mt={16}/>
-    </Stack> : <Stack p={64} pt={24} spacing={32} sx={{
-      maxWidth: 1200,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    }}>
-      <PageTitle sx={{
-        marginBottom: 16,
-      }}>
-        Blogs
-      </PageTitle>
-      {props.blogMetas.map((meta, i) => <>
-        <BlogMetaComponent key={i} meta={meta}/>
-        {i !== props.blogMetas.length - 1 ? <Divider/> : null}
-      </>)}
-    </Stack>}
+          Blogs
+        </PageTitle>
+        {props.blogMetas.map((meta, i) => <>
+          <BlogMetaComponent key={i} meta={meta}/>
+          {i !== props.blogMetas.length - 1 ? <Divider/> : null}
+        </>)}
+      </Stack>
+    </Box>
+    <AnimatePresence initial={false}>
+      {props.blog ? <BlogArticle blog={props.blog}/> : null}
+    </AnimatePresence>
   </RightPanelContainer>
 }
 
