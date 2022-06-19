@@ -1,0 +1,3717 @@
+type Query {
+  Team(id: String, draft: Boolean): Team
+  Teams(
+    where: Team_where
+    draft: Boolean
+    page: Int
+    limit: Int
+    sort: String
+  ): Teams
+  Blog(id: String, draft: Boolean): Blog
+  Blogs(
+    where: Blog_where
+    draft: Boolean
+    page: Int
+    limit: Int
+    sort: String
+  ): Blogs
+  Media(id: String, draft: Boolean): Media
+  allMedia(
+    where: Media_where
+    draft: Boolean
+    page: Int
+    limit: Int
+    sort: String
+  ): allMedia
+  User(id: String, draft: Boolean): User
+  Users(
+    where: User_where
+    draft: Boolean
+    page: Int
+    limit: Int
+    sort: String
+  ): Users
+  meUser: usersMe
+  initializedUser: Boolean
+  ContactMessage(id: String, draft: Boolean): ContactMessage
+  ContactMessages(
+    where: ContactMessage_where
+    draft: Boolean
+    page: Int
+    limit: Int
+    sort: String
+  ): ContactMessages
+  Overview(draft: Boolean): Overview
+  TeamGroups(draft: Boolean): TeamGroups
+  Sponsors(draft: Boolean): Sponsors
+  Recruitment(draft: Boolean): Recruitment
+  Preference(key: String): Preference
+  Access: Access
+}
+
+type Team {
+  id: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  urlName: String!
+  shortDescription: String
+  description(depth: Int): JSON
+  coverImage(where: Team_CoverImage_where): Media
+  members: [Team_Members]
+  projects: [Team_CurrentProjects]
+}
+
+# A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+scalar DateTime
+
+# The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+scalar JSON
+
+type Media {
+  id: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  url: String
+  filename: String
+  mimeType: String
+  filesize: Float
+  ref: String
+}
+
+input Team_CoverImage_where {
+  url: Team_CoverImage_url_operator
+  filename: Team_CoverImage_filename_operator
+  mimeType: Team_CoverImage_mimeType_operator
+  filesize: Team_CoverImage_filesize_operator
+  ref: Team_CoverImage_ref_operator
+  id: Team_CoverImage_id_operator
+  OR: [Team_CoverImage_where_or]
+  AND: [Team_CoverImage_where_and]
+}
+
+input Team_CoverImage_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Team_CoverImage_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Team_CoverImage_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Team_CoverImage_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Team_CoverImage_ref_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Team_CoverImage_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input Team_CoverImage_where_or {
+  url: Team_CoverImage_url_operator
+  filename: Team_CoverImage_filename_operator
+  mimeType: Team_CoverImage_mimeType_operator
+  filesize: Team_CoverImage_filesize_operator
+  ref: Team_CoverImage_ref_operator
+  id: Team_CoverImage_id_operator
+}
+
+input Team_CoverImage_where_and {
+  url: Team_CoverImage_url_operator
+  filename: Team_CoverImage_filename_operator
+  mimeType: Team_CoverImage_mimeType_operator
+  filesize: Team_CoverImage_filesize_operator
+  ref: Team_CoverImage_ref_operator
+  id: Team_CoverImage_id_operator
+}
+
+type Team_Members {
+  user(where: Team_Members_User_where): User
+  title: String
+  allowEdit: Boolean
+  id: String
+}
+
+type User {
+  id: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: EmailAddress
+  enableAPIKey: Boolean
+  apiKey: String
+  name: String!
+  profilePhoto(where: User_ProfilePhoto_where): Media
+  admin: Boolean
+  bio(depth: Int): JSON
+  linkedin: String
+  password: String!
+}
+
+# A field whose value conforms to the standard internet email address format as specified in RFC822: https://www.w3.org/Protocols/rfc822/.
+scalar EmailAddress
+
+input User_ProfilePhoto_where {
+  url: User_ProfilePhoto_url_operator
+  filename: User_ProfilePhoto_filename_operator
+  mimeType: User_ProfilePhoto_mimeType_operator
+  filesize: User_ProfilePhoto_filesize_operator
+  ref: User_ProfilePhoto_ref_operator
+  id: User_ProfilePhoto_id_operator
+  OR: [User_ProfilePhoto_where_or]
+  AND: [User_ProfilePhoto_where_and]
+}
+
+input User_ProfilePhoto_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input User_ProfilePhoto_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input User_ProfilePhoto_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input User_ProfilePhoto_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input User_ProfilePhoto_ref_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input User_ProfilePhoto_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input User_ProfilePhoto_where_or {
+  url: User_ProfilePhoto_url_operator
+  filename: User_ProfilePhoto_filename_operator
+  mimeType: User_ProfilePhoto_mimeType_operator
+  filesize: User_ProfilePhoto_filesize_operator
+  ref: User_ProfilePhoto_ref_operator
+  id: User_ProfilePhoto_id_operator
+}
+
+input User_ProfilePhoto_where_and {
+  url: User_ProfilePhoto_url_operator
+  filename: User_ProfilePhoto_filename_operator
+  mimeType: User_ProfilePhoto_mimeType_operator
+  filesize: User_ProfilePhoto_filesize_operator
+  ref: User_ProfilePhoto_ref_operator
+  id: User_ProfilePhoto_id_operator
+}
+
+input Team_Members_User_where {
+  email: Team_Members_User_email_operator
+  enableAPIKey: Team_Members_User_enableAPIKey_operator
+  apiKey: Team_Members_User_apiKey_operator
+  name: Team_Members_User_name_operator
+  profilePhoto: Team_Members_User_profilePhoto_operator
+  admin: Team_Members_User_admin_operator
+  bio: Team_Members_User_bio_operator
+  linkedin: Team_Members_User_linkedin_operator
+  password: Team_Members_User_password_operator
+  id: Team_Members_User_id_operator
+  OR: [Team_Members_User_where_or]
+  AND: [Team_Members_User_where_and]
+}
+
+input Team_Members_User_email_operator {
+  equals: EmailAddress
+  not_equals: EmailAddress
+  like: EmailAddress
+  contains: EmailAddress
+  exists: Boolean
+}
+
+input Team_Members_User_enableAPIKey_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Team_Members_User_apiKey_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Team_Members_User_name_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input Team_Members_User_profilePhoto_operator {
+  equals: String
+  not_equals: String
+  exists: Boolean
+}
+
+input Team_Members_User_admin_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Team_Members_User_bio_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input Team_Members_User_linkedin_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Team_Members_User_password_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input Team_Members_User_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input Team_Members_User_where_or {
+  email: Team_Members_User_email_operator
+  enableAPIKey: Team_Members_User_enableAPIKey_operator
+  apiKey: Team_Members_User_apiKey_operator
+  name: Team_Members_User_name_operator
+  profilePhoto: Team_Members_User_profilePhoto_operator
+  admin: Team_Members_User_admin_operator
+  bio: Team_Members_User_bio_operator
+  linkedin: Team_Members_User_linkedin_operator
+  password: Team_Members_User_password_operator
+  id: Team_Members_User_id_operator
+}
+
+input Team_Members_User_where_and {
+  email: Team_Members_User_email_operator
+  enableAPIKey: Team_Members_User_enableAPIKey_operator
+  apiKey: Team_Members_User_apiKey_operator
+  name: Team_Members_User_name_operator
+  profilePhoto: Team_Members_User_profilePhoto_operator
+  admin: Team_Members_User_admin_operator
+  bio: Team_Members_User_bio_operator
+  linkedin: Team_Members_User_linkedin_operator
+  password: Team_Members_User_password_operator
+  id: Team_Members_User_id_operator
+}
+
+type Team_CurrentProjects {
+  name: String!
+  start: DateTime!
+  end: DateTime!
+  id: String
+}
+
+type Teams {
+  docs: [Team]
+  totalDocs: Int
+  offset: Int
+  limit: Int
+  totalPages: Int
+  page: Int
+  pagingCounter: Int
+  hasPrevPage: Boolean
+  hasNextPage: Boolean
+  prevPage: Boolean
+  nextPage: Boolean
+}
+
+input Team_where {
+  name: Team_name_operator
+  urlName: Team_urlName_operator
+  shortDescription: Team_shortDescription_operator
+  description: Team_description_operator
+  coverImage: Team_coverImage_operator
+  user: Team_user_operator
+  title: Team_title_operator
+  members__allowEdit: Team_members__allowEdit_operator
+  members__id: Team_members__id_operator
+  projects__name: Team_projects__name_operator
+  start: Team_start_operator
+  end: Team_end_operator
+  projects__id: Team_projects__id_operator
+  id: Team_id_operator
+  createdAt: Team_createdAt_operator
+  updatedAt: Team_updatedAt_operator
+  OR: [Team_where_or]
+  AND: [Team_where_and]
+}
+
+input Team_name_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input Team_urlName_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input Team_shortDescription_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Team_description_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input Team_coverImage_operator {
+  equals: String
+  not_equals: String
+  exists: Boolean
+}
+
+input Team_user_operator {
+  equals: String
+  not_equals: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+}
+
+input Team_title_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Team_members__allowEdit_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Team_members__id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Team_projects__name_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input Team_start_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+}
+
+input Team_end_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+}
+
+input Team_projects__id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Team_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input Team_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Team_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Team_where_or {
+  name: Team_name_operator
+  urlName: Team_urlName_operator
+  shortDescription: Team_shortDescription_operator
+  description: Team_description_operator
+  coverImage: Team_coverImage_operator
+  user: Team_user_operator
+  title: Team_title_operator
+  members__allowEdit: Team_members__allowEdit_operator
+  members__id: Team_members__id_operator
+  projects__name: Team_projects__name_operator
+  start: Team_start_operator
+  end: Team_end_operator
+  projects__id: Team_projects__id_operator
+  id: Team_id_operator
+  createdAt: Team_createdAt_operator
+  updatedAt: Team_updatedAt_operator
+}
+
+input Team_where_and {
+  name: Team_name_operator
+  urlName: Team_urlName_operator
+  shortDescription: Team_shortDescription_operator
+  description: Team_description_operator
+  coverImage: Team_coverImage_operator
+  user: Team_user_operator
+  title: Team_title_operator
+  members__allowEdit: Team_members__allowEdit_operator
+  members__id: Team_members__id_operator
+  projects__name: Team_projects__name_operator
+  start: Team_start_operator
+  end: Team_end_operator
+  projects__id: Team_projects__id_operator
+  id: Team_id_operator
+  createdAt: Team_createdAt_operator
+  updatedAt: Team_updatedAt_operator
+}
+
+type Blog {
+  id: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  coverImage(where: Blog_CoverImage_where): Media
+  summary(depth: Int): JSON!
+  content(depth: Int): JSON!
+  authors: [Blog_Authors]
+}
+
+input Blog_CoverImage_where {
+  url: Blog_CoverImage_url_operator
+  filename: Blog_CoverImage_filename_operator
+  mimeType: Blog_CoverImage_mimeType_operator
+  filesize: Blog_CoverImage_filesize_operator
+  ref: Blog_CoverImage_ref_operator
+  id: Blog_CoverImage_id_operator
+  OR: [Blog_CoverImage_where_or]
+  AND: [Blog_CoverImage_where_and]
+}
+
+input Blog_CoverImage_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Blog_CoverImage_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Blog_CoverImage_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Blog_CoverImage_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Blog_CoverImage_ref_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Blog_CoverImage_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input Blog_CoverImage_where_or {
+  url: Blog_CoverImage_url_operator
+  filename: Blog_CoverImage_filename_operator
+  mimeType: Blog_CoverImage_mimeType_operator
+  filesize: Blog_CoverImage_filesize_operator
+  ref: Blog_CoverImage_ref_operator
+  id: Blog_CoverImage_id_operator
+}
+
+input Blog_CoverImage_where_and {
+  url: Blog_CoverImage_url_operator
+  filename: Blog_CoverImage_filename_operator
+  mimeType: Blog_CoverImage_mimeType_operator
+  filesize: Blog_CoverImage_filesize_operator
+  ref: Blog_CoverImage_ref_operator
+  id: Blog_CoverImage_id_operator
+}
+
+type Blog_Authors {
+  user(where: Blog_Authors_User_where): User
+  id: String
+}
+
+input Blog_Authors_User_where {
+  email: Blog_Authors_User_email_operator
+  enableAPIKey: Blog_Authors_User_enableAPIKey_operator
+  apiKey: Blog_Authors_User_apiKey_operator
+  name: Blog_Authors_User_name_operator
+  profilePhoto: Blog_Authors_User_profilePhoto_operator
+  admin: Blog_Authors_User_admin_operator
+  bio: Blog_Authors_User_bio_operator
+  linkedin: Blog_Authors_User_linkedin_operator
+  password: Blog_Authors_User_password_operator
+  id: Blog_Authors_User_id_operator
+  OR: [Blog_Authors_User_where_or]
+  AND: [Blog_Authors_User_where_and]
+}
+
+input Blog_Authors_User_email_operator {
+  equals: EmailAddress
+  not_equals: EmailAddress
+  like: EmailAddress
+  contains: EmailAddress
+  exists: Boolean
+}
+
+input Blog_Authors_User_enableAPIKey_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Blog_Authors_User_apiKey_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Blog_Authors_User_name_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input Blog_Authors_User_profilePhoto_operator {
+  equals: String
+  not_equals: String
+  exists: Boolean
+}
+
+input Blog_Authors_User_admin_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input Blog_Authors_User_bio_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input Blog_Authors_User_linkedin_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Blog_Authors_User_password_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input Blog_Authors_User_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input Blog_Authors_User_where_or {
+  email: Blog_Authors_User_email_operator
+  enableAPIKey: Blog_Authors_User_enableAPIKey_operator
+  apiKey: Blog_Authors_User_apiKey_operator
+  name: Blog_Authors_User_name_operator
+  profilePhoto: Blog_Authors_User_profilePhoto_operator
+  admin: Blog_Authors_User_admin_operator
+  bio: Blog_Authors_User_bio_operator
+  linkedin: Blog_Authors_User_linkedin_operator
+  password: Blog_Authors_User_password_operator
+  id: Blog_Authors_User_id_operator
+}
+
+input Blog_Authors_User_where_and {
+  email: Blog_Authors_User_email_operator
+  enableAPIKey: Blog_Authors_User_enableAPIKey_operator
+  apiKey: Blog_Authors_User_apiKey_operator
+  name: Blog_Authors_User_name_operator
+  profilePhoto: Blog_Authors_User_profilePhoto_operator
+  admin: Blog_Authors_User_admin_operator
+  bio: Blog_Authors_User_bio_operator
+  linkedin: Blog_Authors_User_linkedin_operator
+  password: Blog_Authors_User_password_operator
+  id: Blog_Authors_User_id_operator
+}
+
+type Blogs {
+  docs: [Blog]
+  totalDocs: Int
+  offset: Int
+  limit: Int
+  totalPages: Int
+  page: Int
+  pagingCounter: Int
+  hasPrevPage: Boolean
+  hasNextPage: Boolean
+  prevPage: Boolean
+  nextPage: Boolean
+}
+
+input Blog_where {
+  title: Blog_title_operator
+  coverImage: Blog_coverImage_operator
+  summary: Blog_summary_operator
+  content: Blog_content_operator
+  authors__user: Blog_authors__user_operator
+  authors__id: Blog_authors__id_operator
+  id: Blog_id_operator
+  createdAt: Blog_createdAt_operator
+  updatedAt: Blog_updatedAt_operator
+  OR: [Blog_where_or]
+  AND: [Blog_where_and]
+}
+
+input Blog_title_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input Blog_coverImage_operator {
+  equals: String
+  not_equals: String
+  exists: Boolean
+}
+
+input Blog_summary_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+}
+
+input Blog_content_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+}
+
+input Blog_authors__user_operator {
+  equals: String
+  not_equals: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+}
+
+input Blog_authors__id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Blog_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input Blog_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Blog_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Blog_where_or {
+  title: Blog_title_operator
+  coverImage: Blog_coverImage_operator
+  summary: Blog_summary_operator
+  content: Blog_content_operator
+  authors__user: Blog_authors__user_operator
+  authors__id: Blog_authors__id_operator
+  id: Blog_id_operator
+  createdAt: Blog_createdAt_operator
+  updatedAt: Blog_updatedAt_operator
+}
+
+input Blog_where_and {
+  title: Blog_title_operator
+  coverImage: Blog_coverImage_operator
+  summary: Blog_summary_operator
+  content: Blog_content_operator
+  authors__user: Blog_authors__user_operator
+  authors__id: Blog_authors__id_operator
+  id: Blog_id_operator
+  createdAt: Blog_createdAt_operator
+  updatedAt: Blog_updatedAt_operator
+}
+
+type allMedia {
+  docs: [Media]
+  totalDocs: Int
+  offset: Int
+  limit: Int
+  totalPages: Int
+  page: Int
+  pagingCounter: Int
+  hasPrevPage: Boolean
+  hasNextPage: Boolean
+  prevPage: Boolean
+  nextPage: Boolean
+}
+
+input Media_where {
+  url: Media_url_operator
+  filename: Media_filename_operator
+  mimeType: Media_mimeType_operator
+  filesize: Media_filesize_operator
+  ref: Media_ref_operator
+  id: Media_id_operator
+  createdAt: Media_createdAt_operator
+  updatedAt: Media_updatedAt_operator
+  OR: [Media_where_or]
+  AND: [Media_where_and]
+}
+
+input Media_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Media_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Media_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Media_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Media_ref_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Media_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input Media_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Media_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input Media_where_or {
+  url: Media_url_operator
+  filename: Media_filename_operator
+  mimeType: Media_mimeType_operator
+  filesize: Media_filesize_operator
+  ref: Media_ref_operator
+  id: Media_id_operator
+  createdAt: Media_createdAt_operator
+  updatedAt: Media_updatedAt_operator
+}
+
+input Media_where_and {
+  url: Media_url_operator
+  filename: Media_filename_operator
+  mimeType: Media_mimeType_operator
+  filesize: Media_filesize_operator
+  ref: Media_ref_operator
+  id: Media_id_operator
+  createdAt: Media_createdAt_operator
+  updatedAt: Media_updatedAt_operator
+}
+
+type Users {
+  docs: [User]
+  totalDocs: Int
+  offset: Int
+  limit: Int
+  totalPages: Int
+  page: Int
+  pagingCounter: Int
+  hasPrevPage: Boolean
+  hasNextPage: Boolean
+  prevPage: Boolean
+  nextPage: Boolean
+}
+
+input User_where {
+  email: User_email_operator
+  enableAPIKey: User_enableAPIKey_operator
+  apiKey: User_apiKey_operator
+  name: User_name_operator
+  profilePhoto: User_profilePhoto_operator
+  admin: User_admin_operator
+  bio: User_bio_operator
+  linkedin: User_linkedin_operator
+  id: User_id_operator
+  createdAt: User_createdAt_operator
+  updatedAt: User_updatedAt_operator
+  OR: [User_where_or]
+  AND: [User_where_and]
+}
+
+input User_email_operator {
+  equals: EmailAddress
+  not_equals: EmailAddress
+  like: EmailAddress
+  contains: EmailAddress
+  exists: Boolean
+}
+
+input User_enableAPIKey_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input User_apiKey_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input User_name_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input User_profilePhoto_operator {
+  equals: String
+  not_equals: String
+  exists: Boolean
+}
+
+input User_admin_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input User_bio_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input User_linkedin_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input User_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input User_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input User_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input User_where_or {
+  email: User_email_operator
+  enableAPIKey: User_enableAPIKey_operator
+  apiKey: User_apiKey_operator
+  name: User_name_operator
+  profilePhoto: User_profilePhoto_operator
+  admin: User_admin_operator
+  bio: User_bio_operator
+  linkedin: User_linkedin_operator
+  id: User_id_operator
+  createdAt: User_createdAt_operator
+  updatedAt: User_updatedAt_operator
+}
+
+input User_where_and {
+  email: User_email_operator
+  enableAPIKey: User_enableAPIKey_operator
+  apiKey: User_apiKey_operator
+  name: User_name_operator
+  profilePhoto: User_profilePhoto_operator
+  admin: User_admin_operator
+  bio: User_bio_operator
+  linkedin: User_linkedin_operator
+  id: User_id_operator
+  createdAt: User_createdAt_operator
+  updatedAt: User_updatedAt_operator
+}
+
+type usersMe {
+  token: String
+  user: User
+  exp: Int
+  collection: String
+}
+
+type ContactMessage {
+  id: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  email: String!
+  message: String!
+  recaptchaScore: Float!
+  emailSent: Boolean!
+}
+
+type ContactMessages {
+  docs: [ContactMessage]
+  totalDocs: Int
+  offset: Int
+  limit: Int
+  totalPages: Int
+  page: Int
+  pagingCounter: Int
+  hasPrevPage: Boolean
+  hasNextPage: Boolean
+  prevPage: Boolean
+  nextPage: Boolean
+}
+
+input ContactMessage_where {
+  name: ContactMessage_name_operator
+  email: ContactMessage_email_operator
+  message: ContactMessage_message_operator
+  recaptchaScore: ContactMessage_recaptchaScore_operator
+  emailSent: ContactMessage_emailSent_operator
+  id: ContactMessage_id_operator
+  createdAt: ContactMessage_createdAt_operator
+  updatedAt: ContactMessage_updatedAt_operator
+  OR: [ContactMessage_where_or]
+  AND: [ContactMessage_where_and]
+}
+
+input ContactMessage_name_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input ContactMessage_email_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input ContactMessage_message_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input ContactMessage_recaptchaScore_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+}
+
+input ContactMessage_emailSent_operator {
+  equals: Boolean
+  not_equals: Boolean
+}
+
+input ContactMessage_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input ContactMessage_createdAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input ContactMessage_updatedAt_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+  exists: Boolean
+}
+
+input ContactMessage_where_or {
+  name: ContactMessage_name_operator
+  email: ContactMessage_email_operator
+  message: ContactMessage_message_operator
+  recaptchaScore: ContactMessage_recaptchaScore_operator
+  emailSent: ContactMessage_emailSent_operator
+  id: ContactMessage_id_operator
+  createdAt: ContactMessage_createdAt_operator
+  updatedAt: ContactMessage_updatedAt_operator
+}
+
+input ContactMessage_where_and {
+  name: ContactMessage_name_operator
+  email: ContactMessage_email_operator
+  message: ContactMessage_message_operator
+  recaptchaScore: ContactMessage_recaptchaScore_operator
+  emailSent: ContactMessage_emailSent_operator
+  id: ContactMessage_id_operator
+  createdAt: ContactMessage_createdAt_operator
+  updatedAt: ContactMessage_updatedAt_operator
+}
+
+type Overview {
+  launches: Float!
+  successes: Float!
+  rocketModels: Float!
+}
+
+type TeamGroups {
+  groups: [TeamGroups_Groups]
+}
+
+type TeamGroups_Groups {
+  name: String!
+  urlName: String!
+  teams: [TeamGroups_Groups_Teams!]
+  id: String
+}
+
+type TeamGroups_Groups_Teams {
+  team(where: TeamGroups_Groups_Teams_Team_where): Team
+  id: String
+}
+
+input TeamGroups_Groups_Teams_Team_where {
+  name: TeamGroups_Groups_Teams_Team_name_operator
+  urlName: TeamGroups_Groups_Teams_Team_urlName_operator
+  shortDescription: TeamGroups_Groups_Teams_Team_shortDescription_operator
+  description: TeamGroups_Groups_Teams_Team_description_operator
+  coverImage: TeamGroups_Groups_Teams_Team_coverImage_operator
+  user: TeamGroups_Groups_Teams_Team_user_operator
+  title: TeamGroups_Groups_Teams_Team_title_operator
+  members__allowEdit: TeamGroups_Groups_Teams_Team_members__allowEdit_operator
+  members__id: TeamGroups_Groups_Teams_Team_members__id_operator
+  projects__name: TeamGroups_Groups_Teams_Team_projects__name_operator
+  start: TeamGroups_Groups_Teams_Team_start_operator
+  end: TeamGroups_Groups_Teams_Team_end_operator
+  projects__id: TeamGroups_Groups_Teams_Team_projects__id_operator
+  id: TeamGroups_Groups_Teams_Team_id_operator
+  OR: [TeamGroups_Groups_Teams_Team_where_or]
+  AND: [TeamGroups_Groups_Teams_Team_where_and]
+}
+
+input TeamGroups_Groups_Teams_Team_name_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input TeamGroups_Groups_Teams_Team_urlName_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input TeamGroups_Groups_Teams_Team_shortDescription_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input TeamGroups_Groups_Teams_Team_description_operator {
+  equals: JSON
+  not_equals: JSON
+  like: JSON
+  contains: JSON
+  exists: Boolean
+}
+
+input TeamGroups_Groups_Teams_Team_coverImage_operator {
+  equals: String
+  not_equals: String
+  exists: Boolean
+}
+
+input TeamGroups_Groups_Teams_Team_user_operator {
+  equals: String
+  not_equals: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+}
+
+input TeamGroups_Groups_Teams_Team_title_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input TeamGroups_Groups_Teams_Team_members__allowEdit_operator {
+  equals: Boolean
+  not_equals: Boolean
+  exists: Boolean
+}
+
+input TeamGroups_Groups_Teams_Team_members__id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input TeamGroups_Groups_Teams_Team_projects__name_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+}
+
+input TeamGroups_Groups_Teams_Team_start_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+}
+
+input TeamGroups_Groups_Teams_Team_end_operator {
+  equals: DateTime
+  not_equals: DateTime
+  greater_than_equal: DateTime
+  greater_than: DateTime
+  less_than_equal: DateTime
+  less_than: DateTime
+  like: DateTime
+}
+
+input TeamGroups_Groups_Teams_Team_projects__id_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input TeamGroups_Groups_Teams_Team_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input TeamGroups_Groups_Teams_Team_where_or {
+  name: TeamGroups_Groups_Teams_Team_name_operator
+  urlName: TeamGroups_Groups_Teams_Team_urlName_operator
+  shortDescription: TeamGroups_Groups_Teams_Team_shortDescription_operator
+  description: TeamGroups_Groups_Teams_Team_description_operator
+  coverImage: TeamGroups_Groups_Teams_Team_coverImage_operator
+  user: TeamGroups_Groups_Teams_Team_user_operator
+  title: TeamGroups_Groups_Teams_Team_title_operator
+  members__allowEdit: TeamGroups_Groups_Teams_Team_members__allowEdit_operator
+  members__id: TeamGroups_Groups_Teams_Team_members__id_operator
+  projects__name: TeamGroups_Groups_Teams_Team_projects__name_operator
+  start: TeamGroups_Groups_Teams_Team_start_operator
+  end: TeamGroups_Groups_Teams_Team_end_operator
+  projects__id: TeamGroups_Groups_Teams_Team_projects__id_operator
+  id: TeamGroups_Groups_Teams_Team_id_operator
+}
+
+input TeamGroups_Groups_Teams_Team_where_and {
+  name: TeamGroups_Groups_Teams_Team_name_operator
+  urlName: TeamGroups_Groups_Teams_Team_urlName_operator
+  shortDescription: TeamGroups_Groups_Teams_Team_shortDescription_operator
+  description: TeamGroups_Groups_Teams_Team_description_operator
+  coverImage: TeamGroups_Groups_Teams_Team_coverImage_operator
+  user: TeamGroups_Groups_Teams_Team_user_operator
+  title: TeamGroups_Groups_Teams_Team_title_operator
+  members__allowEdit: TeamGroups_Groups_Teams_Team_members__allowEdit_operator
+  members__id: TeamGroups_Groups_Teams_Team_members__id_operator
+  projects__name: TeamGroups_Groups_Teams_Team_projects__name_operator
+  start: TeamGroups_Groups_Teams_Team_start_operator
+  end: TeamGroups_Groups_Teams_Team_end_operator
+  projects__id: TeamGroups_Groups_Teams_Team_projects__id_operator
+  id: TeamGroups_Groups_Teams_Team_id_operator
+}
+
+type Sponsors {
+  tiers: [Sponsors_SponsorTiers]
+}
+
+type Sponsors_SponsorTiers {
+  name: String!
+  logoHeight: Float!
+  sponsors: [Sponsors_SponsorTiers_Sponsors]
+  id: String
+}
+
+type Sponsors_SponsorTiers_Sponsors {
+  url: String!
+  logo(where: Sponsors_SponsorTiers_Sponsors_Logo_where): Media
+  id: String
+}
+
+input Sponsors_SponsorTiers_Sponsors_Logo_where {
+  url: Sponsors_SponsorTiers_Sponsors_Logo_url_operator
+  filename: Sponsors_SponsorTiers_Sponsors_Logo_filename_operator
+  mimeType: Sponsors_SponsorTiers_Sponsors_Logo_mimeType_operator
+  filesize: Sponsors_SponsorTiers_Sponsors_Logo_filesize_operator
+  ref: Sponsors_SponsorTiers_Sponsors_Logo_ref_operator
+  id: Sponsors_SponsorTiers_Sponsors_Logo_id_operator
+  OR: [Sponsors_SponsorTiers_Sponsors_Logo_where_or]
+  AND: [Sponsors_SponsorTiers_Sponsors_Logo_where_and]
+}
+
+input Sponsors_SponsorTiers_Sponsors_Logo_url_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Sponsors_SponsorTiers_Sponsors_Logo_filename_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Sponsors_SponsorTiers_Sponsors_Logo_mimeType_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Sponsors_SponsorTiers_Sponsors_Logo_filesize_operator {
+  equals: Float
+  not_equals: Float
+  greater_than_equal: Float
+  greater_than: Float
+  less_than_equal: Float
+  less_than: Float
+  exists: Boolean
+}
+
+input Sponsors_SponsorTiers_Sponsors_Logo_ref_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  exists: Boolean
+}
+
+input Sponsors_SponsorTiers_Sponsors_Logo_id_operator {
+  equals: JSON
+  not_equals: JSON
+  in: [JSON]
+  not_in: [JSON]
+  all: [JSON]
+  exists: Boolean
+}
+
+input Sponsors_SponsorTiers_Sponsors_Logo_where_or {
+  url: Sponsors_SponsorTiers_Sponsors_Logo_url_operator
+  filename: Sponsors_SponsorTiers_Sponsors_Logo_filename_operator
+  mimeType: Sponsors_SponsorTiers_Sponsors_Logo_mimeType_operator
+  filesize: Sponsors_SponsorTiers_Sponsors_Logo_filesize_operator
+  ref: Sponsors_SponsorTiers_Sponsors_Logo_ref_operator
+  id: Sponsors_SponsorTiers_Sponsors_Logo_id_operator
+}
+
+input Sponsors_SponsorTiers_Sponsors_Logo_where_and {
+  url: Sponsors_SponsorTiers_Sponsors_Logo_url_operator
+  filename: Sponsors_SponsorTiers_Sponsors_Logo_filename_operator
+  mimeType: Sponsors_SponsorTiers_Sponsors_Logo_mimeType_operator
+  filesize: Sponsors_SponsorTiers_Sponsors_Logo_filesize_operator
+  ref: Sponsors_SponsorTiers_Sponsors_Logo_ref_operator
+  id: Sponsors_SponsorTiers_Sponsors_Logo_id_operator
+}
+
+type Recruitment {
+  positions: [Recruitment_Positions]
+}
+
+type Recruitment_Positions {
+  name: String!
+  url: String!
+  description(depth: Int): JSON!
+  id: String
+}
+
+type Preference {
+  key: String!
+  value: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Access {
+  canAccessAdmin: Boolean!
+  teams: TeamAccess
+  blogs: BlogAccess
+  media: MediaAccess
+  users: UserAccess
+  messages: ContactMessageAccess
+  overview: OverviewAccess
+  team_groups: TeamGroupsAccess
+  sponsors: SponsorsAccess
+  recruitment: RecruitmentAccess
+}
+
+type TeamAccess {
+  fields: TeamFields
+  create: TeamCreateAccess
+  read: TeamReadAccess
+  update: TeamUpdateAccess
+  delete: TeamDeleteAccess
+}
+
+type TeamFields {
+  name: TeamFields_name
+  urlName: TeamFields_urlName
+  shortDescription: TeamFields_shortDescription
+  description: TeamFields_description
+  coverImage: TeamFields_coverImage
+  members: TeamFields_members
+  projects: TeamFields_projects
+}
+
+type TeamFields_name {
+  create: TeamFields_name_Create
+  read: TeamFields_name_Read
+  update: TeamFields_name_Update
+  delete: TeamFields_name_Delete
+}
+
+type TeamFields_name_Create {
+  permission: Boolean!
+}
+
+type TeamFields_name_Read {
+  permission: Boolean!
+}
+
+type TeamFields_name_Update {
+  permission: Boolean!
+}
+
+type TeamFields_name_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_urlName {
+  create: TeamFields_urlName_Create
+  read: TeamFields_urlName_Read
+  update: TeamFields_urlName_Update
+  delete: TeamFields_urlName_Delete
+}
+
+type TeamFields_urlName_Create {
+  permission: Boolean!
+}
+
+type TeamFields_urlName_Read {
+  permission: Boolean!
+}
+
+type TeamFields_urlName_Update {
+  permission: Boolean!
+}
+
+type TeamFields_urlName_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_shortDescription {
+  create: TeamFields_shortDescription_Create
+  read: TeamFields_shortDescription_Read
+  update: TeamFields_shortDescription_Update
+  delete: TeamFields_shortDescription_Delete
+}
+
+type TeamFields_shortDescription_Create {
+  permission: Boolean!
+}
+
+type TeamFields_shortDescription_Read {
+  permission: Boolean!
+}
+
+type TeamFields_shortDescription_Update {
+  permission: Boolean!
+}
+
+type TeamFields_shortDescription_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_description {
+  create: TeamFields_description_Create
+  read: TeamFields_description_Read
+  update: TeamFields_description_Update
+  delete: TeamFields_description_Delete
+}
+
+type TeamFields_description_Create {
+  permission: Boolean!
+}
+
+type TeamFields_description_Read {
+  permission: Boolean!
+}
+
+type TeamFields_description_Update {
+  permission: Boolean!
+}
+
+type TeamFields_description_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_coverImage {
+  create: TeamFields_coverImage_Create
+  read: TeamFields_coverImage_Read
+  update: TeamFields_coverImage_Update
+  delete: TeamFields_coverImage_Delete
+}
+
+type TeamFields_coverImage_Create {
+  permission: Boolean!
+}
+
+type TeamFields_coverImage_Read {
+  permission: Boolean!
+}
+
+type TeamFields_coverImage_Update {
+  permission: Boolean!
+}
+
+type TeamFields_coverImage_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_members {
+  create: TeamFields_members_Create
+  read: TeamFields_members_Read
+  update: TeamFields_members_Update
+  delete: TeamFields_members_Delete
+  fields: TeamFields_members_Fields
+}
+
+type TeamFields_members_Create {
+  permission: Boolean!
+}
+
+type TeamFields_members_Read {
+  permission: Boolean!
+}
+
+type TeamFields_members_Update {
+  permission: Boolean!
+}
+
+type TeamFields_members_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_members_Fields {
+  user: TeamFields_members_user
+  title: TeamFields_members_title
+  allowEdit: TeamFields_members_allowEdit
+  id: TeamFields_members_id
+}
+
+type TeamFields_members_user {
+  create: TeamFields_members_user_Create
+  read: TeamFields_members_user_Read
+  update: TeamFields_members_user_Update
+  delete: TeamFields_members_user_Delete
+}
+
+type TeamFields_members_user_Create {
+  permission: Boolean!
+}
+
+type TeamFields_members_user_Read {
+  permission: Boolean!
+}
+
+type TeamFields_members_user_Update {
+  permission: Boolean!
+}
+
+type TeamFields_members_user_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_members_title {
+  create: TeamFields_members_title_Create
+  read: TeamFields_members_title_Read
+  update: TeamFields_members_title_Update
+  delete: TeamFields_members_title_Delete
+}
+
+type TeamFields_members_title_Create {
+  permission: Boolean!
+}
+
+type TeamFields_members_title_Read {
+  permission: Boolean!
+}
+
+type TeamFields_members_title_Update {
+  permission: Boolean!
+}
+
+type TeamFields_members_title_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_members_allowEdit {
+  create: TeamFields_members_allowEdit_Create
+  read: TeamFields_members_allowEdit_Read
+  update: TeamFields_members_allowEdit_Update
+  delete: TeamFields_members_allowEdit_Delete
+}
+
+type TeamFields_members_allowEdit_Create {
+  permission: Boolean!
+}
+
+type TeamFields_members_allowEdit_Read {
+  permission: Boolean!
+}
+
+type TeamFields_members_allowEdit_Update {
+  permission: Boolean!
+}
+
+type TeamFields_members_allowEdit_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_members_id {
+  create: TeamFields_members_id_Create
+  read: TeamFields_members_id_Read
+  update: TeamFields_members_id_Update
+  delete: TeamFields_members_id_Delete
+}
+
+type TeamFields_members_id_Create {
+  permission: Boolean!
+}
+
+type TeamFields_members_id_Read {
+  permission: Boolean!
+}
+
+type TeamFields_members_id_Update {
+  permission: Boolean!
+}
+
+type TeamFields_members_id_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_projects {
+  create: TeamFields_projects_Create
+  read: TeamFields_projects_Read
+  update: TeamFields_projects_Update
+  delete: TeamFields_projects_Delete
+  fields: TeamFields_projects_Fields
+}
+
+type TeamFields_projects_Create {
+  permission: Boolean!
+}
+
+type TeamFields_projects_Read {
+  permission: Boolean!
+}
+
+type TeamFields_projects_Update {
+  permission: Boolean!
+}
+
+type TeamFields_projects_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_projects_Fields {
+  name: TeamFields_projects_name
+  start: TeamFields_projects_start
+  end: TeamFields_projects_end
+  id: TeamFields_projects_id
+}
+
+type TeamFields_projects_name {
+  create: TeamFields_projects_name_Create
+  read: TeamFields_projects_name_Read
+  update: TeamFields_projects_name_Update
+  delete: TeamFields_projects_name_Delete
+}
+
+type TeamFields_projects_name_Create {
+  permission: Boolean!
+}
+
+type TeamFields_projects_name_Read {
+  permission: Boolean!
+}
+
+type TeamFields_projects_name_Update {
+  permission: Boolean!
+}
+
+type TeamFields_projects_name_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_projects_start {
+  create: TeamFields_projects_start_Create
+  read: TeamFields_projects_start_Read
+  update: TeamFields_projects_start_Update
+  delete: TeamFields_projects_start_Delete
+}
+
+type TeamFields_projects_start_Create {
+  permission: Boolean!
+}
+
+type TeamFields_projects_start_Read {
+  permission: Boolean!
+}
+
+type TeamFields_projects_start_Update {
+  permission: Boolean!
+}
+
+type TeamFields_projects_start_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_projects_end {
+  create: TeamFields_projects_end_Create
+  read: TeamFields_projects_end_Read
+  update: TeamFields_projects_end_Update
+  delete: TeamFields_projects_end_Delete
+}
+
+type TeamFields_projects_end_Create {
+  permission: Boolean!
+}
+
+type TeamFields_projects_end_Read {
+  permission: Boolean!
+}
+
+type TeamFields_projects_end_Update {
+  permission: Boolean!
+}
+
+type TeamFields_projects_end_Delete {
+  permission: Boolean!
+}
+
+type TeamFields_projects_id {
+  create: TeamFields_projects_id_Create
+  read: TeamFields_projects_id_Read
+  update: TeamFields_projects_id_Update
+  delete: TeamFields_projects_id_Delete
+}
+
+type TeamFields_projects_id_Create {
+  permission: Boolean!
+}
+
+type TeamFields_projects_id_Read {
+  permission: Boolean!
+}
+
+type TeamFields_projects_id_Update {
+  permission: Boolean!
+}
+
+type TeamFields_projects_id_Delete {
+  permission: Boolean!
+}
+
+type TeamCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+# The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+scalar JSONObject
+
+type TeamReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type TeamUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type TeamDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type BlogAccess {
+  fields: BlogFields
+  create: BlogCreateAccess
+  read: BlogReadAccess
+  update: BlogUpdateAccess
+  delete: BlogDeleteAccess
+}
+
+type BlogFields {
+  title: BlogFields_title
+  coverImage: BlogFields_coverImage
+  summary: BlogFields_summary
+  content: BlogFields_content
+  authors: BlogFields_authors
+}
+
+type BlogFields_title {
+  create: BlogFields_title_Create
+  read: BlogFields_title_Read
+  update: BlogFields_title_Update
+  delete: BlogFields_title_Delete
+}
+
+type BlogFields_title_Create {
+  permission: Boolean!
+}
+
+type BlogFields_title_Read {
+  permission: Boolean!
+}
+
+type BlogFields_title_Update {
+  permission: Boolean!
+}
+
+type BlogFields_title_Delete {
+  permission: Boolean!
+}
+
+type BlogFields_coverImage {
+  create: BlogFields_coverImage_Create
+  read: BlogFields_coverImage_Read
+  update: BlogFields_coverImage_Update
+  delete: BlogFields_coverImage_Delete
+}
+
+type BlogFields_coverImage_Create {
+  permission: Boolean!
+}
+
+type BlogFields_coverImage_Read {
+  permission: Boolean!
+}
+
+type BlogFields_coverImage_Update {
+  permission: Boolean!
+}
+
+type BlogFields_coverImage_Delete {
+  permission: Boolean!
+}
+
+type BlogFields_summary {
+  create: BlogFields_summary_Create
+  read: BlogFields_summary_Read
+  update: BlogFields_summary_Update
+  delete: BlogFields_summary_Delete
+}
+
+type BlogFields_summary_Create {
+  permission: Boolean!
+}
+
+type BlogFields_summary_Read {
+  permission: Boolean!
+}
+
+type BlogFields_summary_Update {
+  permission: Boolean!
+}
+
+type BlogFields_summary_Delete {
+  permission: Boolean!
+}
+
+type BlogFields_content {
+  create: BlogFields_content_Create
+  read: BlogFields_content_Read
+  update: BlogFields_content_Update
+  delete: BlogFields_content_Delete
+}
+
+type BlogFields_content_Create {
+  permission: Boolean!
+}
+
+type BlogFields_content_Read {
+  permission: Boolean!
+}
+
+type BlogFields_content_Update {
+  permission: Boolean!
+}
+
+type BlogFields_content_Delete {
+  permission: Boolean!
+}
+
+type BlogFields_authors {
+  create: BlogFields_authors_Create
+  read: BlogFields_authors_Read
+  update: BlogFields_authors_Update
+  delete: BlogFields_authors_Delete
+  fields: BlogFields_authors_Fields
+}
+
+type BlogFields_authors_Create {
+  permission: Boolean!
+}
+
+type BlogFields_authors_Read {
+  permission: Boolean!
+}
+
+type BlogFields_authors_Update {
+  permission: Boolean!
+}
+
+type BlogFields_authors_Delete {
+  permission: Boolean!
+}
+
+type BlogFields_authors_Fields {
+  user: BlogFields_authors_user
+  id: BlogFields_authors_id
+}
+
+type BlogFields_authors_user {
+  create: BlogFields_authors_user_Create
+  read: BlogFields_authors_user_Read
+  update: BlogFields_authors_user_Update
+  delete: BlogFields_authors_user_Delete
+}
+
+type BlogFields_authors_user_Create {
+  permission: Boolean!
+}
+
+type BlogFields_authors_user_Read {
+  permission: Boolean!
+}
+
+type BlogFields_authors_user_Update {
+  permission: Boolean!
+}
+
+type BlogFields_authors_user_Delete {
+  permission: Boolean!
+}
+
+type BlogFields_authors_id {
+  create: BlogFields_authors_id_Create
+  read: BlogFields_authors_id_Read
+  update: BlogFields_authors_id_Update
+  delete: BlogFields_authors_id_Delete
+}
+
+type BlogFields_authors_id_Create {
+  permission: Boolean!
+}
+
+type BlogFields_authors_id_Read {
+  permission: Boolean!
+}
+
+type BlogFields_authors_id_Update {
+  permission: Boolean!
+}
+
+type BlogFields_authors_id_Delete {
+  permission: Boolean!
+}
+
+type BlogCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type BlogReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type BlogUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type BlogDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MediaAccess {
+  fields: MediaFields
+  create: MediaCreateAccess
+  read: MediaReadAccess
+  update: MediaUpdateAccess
+  delete: MediaDeleteAccess
+}
+
+type MediaFields {
+  url: MediaFields_url
+  filename: MediaFields_filename
+  mimeType: MediaFields_mimeType
+  filesize: MediaFields_filesize
+  ref: MediaFields_ref
+}
+
+type MediaFields_url {
+  create: MediaFields_url_Create
+  read: MediaFields_url_Read
+  update: MediaFields_url_Update
+  delete: MediaFields_url_Delete
+}
+
+type MediaFields_url_Create {
+  permission: Boolean!
+}
+
+type MediaFields_url_Read {
+  permission: Boolean!
+}
+
+type MediaFields_url_Update {
+  permission: Boolean!
+}
+
+type MediaFields_url_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_filename {
+  create: MediaFields_filename_Create
+  read: MediaFields_filename_Read
+  update: MediaFields_filename_Update
+  delete: MediaFields_filename_Delete
+}
+
+type MediaFields_filename_Create {
+  permission: Boolean!
+}
+
+type MediaFields_filename_Read {
+  permission: Boolean!
+}
+
+type MediaFields_filename_Update {
+  permission: Boolean!
+}
+
+type MediaFields_filename_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_mimeType {
+  create: MediaFields_mimeType_Create
+  read: MediaFields_mimeType_Read
+  update: MediaFields_mimeType_Update
+  delete: MediaFields_mimeType_Delete
+}
+
+type MediaFields_mimeType_Create {
+  permission: Boolean!
+}
+
+type MediaFields_mimeType_Read {
+  permission: Boolean!
+}
+
+type MediaFields_mimeType_Update {
+  permission: Boolean!
+}
+
+type MediaFields_mimeType_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_filesize {
+  create: MediaFields_filesize_Create
+  read: MediaFields_filesize_Read
+  update: MediaFields_filesize_Update
+  delete: MediaFields_filesize_Delete
+}
+
+type MediaFields_filesize_Create {
+  permission: Boolean!
+}
+
+type MediaFields_filesize_Read {
+  permission: Boolean!
+}
+
+type MediaFields_filesize_Update {
+  permission: Boolean!
+}
+
+type MediaFields_filesize_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_ref {
+  create: MediaFields_ref_Create
+  read: MediaFields_ref_Read
+  update: MediaFields_ref_Update
+  delete: MediaFields_ref_Delete
+}
+
+type MediaFields_ref_Create {
+  permission: Boolean!
+}
+
+type MediaFields_ref_Read {
+  permission: Boolean!
+}
+
+type MediaFields_ref_Update {
+  permission: Boolean!
+}
+
+type MediaFields_ref_Delete {
+  permission: Boolean!
+}
+
+type MediaCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MediaReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MediaUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type MediaDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UserAccess {
+  fields: UserFields
+  create: UserCreateAccess
+  read: UserReadAccess
+  update: UserUpdateAccess
+  delete: UserDeleteAccess
+  unlock: UserUnlockAccess
+}
+
+type UserFields {
+  email: UserFields_email
+  enableAPIKey: UserFields_enableAPIKey
+  apiKey: UserFields_apiKey
+  name: UserFields_name
+  profilePhoto: UserFields_profilePhoto
+  admin: UserFields_admin
+  bio: UserFields_bio
+  linkedin: UserFields_linkedin
+  password: UserFields_password
+}
+
+type UserFields_email {
+  create: UserFields_email_Create
+  read: UserFields_email_Read
+  update: UserFields_email_Update
+  delete: UserFields_email_Delete
+}
+
+type UserFields_email_Create {
+  permission: Boolean!
+}
+
+type UserFields_email_Read {
+  permission: Boolean!
+}
+
+type UserFields_email_Update {
+  permission: Boolean!
+}
+
+type UserFields_email_Delete {
+  permission: Boolean!
+}
+
+type UserFields_enableAPIKey {
+  create: UserFields_enableAPIKey_Create
+  read: UserFields_enableAPIKey_Read
+  update: UserFields_enableAPIKey_Update
+  delete: UserFields_enableAPIKey_Delete
+}
+
+type UserFields_enableAPIKey_Create {
+  permission: Boolean!
+}
+
+type UserFields_enableAPIKey_Read {
+  permission: Boolean!
+}
+
+type UserFields_enableAPIKey_Update {
+  permission: Boolean!
+}
+
+type UserFields_enableAPIKey_Delete {
+  permission: Boolean!
+}
+
+type UserFields_apiKey {
+  create: UserFields_apiKey_Create
+  read: UserFields_apiKey_Read
+  update: UserFields_apiKey_Update
+  delete: UserFields_apiKey_Delete
+}
+
+type UserFields_apiKey_Create {
+  permission: Boolean!
+}
+
+type UserFields_apiKey_Read {
+  permission: Boolean!
+}
+
+type UserFields_apiKey_Update {
+  permission: Boolean!
+}
+
+type UserFields_apiKey_Delete {
+  permission: Boolean!
+}
+
+type UserFields_name {
+  create: UserFields_name_Create
+  read: UserFields_name_Read
+  update: UserFields_name_Update
+  delete: UserFields_name_Delete
+}
+
+type UserFields_name_Create {
+  permission: Boolean!
+}
+
+type UserFields_name_Read {
+  permission: Boolean!
+}
+
+type UserFields_name_Update {
+  permission: Boolean!
+}
+
+type UserFields_name_Delete {
+  permission: Boolean!
+}
+
+type UserFields_profilePhoto {
+  create: UserFields_profilePhoto_Create
+  read: UserFields_profilePhoto_Read
+  update: UserFields_profilePhoto_Update
+  delete: UserFields_profilePhoto_Delete
+}
+
+type UserFields_profilePhoto_Create {
+  permission: Boolean!
+}
+
+type UserFields_profilePhoto_Read {
+  permission: Boolean!
+}
+
+type UserFields_profilePhoto_Update {
+  permission: Boolean!
+}
+
+type UserFields_profilePhoto_Delete {
+  permission: Boolean!
+}
+
+type UserFields_admin {
+  create: UserFields_admin_Create
+  read: UserFields_admin_Read
+  update: UserFields_admin_Update
+  delete: UserFields_admin_Delete
+}
+
+type UserFields_admin_Create {
+  permission: Boolean!
+}
+
+type UserFields_admin_Read {
+  permission: Boolean!
+}
+
+type UserFields_admin_Update {
+  permission: Boolean!
+}
+
+type UserFields_admin_Delete {
+  permission: Boolean!
+}
+
+type UserFields_bio {
+  create: UserFields_bio_Create
+  read: UserFields_bio_Read
+  update: UserFields_bio_Update
+  delete: UserFields_bio_Delete
+}
+
+type UserFields_bio_Create {
+  permission: Boolean!
+}
+
+type UserFields_bio_Read {
+  permission: Boolean!
+}
+
+type UserFields_bio_Update {
+  permission: Boolean!
+}
+
+type UserFields_bio_Delete {
+  permission: Boolean!
+}
+
+type UserFields_linkedin {
+  create: UserFields_linkedin_Create
+  read: UserFields_linkedin_Read
+  update: UserFields_linkedin_Update
+  delete: UserFields_linkedin_Delete
+}
+
+type UserFields_linkedin_Create {
+  permission: Boolean!
+}
+
+type UserFields_linkedin_Read {
+  permission: Boolean!
+}
+
+type UserFields_linkedin_Update {
+  permission: Boolean!
+}
+
+type UserFields_linkedin_Delete {
+  permission: Boolean!
+}
+
+type UserFields_password {
+  create: UserFields_password_Create
+  read: UserFields_password_Read
+  update: UserFields_password_Update
+  delete: UserFields_password_Delete
+}
+
+type UserFields_password_Create {
+  permission: Boolean!
+}
+
+type UserFields_password_Read {
+  permission: Boolean!
+}
+
+type UserFields_password_Update {
+  permission: Boolean!
+}
+
+type UserFields_password_Delete {
+  permission: Boolean!
+}
+
+type UserCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UserReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UserUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UserDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type UserUnlockAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ContactMessageAccess {
+  fields: ContactMessageFields
+  create: ContactMessageCreateAccess
+  read: ContactMessageReadAccess
+  update: ContactMessageUpdateAccess
+  delete: ContactMessageDeleteAccess
+}
+
+type ContactMessageFields {
+  name: ContactMessageFields_name
+  email: ContactMessageFields_email
+  message: ContactMessageFields_message
+  recaptchaScore: ContactMessageFields_recaptchaScore
+  emailSent: ContactMessageFields_emailSent
+}
+
+type ContactMessageFields_name {
+  create: ContactMessageFields_name_Create
+  read: ContactMessageFields_name_Read
+  update: ContactMessageFields_name_Update
+  delete: ContactMessageFields_name_Delete
+}
+
+type ContactMessageFields_name_Create {
+  permission: Boolean!
+}
+
+type ContactMessageFields_name_Read {
+  permission: Boolean!
+}
+
+type ContactMessageFields_name_Update {
+  permission: Boolean!
+}
+
+type ContactMessageFields_name_Delete {
+  permission: Boolean!
+}
+
+type ContactMessageFields_email {
+  create: ContactMessageFields_email_Create
+  read: ContactMessageFields_email_Read
+  update: ContactMessageFields_email_Update
+  delete: ContactMessageFields_email_Delete
+}
+
+type ContactMessageFields_email_Create {
+  permission: Boolean!
+}
+
+type ContactMessageFields_email_Read {
+  permission: Boolean!
+}
+
+type ContactMessageFields_email_Update {
+  permission: Boolean!
+}
+
+type ContactMessageFields_email_Delete {
+  permission: Boolean!
+}
+
+type ContactMessageFields_message {
+  create: ContactMessageFields_message_Create
+  read: ContactMessageFields_message_Read
+  update: ContactMessageFields_message_Update
+  delete: ContactMessageFields_message_Delete
+}
+
+type ContactMessageFields_message_Create {
+  permission: Boolean!
+}
+
+type ContactMessageFields_message_Read {
+  permission: Boolean!
+}
+
+type ContactMessageFields_message_Update {
+  permission: Boolean!
+}
+
+type ContactMessageFields_message_Delete {
+  permission: Boolean!
+}
+
+type ContactMessageFields_recaptchaScore {
+  create: ContactMessageFields_recaptchaScore_Create
+  read: ContactMessageFields_recaptchaScore_Read
+  update: ContactMessageFields_recaptchaScore_Update
+  delete: ContactMessageFields_recaptchaScore_Delete
+}
+
+type ContactMessageFields_recaptchaScore_Create {
+  permission: Boolean!
+}
+
+type ContactMessageFields_recaptchaScore_Read {
+  permission: Boolean!
+}
+
+type ContactMessageFields_recaptchaScore_Update {
+  permission: Boolean!
+}
+
+type ContactMessageFields_recaptchaScore_Delete {
+  permission: Boolean!
+}
+
+type ContactMessageFields_emailSent {
+  create: ContactMessageFields_emailSent_Create
+  read: ContactMessageFields_emailSent_Read
+  update: ContactMessageFields_emailSent_Update
+  delete: ContactMessageFields_emailSent_Delete
+}
+
+type ContactMessageFields_emailSent_Create {
+  permission: Boolean!
+}
+
+type ContactMessageFields_emailSent_Read {
+  permission: Boolean!
+}
+
+type ContactMessageFields_emailSent_Update {
+  permission: Boolean!
+}
+
+type ContactMessageFields_emailSent_Delete {
+  permission: Boolean!
+}
+
+type ContactMessageCreateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ContactMessageReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ContactMessageUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type ContactMessageDeleteAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type OverviewAccess {
+  fields: OverviewFields
+  read: OverviewReadAccess
+  update: OverviewUpdateAccess
+}
+
+type OverviewFields {
+  launches: OverviewFields_launches
+  successes: OverviewFields_successes
+  rocketModels: OverviewFields_rocketModels
+}
+
+type OverviewFields_launches {
+  create: OverviewFields_launches_Create
+  read: OverviewFields_launches_Read
+  update: OverviewFields_launches_Update
+  delete: OverviewFields_launches_Delete
+}
+
+type OverviewFields_launches_Create {
+  permission: Boolean!
+}
+
+type OverviewFields_launches_Read {
+  permission: Boolean!
+}
+
+type OverviewFields_launches_Update {
+  permission: Boolean!
+}
+
+type OverviewFields_launches_Delete {
+  permission: Boolean!
+}
+
+type OverviewFields_successes {
+  create: OverviewFields_successes_Create
+  read: OverviewFields_successes_Read
+  update: OverviewFields_successes_Update
+  delete: OverviewFields_successes_Delete
+}
+
+type OverviewFields_successes_Create {
+  permission: Boolean!
+}
+
+type OverviewFields_successes_Read {
+  permission: Boolean!
+}
+
+type OverviewFields_successes_Update {
+  permission: Boolean!
+}
+
+type OverviewFields_successes_Delete {
+  permission: Boolean!
+}
+
+type OverviewFields_rocketModels {
+  create: OverviewFields_rocketModels_Create
+  read: OverviewFields_rocketModels_Read
+  update: OverviewFields_rocketModels_Update
+  delete: OverviewFields_rocketModels_Delete
+}
+
+type OverviewFields_rocketModels_Create {
+  permission: Boolean!
+}
+
+type OverviewFields_rocketModels_Read {
+  permission: Boolean!
+}
+
+type OverviewFields_rocketModels_Update {
+  permission: Boolean!
+}
+
+type OverviewFields_rocketModels_Delete {
+  permission: Boolean!
+}
+
+type OverviewReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type OverviewUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type TeamGroupsAccess {
+  fields: TeamGroupsFields
+  read: TeamGroupsReadAccess
+  update: TeamGroupsUpdateAccess
+}
+
+type TeamGroupsFields {
+  groups: TeamGroupsFields_groups
+}
+
+type TeamGroupsFields_groups {
+  create: TeamGroupsFields_groups_Create
+  read: TeamGroupsFields_groups_Read
+  update: TeamGroupsFields_groups_Update
+  delete: TeamGroupsFields_groups_Delete
+  fields: TeamGroupsFields_groups_Fields
+}
+
+type TeamGroupsFields_groups_Create {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_Read {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_Update {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_Delete {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_Fields {
+  name: TeamGroupsFields_groups_name
+  urlName: TeamGroupsFields_groups_urlName
+  teams: TeamGroupsFields_groups_teams
+  id: TeamGroupsFields_groups_id
+}
+
+type TeamGroupsFields_groups_name {
+  create: TeamGroupsFields_groups_name_Create
+  read: TeamGroupsFields_groups_name_Read
+  update: TeamGroupsFields_groups_name_Update
+  delete: TeamGroupsFields_groups_name_Delete
+}
+
+type TeamGroupsFields_groups_name_Create {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_name_Read {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_name_Update {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_name_Delete {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_urlName {
+  create: TeamGroupsFields_groups_urlName_Create
+  read: TeamGroupsFields_groups_urlName_Read
+  update: TeamGroupsFields_groups_urlName_Update
+  delete: TeamGroupsFields_groups_urlName_Delete
+}
+
+type TeamGroupsFields_groups_urlName_Create {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_urlName_Read {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_urlName_Update {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_urlName_Delete {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams {
+  create: TeamGroupsFields_groups_teams_Create
+  read: TeamGroupsFields_groups_teams_Read
+  update: TeamGroupsFields_groups_teams_Update
+  delete: TeamGroupsFields_groups_teams_Delete
+  fields: TeamGroupsFields_groups_teams_Fields
+}
+
+type TeamGroupsFields_groups_teams_Create {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams_Read {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams_Update {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams_Delete {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams_Fields {
+  team: TeamGroupsFields_groups_teams_team
+  id: TeamGroupsFields_groups_teams_id
+}
+
+type TeamGroupsFields_groups_teams_team {
+  create: TeamGroupsFields_groups_teams_team_Create
+  read: TeamGroupsFields_groups_teams_team_Read
+  update: TeamGroupsFields_groups_teams_team_Update
+  delete: TeamGroupsFields_groups_teams_team_Delete
+}
+
+type TeamGroupsFields_groups_teams_team_Create {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams_team_Read {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams_team_Update {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams_team_Delete {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams_id {
+  create: TeamGroupsFields_groups_teams_id_Create
+  read: TeamGroupsFields_groups_teams_id_Read
+  update: TeamGroupsFields_groups_teams_id_Update
+  delete: TeamGroupsFields_groups_teams_id_Delete
+}
+
+type TeamGroupsFields_groups_teams_id_Create {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams_id_Read {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams_id_Update {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_teams_id_Delete {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_id {
+  create: TeamGroupsFields_groups_id_Create
+  read: TeamGroupsFields_groups_id_Read
+  update: TeamGroupsFields_groups_id_Update
+  delete: TeamGroupsFields_groups_id_Delete
+}
+
+type TeamGroupsFields_groups_id_Create {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_id_Read {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_id_Update {
+  permission: Boolean!
+}
+
+type TeamGroupsFields_groups_id_Delete {
+  permission: Boolean!
+}
+
+type TeamGroupsReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type TeamGroupsUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SponsorsAccess {
+  fields: SponsorsFields
+  read: SponsorsReadAccess
+  update: SponsorsUpdateAccess
+}
+
+type SponsorsFields {
+  tiers: SponsorsFields_tiers
+}
+
+type SponsorsFields_tiers {
+  create: SponsorsFields_tiers_Create
+  read: SponsorsFields_tiers_Read
+  update: SponsorsFields_tiers_Update
+  delete: SponsorsFields_tiers_Delete
+  fields: SponsorsFields_tiers_Fields
+}
+
+type SponsorsFields_tiers_Create {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_Read {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_Update {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_Delete {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_Fields {
+  name: SponsorsFields_tiers_name
+  logoHeight: SponsorsFields_tiers_logoHeight
+  sponsors: SponsorsFields_tiers_sponsors
+  id: SponsorsFields_tiers_id
+}
+
+type SponsorsFields_tiers_name {
+  create: SponsorsFields_tiers_name_Create
+  read: SponsorsFields_tiers_name_Read
+  update: SponsorsFields_tiers_name_Update
+  delete: SponsorsFields_tiers_name_Delete
+}
+
+type SponsorsFields_tiers_name_Create {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_name_Read {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_name_Update {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_name_Delete {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_logoHeight {
+  create: SponsorsFields_tiers_logoHeight_Create
+  read: SponsorsFields_tiers_logoHeight_Read
+  update: SponsorsFields_tiers_logoHeight_Update
+  delete: SponsorsFields_tiers_logoHeight_Delete
+}
+
+type SponsorsFields_tiers_logoHeight_Create {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_logoHeight_Read {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_logoHeight_Update {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_logoHeight_Delete {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors {
+  create: SponsorsFields_tiers_sponsors_Create
+  read: SponsorsFields_tiers_sponsors_Read
+  update: SponsorsFields_tiers_sponsors_Update
+  delete: SponsorsFields_tiers_sponsors_Delete
+  fields: SponsorsFields_tiers_sponsors_Fields
+}
+
+type SponsorsFields_tiers_sponsors_Create {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_Read {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_Update {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_Delete {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_Fields {
+  url: SponsorsFields_tiers_sponsors_url
+  logo: SponsorsFields_tiers_sponsors_logo
+  id: SponsorsFields_tiers_sponsors_id
+}
+
+type SponsorsFields_tiers_sponsors_url {
+  create: SponsorsFields_tiers_sponsors_url_Create
+  read: SponsorsFields_tiers_sponsors_url_Read
+  update: SponsorsFields_tiers_sponsors_url_Update
+  delete: SponsorsFields_tiers_sponsors_url_Delete
+}
+
+type SponsorsFields_tiers_sponsors_url_Create {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_url_Read {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_url_Update {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_url_Delete {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_logo {
+  create: SponsorsFields_tiers_sponsors_logo_Create
+  read: SponsorsFields_tiers_sponsors_logo_Read
+  update: SponsorsFields_tiers_sponsors_logo_Update
+  delete: SponsorsFields_tiers_sponsors_logo_Delete
+}
+
+type SponsorsFields_tiers_sponsors_logo_Create {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_logo_Read {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_logo_Update {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_logo_Delete {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_id {
+  create: SponsorsFields_tiers_sponsors_id_Create
+  read: SponsorsFields_tiers_sponsors_id_Read
+  update: SponsorsFields_tiers_sponsors_id_Update
+  delete: SponsorsFields_tiers_sponsors_id_Delete
+}
+
+type SponsorsFields_tiers_sponsors_id_Create {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_id_Read {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_id_Update {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_sponsors_id_Delete {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_id {
+  create: SponsorsFields_tiers_id_Create
+  read: SponsorsFields_tiers_id_Read
+  update: SponsorsFields_tiers_id_Update
+  delete: SponsorsFields_tiers_id_Delete
+}
+
+type SponsorsFields_tiers_id_Create {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_id_Read {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_id_Update {
+  permission: Boolean!
+}
+
+type SponsorsFields_tiers_id_Delete {
+  permission: Boolean!
+}
+
+type SponsorsReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type SponsorsUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type RecruitmentAccess {
+  fields: RecruitmentFields
+  read: RecruitmentReadAccess
+  update: RecruitmentUpdateAccess
+}
+
+type RecruitmentFields {
+  positions: RecruitmentFields_positions
+}
+
+type RecruitmentFields_positions {
+  create: RecruitmentFields_positions_Create
+  read: RecruitmentFields_positions_Read
+  update: RecruitmentFields_positions_Update
+  delete: RecruitmentFields_positions_Delete
+  fields: RecruitmentFields_positions_Fields
+}
+
+type RecruitmentFields_positions_Create {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_Read {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_Update {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_Delete {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_Fields {
+  name: RecruitmentFields_positions_name
+  url: RecruitmentFields_positions_url
+  description: RecruitmentFields_positions_description
+  id: RecruitmentFields_positions_id
+}
+
+type RecruitmentFields_positions_name {
+  create: RecruitmentFields_positions_name_Create
+  read: RecruitmentFields_positions_name_Read
+  update: RecruitmentFields_positions_name_Update
+  delete: RecruitmentFields_positions_name_Delete
+}
+
+type RecruitmentFields_positions_name_Create {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_name_Read {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_name_Update {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_name_Delete {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_url {
+  create: RecruitmentFields_positions_url_Create
+  read: RecruitmentFields_positions_url_Read
+  update: RecruitmentFields_positions_url_Update
+  delete: RecruitmentFields_positions_url_Delete
+}
+
+type RecruitmentFields_positions_url_Create {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_url_Read {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_url_Update {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_url_Delete {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_description {
+  create: RecruitmentFields_positions_description_Create
+  read: RecruitmentFields_positions_description_Read
+  update: RecruitmentFields_positions_description_Update
+  delete: RecruitmentFields_positions_description_Delete
+}
+
+type RecruitmentFields_positions_description_Create {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_description_Read {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_description_Update {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_description_Delete {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_id {
+  create: RecruitmentFields_positions_id_Create
+  read: RecruitmentFields_positions_id_Read
+  update: RecruitmentFields_positions_id_Update
+  delete: RecruitmentFields_positions_id_Delete
+}
+
+type RecruitmentFields_positions_id_Create {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_id_Read {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_id_Update {
+  permission: Boolean!
+}
+
+type RecruitmentFields_positions_id_Delete {
+  permission: Boolean!
+}
+
+type RecruitmentReadAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type RecruitmentUpdateAccess {
+  permission: Boolean!
+  where: JSONObject
+}
+
+type Mutation {
+  createTeam(data: mutationTeamInput!, draft: Boolean): Team
+  updateTeam(
+    id: String!
+    data: mutationTeamUpdateInput!
+    draft: Boolean
+    autosave: Boolean
+  ): Team
+  deleteTeam(id: String!): Team
+  createBlog(data: mutationBlogInput!, draft: Boolean): Blog
+  updateBlog(
+    id: String!
+    data: mutationBlogUpdateInput!
+    draft: Boolean
+    autosave: Boolean
+  ): Blog
+  deleteBlog(id: String!): Blog
+  createMedia(data: mutationMediaInput!, draft: Boolean): Media
+  updateMedia(
+    id: String!
+    data: mutationMediaUpdateInput!
+    draft: Boolean
+    autosave: Boolean
+  ): Media
+  deleteMedia(id: String!): Media
+  createUser(data: mutationUserInput!, draft: Boolean): User
+  updateUser(
+    id: String!
+    data: mutationUserUpdateInput!
+    draft: Boolean
+    autosave: Boolean
+  ): User
+  deleteUser(id: String!): User
+  unlockUser(email: String!): Boolean!
+  loginUser(email: String, password: String): usersLoginResult
+  logoutUser: String
+  forgotPasswordUser(
+    email: String!
+    disableEmail: Boolean
+    expiration: Int
+  ): Boolean!
+  resetPasswordUser(token: String, password: String): usersResetPassword
+  verifyEmailUser(token: String): Boolean
+  refreshTokenUser(token: String): usersRefreshedUser
+  createContactMessage(
+    data: mutationContactMessageInput!
+    draft: Boolean
+  ): ContactMessage
+  updateContactMessage(
+    id: String!
+    data: mutationContactMessageUpdateInput!
+    draft: Boolean
+    autosave: Boolean
+  ): ContactMessage
+  deleteContactMessage(id: String!): ContactMessage
+  updateOverview(data: mutationOverviewInput!, draft: Boolean): Overview
+  updateTeamGroups(data: mutationTeamGroupsInput!, draft: Boolean): TeamGroups
+  updateSponsors(data: mutationSponsorsInput!, draft: Boolean): Sponsors
+  updateRecruitment(
+    data: mutationRecruitmentInput!
+    draft: Boolean
+  ): Recruitment
+  updatePreference(key: String!, value: JSON): Preference
+  deletePreference(key: String!): Preference
+}
+
+input mutationTeamInput {
+  name: String!
+  urlName: String!
+  shortDescription: String
+  description: JSON
+  coverImage: String
+  members: [mutationTeam_MembersInput]
+  projects: [mutationTeam_CurrentProjectsInput]
+}
+
+input mutationTeam_MembersInput {
+  user: String
+  title: String
+  allowEdit: Boolean
+  id: String
+}
+
+input mutationTeam_CurrentProjectsInput {
+  name: String!
+  start: String!
+  end: String!
+  id: String
+}
+
+input mutationTeamUpdateInput {
+  name: String
+  urlName: String
+  shortDescription: String
+  description: JSON
+  coverImage: String
+  members: [mutationTeamUpdate_MembersInput]
+  projects: [mutationTeamUpdate_CurrentProjectsInput]
+}
+
+input mutationTeamUpdate_MembersInput {
+  user: String
+  title: String
+  allowEdit: Boolean
+  id: String
+}
+
+input mutationTeamUpdate_CurrentProjectsInput {
+  name: String!
+  start: String!
+  end: String!
+  id: String
+}
+
+input mutationBlogInput {
+  title: String!
+  coverImage: String
+  summary: JSON!
+  content: JSON!
+  authors: [mutationBlog_AuthorsInput]
+}
+
+input mutationBlog_AuthorsInput {
+  user: String
+  id: String
+}
+
+input mutationBlogUpdateInput {
+  title: String
+  coverImage: String
+  summary: JSON
+  content: JSON
+  authors: [mutationBlogUpdate_AuthorsInput]
+}
+
+input mutationBlogUpdate_AuthorsInput {
+  user: String
+  id: String
+}
+
+input mutationMediaInput {
+  url: String
+  filename: String
+  mimeType: String
+  filesize: Float
+  ref: String
+}
+
+input mutationMediaUpdateInput {
+  url: String
+  filename: String
+  mimeType: String
+  filesize: Float
+  ref: String
+}
+
+input mutationUserInput {
+  email: String
+  enableAPIKey: Boolean
+  apiKey: String
+  name: String!
+  profilePhoto: String
+  admin: Boolean
+  bio: JSON
+  linkedin: String
+  password: String!
+}
+
+input mutationUserUpdateInput {
+  email: String
+  enableAPIKey: Boolean
+  apiKey: String
+  name: String
+  profilePhoto: String
+  admin: Boolean
+  bio: JSON
+  linkedin: String
+  password: String
+}
+
+type usersLoginResult {
+  token: String
+  user: User
+  exp: Int
+}
+
+type usersResetPassword {
+  token: String
+  user: User
+}
+
+type usersRefreshedUser {
+  user: usersJWT
+  refreshedToken: String
+  exp: Int
+}
+
+type usersJWT {
+  email: EmailAddress!
+  collection: String!
+}
+
+input mutationContactMessageInput {
+  name: String!
+  email: String!
+  message: String!
+  recaptchaScore: Float!
+  emailSent: Boolean
+}
+
+input mutationContactMessageUpdateInput {
+  name: String
+  email: String
+  message: String
+  recaptchaScore: Float
+  emailSent: Boolean
+}
+
+input mutationOverviewInput {
+  launches: Float!
+  successes: Float!
+  rocketModels: Float!
+}
+
+input mutationTeamGroupsInput {
+  groups: [mutationTeamGroups_GroupsInput]
+}
+
+input mutationTeamGroups_GroupsInput {
+  name: String!
+  urlName: String!
+  teams: [mutationTeamGroups_Groups_TeamsInput!]
+  id: String
+}
+
+input mutationTeamGroups_Groups_TeamsInput {
+  team: String
+  id: String
+}
+
+input mutationSponsorsInput {
+  tiers: [mutationSponsors_SponsorTiersInput]
+}
+
+input mutationSponsors_SponsorTiersInput {
+  name: String!
+  logoHeight: Float!
+  sponsors: [mutationSponsors_SponsorTiers_SponsorsInput]
+  id: String
+}
+
+input mutationSponsors_SponsorTiers_SponsorsInput {
+  url: String!
+  logo: String!
+  id: String
+}
+
+input mutationRecruitmentInput {
+  positions: [mutationRecruitment_PositionsInput]
+}
+
+input mutationRecruitment_PositionsInput {
+  name: String!
+  url: String!
+  description: JSON!
+  id: String
+}
