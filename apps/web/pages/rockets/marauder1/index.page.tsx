@@ -14,11 +14,16 @@ import imageD from './images/d.jpg'
 import imageE from './images/e.jpg'
 import imageF from './images/f.jpg'
 import imageG from './images/g.jpg'
-import {memo} from 'react'
+import sizeComparisonImage from './images/size_comparison.svg'
+import {Fragment, memo} from 'react'
 
 const useStyles = createStyles(theme => ({
   marauderFont: {
     fontFamily: '"Arvo", serif',
+  },
+  title: {
+    fontWeight: 500,
+    fontSize: 48,
   },
 }))
 
@@ -133,20 +138,98 @@ export default function Marauder1Page(props: TopLevelPageProps) {
         </Group>
       </Box>
 
+      <Box px={32} py={64} sx={{
+        background: theme.colors.gray[9],
+        color: theme.white,
+        display:'flex',
+        justifyContent:'space-evenly',
+        alignItems:'center',
+      }}>
+        <Box sx={{
+          width: '30%',
+          maxWidth: '200px',
+          position: 'relative',
+        }}>
+          <Image
+            title={'Human Silhouette by Madhero88, Source: https://commons.wikimedia.org/wiki/File:SVG_Human_Silhouette.svg'}
+            src={sizeComparisonImage}
+            alt={'Size comparison between the rocket and a human.'}
+            layout={'responsive'}
+          />
+        </Box>
+        <Box sx={{
+          width:500
+        }}>
+          <Text color={theme.colors.gray[5]} className={classes.marauderFont}>
+            Marauder I
+          </Text>
+          <Title order={1} mb={32} className={classes.title} sx={{lineHeight: 1}}>
+            Overview
+          </Title>
+          {
+            [
+              {
+                name: 'Height',
+                primaryUnit: '2.54m',
+                secondaryUnit: '100in',
+              },
+              {
+                name: 'Diameter',
+                primaryUnit: '16cm',
+                secondaryUnit: '6.3in',
+              },
+              {
+                name: 'Wet Mass',
+                primaryUnit: '33.7kg',
+                secondaryUnit: '74.4lbs',
+              },
+              {
+                name: 'Payload Mass',
+                primaryUnit: '5.4kg',
+                secondaryUnit: '12lbs',
+              },
+              {
+                name: 'Motor',
+                primaryUnit: 'Cesaroni 10367N1800-P',
+                secondaryUnit: undefined,
+              },
+              {
+                name: 'Total Impulse',
+                primaryUnit: '10600Ns',
+                secondaryUnit: undefined,
+              },
+            ].map((data, i) => <Fragment key={i}>
+              <Group key={i} position={'apart'}>
+                <Text size={'lg'}>
+                  {data.name}
+                </Text>
+                <Text size={'lg'}>
+                  <span>{data.primaryUnit}</span>
+                  {data.secondaryUnit ? <>
+                    <span style={{color:theme.colors.gray[6]}}>{' / '}</span>
+                    <span style={{color:theme.colors.gray[6]}}>{data.secondaryUnit}</span>
+                  </> : null}
+                </Text>
+              </Group>
+              <Box my={16} sx={{
+                borderBottom:`1px ${theme.colors.gray[6]} solid`
+              }}/>
+            </Fragment>)
+          }
+
+        </Box>
+      </Box>
+
       <Stack align={'center'} py={32} sx={{
         background: theme.colors.gray[0],
         color: theme.black,
       }}>
-        <Title order={1} mb={32} sx={{
-          textAlign: 'center',
-          fontWeight: 500,
-          fontSize: 48,
-        }}>
+        <Title order={1} mb={32} className={classes.title}>
           Gallery
         </Title>
         <Box px={32} sx={{
-          width:'100%',
-          maxWidth:800,
+          width: '100%',
+          maxWidth: 800,
         }}>
           <ImageGallery
             showPlayButton={false}
@@ -170,7 +253,6 @@ export default function Marauder1Page(props: TopLevelPageProps) {
             renderThumbInner={props => <ImageGalleryItem isThumbnail {...props} />}
           />
         </Box>
-
       </Stack>
     </Box>
 
@@ -178,7 +260,7 @@ export default function Marauder1Page(props: TopLevelPageProps) {
   </RightPanelContainer>
 }
 
-const ImageGalleryItem = memo(function ImageGalleryItem(props: ReactImageGalleryItem & {isThumbnail?:boolean}){
+const ImageGalleryItem = memo(function ImageGalleryItem(props: ReactImageGalleryItem & { isThumbnail?: boolean }) {
   const imageData = {
     src: props.original!,
     blurDataURL: props.thumbnail!,
@@ -191,7 +273,7 @@ const ImageGalleryItem = memo(function ImageGalleryItem(props: ReactImageGallery
       src={imageData}
       placeholder={'blur'}
       layout={'responsive'}
-      sizes={props.isThumbnail?'10vw':undefined}
+      sizes={props.isThumbnail ? '10vw' : undefined}
     />
   </Box>
 })
