@@ -74,7 +74,6 @@ function RichTextNode(props: { data: RichTextData }) {
 }
 
 export function RichText({data, ...wrapperProps}: { data: RichTextData } & BoxProps<'div'>) {
-  console.log(data)
   return <Box {...wrapperProps}>
     <RichTextNode data={data}/>
   </Box>
