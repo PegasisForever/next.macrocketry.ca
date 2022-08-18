@@ -72,7 +72,7 @@ const useStyles = createStyles(theme => ({
 const LaunchProfileStep = forwardRef<HTMLDivElement, PropsWithChildren<{ title: string, first?: boolean, last?: boolean }>>(function LaunchProfileStep(props, ref) {
   const {classes} = useStyles()
   const {minStepHeight, setMinStepHeight} = useContext(LaunchProfileStepContext)!
-  const {scrollY} = useContext(ScrollContext)!
+  const scrollY = useContext(ScrollContext)!
   const localRef = useRef<HTMLDivElement>(null)
   const [localMeasureRef, {height}] = useMeasure<HTMLDivElement>()
   const {start, end} = useRefScrollProgress(localRef, minStepHeight + stepPadding * 2, scrollY)
