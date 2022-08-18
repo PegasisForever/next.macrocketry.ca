@@ -78,7 +78,7 @@ function BlogMetaComponent({meta}: { meta: BlogMeta }) {
 export default function BlogsPage(props: PageProp) {
   const theme = useMantineTheme()
 
-  return <RightPanelContainer hrefIndex={3} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
+  return <RightPanelContainer hrefIndex={4} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
     <Box sx={{
       position: 'absolute',
       left: 0,

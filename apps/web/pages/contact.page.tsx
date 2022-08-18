@@ -49,7 +49,7 @@ export default function Teams(props: PageProp) {
     })
   }
 
-  return <RightPanelContainer hrefIndex={6} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
+  return <RightPanelContainer hrefIndex={7} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
     <Stack p={64} justify={'center'} align={'center'} sx={{
       height: '100%',
       overflowY: 'auto',

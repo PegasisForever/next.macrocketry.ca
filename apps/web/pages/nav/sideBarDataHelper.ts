@@ -14,8 +14,12 @@ export async function getSideBarData(): Promise<SideBarData> {
       children: 'Teams',
     },
     {
-      href: '/rockets/marauder_1',
+      href: '/rockets/marauder-1',
       children: 'Rockets',
+    },
+    {
+      href: '/avionics/void-lake-5',
+      children: 'Avionics',
     },
     {
       href: '/blogs',

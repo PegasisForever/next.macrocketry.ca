@@ -18,7 +18,7 @@ type PageProp = TopLevelPageProps & { positions: Position[] }
 
 
 export default function RecruitmentPage(props: PageProp) {
-  return <RightPanelContainer hrefIndex={5} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
+  return <RightPanelContainer hrefIndex={6} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
     <Stack p={64} pt={24} spacing={32} sx={{
       maxWidth: 1200,
       marginLeft: 'auto',

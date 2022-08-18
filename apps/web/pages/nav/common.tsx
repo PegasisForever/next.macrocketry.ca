@@ -65,6 +65,7 @@ const normalizedSideBarHrefs = [
   '/',
   '/teams',
   '/rockets',
+  '/avionics',
   '/blogs',
   '/sponsors',
   '/recruitment',
