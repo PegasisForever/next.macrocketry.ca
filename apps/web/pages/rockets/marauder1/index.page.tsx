@@ -16,7 +16,7 @@ import imageF from './images/f.jpg'
 import imageG from './images/g.jpg'
 import sizeComparisonImage from './images/size_comparison.svg'
 import {Fragment, memo, useCallback, useEffect, useRef, useState} from 'react'
-import LaunchProfile from './LaunchProfile'
+import FlightProfile from './FlightProfile'
 import {ScrollContext} from '../../contexts'
 import {useElementScroll} from 'framer-motion'
 import Marauder1Title from './Marauder1Title'
@@ -255,7 +255,7 @@ export default function Marauder1Page(props: TopLevelPageProps) {
           </Group>
         </Box>
 
-        <LaunchProfile ref={launchProfileRef}/>
+        <FlightProfile ref={launchProfileRef}/>
 
         <Stack align={'center'} py={32} sx={{
           background: theme.colors.gray[0],

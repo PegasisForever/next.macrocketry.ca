@@ -1,7 +1,7 @@
 import {Box, createStyles, Stack, Text, Title} from '@mantine/core'
 import {createContext, Dispatch, forwardRef, PropsWithChildren, RefObject, SetStateAction, useContext, useEffect, useRef, useState} from 'react'
 import {useMeasure, useWindowSize} from 'react-use'
-import {AnimatePresence, m, useTransform} from 'framer-motion'
+import {animate, AnimatePresence, AnimationPlaybackControls, m, useTransform} from 'framer-motion'
 import {useMergedRef} from '@mantine/hooks'
 import {ScrollContext} from '../../contexts'
 import {MotionValue} from 'framer-motion/types/value'
@@ -15,6 +15,7 @@ import flightProfileApogee from './images/flight_profile_apogee.svg'
 import flightProfileDrogue from './images/flight_profile_drogue.svg'
 import flightProfileMainDescent from './images/flight_profile_main_descent.svg'
 import flightProfileTouchdown from './images/flight_profile_touchdown.svg'
+
 
 const LaunchProfileStepContext = createContext<{ minStepHeight: number, setMinStepHeight: Dispatch<SetStateAction<number>>, setStepCenterYs: Dispatch<SetStateAction<number[]>> } | undefined>(undefined)
 
@@ -84,7 +85,7 @@ const useStyles = createStyles(theme => ({
   },
 }))
 
-const LaunchProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(props, ref) {
+const FlightProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(props, ref) {
   const {classes, theme} = useStyles()
   const [firstRef, {height: firstHeight}] = useMeasure<HTMLDivElement>()
   const [lastRef, {height: lastHeight}] = useMeasure<HTMLDivElement>()
@@ -92,6 +93,9 @@ const LaunchProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(p
   const [stepCenterYs, setStepCenterYs] = useState<number[]>(flightProfileData.map(() => 0))
   const scrollY = useContext(ScrollContext)!
   const [stepI, setStepI] = useState(0)
+  const interpolatedT = useInterpolatedValue(flightProfileData[stepI].t)
+  const interpolatedAltitude = useInterpolatedValue(flightProfileData[stepI].altitude)
+  const interpolatedSpeed = useInterpolatedValue(flightProfileData[stepI].speed)
 
   useEffect(() => {
     return scrollY.onChange(y => {
@@ -100,10 +104,6 @@ const LaunchProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(p
       setStepI(list[0].i)
     })
   }, [scrollY, stepCenterYs])
-
-  useEffect(() => {
-    console.log(flightProfileData[stepI].t)
-  }, [stepI])
 
   return <LaunchProfileStepContext.Provider value={{minStepHeight, setMinStepHeight, setStepCenterYs}}>
     <Box
@@ -142,20 +142,20 @@ const LaunchProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(p
             T
             <span className={classes.flightProfileNumberSpan}>
               {stepI === 0 ? '-' : '+'}
-              {0}
+              {interpolatedT.toFixed(1)}
             </span>
           </Text>
           <Text className={classes.flightProfileNumberText}>
             {'ALT: '}
             <span className={classes.flightProfileNumberSpan}>
-              {0}
+              {interpolatedAltitude.toFixed(1)}
             </span>
             m
           </Text>
           <Text className={classes.flightProfileNumberText}>
             {'SPEED: '}
             <span className={classes.flightProfileNumberSpan}>
-              {0}
+              {interpolatedSpeed.toFixed(1)}
             </span>
             m/s
           </Text>
@@ -236,7 +236,7 @@ const LaunchProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(p
   </LaunchProfileStepContext.Provider>
 })
 
-export default LaunchProfile
+export default FlightProfile
 
 const stepPadding = 64
 
@@ -309,3 +309,22 @@ export function useRefScrollProgress<E extends Element = Element>(ref: RefObject
   ]
 }
 
+function useInterpolatedValue(value: number) {
+  const [interpolatedValue, setInterpolatedValue] = useState(value)
+  const activeAnimation = useRef<AnimationPlaybackControls>()
+
+  useEffect(() => {
+    if (activeAnimation.current) {
+      activeAnimation.current.stop()
+    }
+
+    activeAnimation.current = animate(interpolatedValue, value, {
+      type: 'tween',
+      ease: 'linear',
+      duration: 1,
+      onUpdate: setInterpolatedValue,
+    })
+  }, [value])
+
+  return interpolatedValue
+}
