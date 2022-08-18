@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1500"
+   height="3500"
+   viewBox="0 0 396.875 926.04167"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="flight_profile_ground_handling.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#000000"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="0.32346812"
+     inkscape:cx="1185.5882"
+     inkscape:cy="1929.0927"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 78.848209,775.98982 c 0,0 -5.318658,14.69957 -6.729651,30.77816 l -0.004,-3.3e-4 -0.04266,0.52825 -7.35336,91.04355 -7.794326,8.80717 1.327481,2.76787 5.656151,-1.53765 -0.100629,1.2459 4.220259,0.34086 4.220259,0.34086 0.100629,-1.2459 5.336058,2.42547 1.754484,-2.51895 -6.279848,-9.94391 7.35336,-91.04356 0.04266,-0.52823 -0.004,-3.3e-4 c 1.185726,-16.09678 -1.702892,-31.45923 -1.702892,-31.45923 z"
+       fill="#ffffff"
+       id="path2"
+       style="stroke-width:2" />
+  </g>
+</svg>

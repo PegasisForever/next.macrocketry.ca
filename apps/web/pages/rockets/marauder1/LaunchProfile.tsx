@@ -1,21 +1,95 @@
-import {Box, createStyles, Stack, Text, Title, useMantineTheme} from '@mantine/core'
+import {Box, createStyles, Stack, Text, Title} from '@mantine/core'
 import {createContext, Dispatch, forwardRef, PropsWithChildren, RefObject, SetStateAction, useContext, useEffect, useRef, useState} from 'react'
 import {useMeasure, useWindowSize} from 'react-use'
-import {m, useTransform} from 'framer-motion'
+import {AnimatePresence, m, useTransform} from 'framer-motion'
 import {useMergedRef} from '@mantine/hooks'
 import {ScrollContext} from '../../contexts'
 import {MotionValue} from 'framer-motion/types/value'
 import Marauder1Title from './Marauder1Title'
+import flightProfileBackground from './images/flight_profile_background.svg'
+import flightProfileGroundHandling from './images/flight_profile_ground_handling.svg'
+import flightProfileIgnition from './images/flight_profile_ignition.svg'
+import flightProfilePoweredFlight from './images/flight_profile_powered_flight.svg'
+import flightProfileCoasting from './images/flight_profile_coasting.svg'
+import flightProfileApogee from './images/flight_profile_apogee.svg'
+import flightProfileDrogue from './images/flight_profile_drogue.svg'
+import flightProfileMainDescent from './images/flight_profile_main_descent.svg'
+import flightProfileTouchdown from './images/flight_profile_touchdown.svg'
 
 const LaunchProfileStepContext = createContext<{ minStepHeight: number, setMinStepHeight: Dispatch<SetStateAction<number>>, setStepCenterYs: Dispatch<SetStateAction<number[]>> } | undefined>(undefined)
 
+const flightProfileData = [
+  {
+    image: flightProfileGroundHandling,
+    t: 0,
+    altitude: 0,
+    speed: 0,
+  },
+  {
+    image: flightProfileIgnition,
+    t: 0,
+    altitude: 0,
+    speed: 0,
+  },
+  {
+    image: flightProfilePoweredFlight,
+    t: 6,
+    altitude: 900,
+    speed: 260,
+  },
+  {
+    image: flightProfileCoasting,
+    t: 15,
+    altitude: 2500,
+    speed: 110,
+  },
+  {
+    image: flightProfileApogee,
+    t: 30,
+    altitude: 3000,
+    speed: 0,
+  },
+  {
+    image: flightProfileDrogue,
+    t: 31,
+    altitude: 2900,
+    speed: 27,
+  },
+  {
+    image: flightProfileMainDescent,
+    t: 107,
+    altitude: 457,
+    speed: 6,
+  },
+  {
+    image: flightProfileTouchdown,
+    t: 180,
+    altitude: 0,
+    speed: 0,
+  },
+]
+
+const useStyles = createStyles(theme => ({
+  launchProfileStep: {
+    paddingTop: stepPadding,
+    paddingBottom: stepPadding,
+    scrollSnapAlign: 'center',
+  },
+  flightProfileNumberText: {
+    fontSize: 32,
+  },
+  flightProfileNumberSpan: {
+    fontFamily: '"JetBrains Mono", monospace',
+    fontWeight: 500,
+  },
+}))
+
 const LaunchProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(props, ref) {
-  const steps = 8
-  const theme = useMantineTheme()
+  const {classes, theme} = useStyles()
   const [firstRef, {height: firstHeight}] = useMeasure<HTMLDivElement>()
   const [lastRef, {height: lastHeight}] = useMeasure<HTMLDivElement>()
   const [minStepHeight, setMinStepHeight] = useState(0)
-  const [stepCenterYs, setStepCenterYs] = useState<number[]>(Array(steps).map(() => 0))
+  const [stepCenterYs, setStepCenterYs] = useState<number[]>(flightProfileData.map(() => 0))
   const scrollY = useContext(ScrollContext)!
   const [stepI, setStepI] = useState(0)
 
@@ -26,6 +100,10 @@ const LaunchProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(p
       setStepI(list[0].i)
     })
   }, [scrollY, stepCenterYs])
+
+  useEffect(() => {
+    console.log(flightProfileData[stepI].t)
+  }, [stepI])
 
   return <LaunchProfileStepContext.Provider value={{minStepHeight, setMinStepHeight, setStepCenterYs}}>
     <Box
@@ -54,12 +132,65 @@ const LaunchProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(p
             backgroundColor: stepI === i ? theme.colors.gray[2] : theme.colors.gray[6],
           }}/>)}
         </Stack>
+        <Box sx={{
+          position: 'absolute',
+          top: '50%',
+          left: 340,
+          transform: 'translateY(-50%)',
+        }}>
+          <Text className={classes.flightProfileNumberText}>
+            T
+            <span className={classes.flightProfileNumberSpan}>
+              {stepI === 0 ? '-' : '+'}
+              {0}
+            </span>
+          </Text>
+          <Text className={classes.flightProfileNumberText}>
+            {'ALT: '}
+            <span className={classes.flightProfileNumberSpan}>
+              {0}
+            </span>
+            m
+          </Text>
+          <Text className={classes.flightProfileNumberText}>
+            {'SPEED: '}
+            <span className={classes.flightProfileNumberSpan}>
+              {0}
+            </span>
+            m/s
+          </Text>
+        </Box>
         <Marauder1Title sx={{
-          paddingLeft:64,
-          paddingTop:64,
+          paddingLeft: 64,
+          paddingTop: 64,
         }}>
           Flight Profile
         </Marauder1Title>
+        <Box sx={{
+          backgroundImage: `url("${flightProfileBackground.src}")`,
+          backgroundSize: '100% 100%',
+          position: 'relative',
+          aspectRatio: `${flightProfileBackground.width / flightProfileBackground.height}`,
+          height: '70vh',
+          marginLeft: 32,
+        }}>
+          <AnimatePresence>
+            <m.img
+              key={stepI}
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+              exit={{opacity: 0}}
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+              }}
+              src={flightProfileData[stepI].image.src}
+              width={'100%'}
+              height={'100%'}/>
+          </AnimatePresence>
+        </Box>
+
       </Box>
 
       <Box sx={{
@@ -109,14 +240,6 @@ export default LaunchProfile
 
 const stepPadding = 64
 
-const useStyles = createStyles(theme => ({
-  launchProfileStep: {
-    paddingTop: stepPadding,
-    paddingBottom: stepPadding,
-    scrollSnapAlign: 'center',
-  },
-}))
-
 const LaunchProfileStep = forwardRef<HTMLDivElement, PropsWithChildren<{ title: string, i: number, first?: boolean, last?: boolean }>>(function LaunchProfileStep(props, ref) {
   const {classes} = useStyles()
   const {minStepHeight, setMinStepHeight, setStepCenterYs} = useContext(LaunchProfileStepContext)!
@@ -125,7 +248,7 @@ const LaunchProfileStep = forwardRef<HTMLDivElement, PropsWithChildren<{ title: 
   const [localMeasureRef, {height}] = useMeasure<HTMLDivElement>()
   const points = useRefScrollProgress(localRef, minStepHeight + stepPadding * 2, scrollY)
   const midPoint = points[1]
-  const opacity = useTransform(scrollY, points, [props.first ? 1 : 0, 1, props.last ? 1 : 0])
+  const opacity = useTransform(scrollY, points, [props.first ? 1 : 0.2, 1, props.last ? 1 : 0.2])
 
   useEffect(() => {
     if (height !== 0) {
@@ -158,13 +281,13 @@ const LaunchProfileStep = forwardRef<HTMLDivElement, PropsWithChildren<{ title: 
     }}>
       {props.title}
     </Title>
-    <Text size={'lg'}>
+    <Text size={'lg'} mt={4}>
       {props.children}
     </Text>
   </m.div>
 })
 
-export function useRefScrollProgress<E extends Element = Element>(ref: RefObject<E>, elementHeight: number, scrollY: MotionValue<number>) {
+export function useRefScrollProgress<E extends Element = Element>(ref: RefObject<E>, minElementHeight: number, scrollY: MotionValue<number>) {
   const [start, setStart] = useState<number>(0)
   const [end, setEnd] = useState<number>(1)
   const {height: windowHeight} = useWindowSize()
@@ -173,12 +296,12 @@ export function useRefScrollProgress<E extends Element = Element>(ref: RefObject
     if (ref.current) {
       const rect = ref.current.getBoundingClientRect()
       const absoluteTop = rect.top + scrollY.get()
-      const start = absoluteTop - windowHeight / 2 - elementHeight / 2
-      const end = start + elementHeight * 2
+      const start = absoluteTop - windowHeight / 2 - minElementHeight / 2
+      const end = start + minElementHeight + rect.height
       setStart(start)
       setEnd(end)
     }
-  }, [elementHeight, ref, scrollY, windowHeight])
+  }, [minElementHeight, ref, scrollY, windowHeight])
   return [
     start,
     (start + end) / 2,
