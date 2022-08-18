@@ -14,7 +14,7 @@ export async function getSideBarData(): Promise<SideBarData> {
       children: 'Teams',
     },
     {
-      href: '/rockets/marauder1',
+      href: '/rockets/marauder_1',
       children: 'Rockets',
     },
     {
