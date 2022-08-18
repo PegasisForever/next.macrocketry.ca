@@ -1,13 +1,13 @@
-import {TopLevelPageProps} from '../TopLevelPageProps'
 import RightPanelContainer from '../RightPanelContainer'
 import {GetStaticPaths, GetStaticProps} from 'next'
 import {getSideBarData} from '../nav/sideBarDataHelper'
+import {PropsWithSideBar} from '../contexts'
 
 type PageQuery = { team: string[] | undefined }
-type PageProp = TopLevelPageProps
+type PageProp = {}
 
 export default function Teams(props: PageProp) {
-  return <RightPanelContainer hrefIndex={1} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
+  return <RightPanelContainer hrefIndex={1}>
     teams
   </RightPanelContainer>
 }
@@ -25,7 +25,7 @@ export const getStaticPaths: GetStaticPaths<PageQuery> = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>> = async () => {
+export const getStaticProps: GetStaticProps<PropsWithSideBar<PageProp>> = async () => {
   return {
     props: {
       sideBarData: await getSideBarData(),

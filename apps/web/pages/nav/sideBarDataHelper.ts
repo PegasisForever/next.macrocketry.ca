@@ -1,4 +1,3 @@
-
 import {SideBarData} from './common'
 
 export async function getSideBarData(): Promise<SideBarData> {

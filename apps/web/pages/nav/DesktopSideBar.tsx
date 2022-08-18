@@ -1,9 +1,9 @@
-import {NavLinks, SideBarData, SideBarLogo} from './common'
+import {NavLinks, SideBarLogo} from './common'
 import {Anchor, Stack, useMantineTheme} from '@mantine/core'
 import {useModals} from '@mantine/modals'
 import PrepareAdminDialog from './PrepareAdminDialog'
 
-export default function DesktopSideBar(props: { data: SideBarData }) {
+export default function DesktopSideBar() {
   const modals = useModals()
   const theme = useMantineTheme()
 
@@ -13,7 +13,7 @@ export default function DesktopSideBar(props: { data: SideBarData }) {
     overflowY: 'auto',
   }}>
     <SideBarLogo/>
-    <NavLinks data={props.data}/>
+    <NavLinks/>
     <Anchor color={'dimmed'} onClick={() => {
       modals.openModal({
         className: '',

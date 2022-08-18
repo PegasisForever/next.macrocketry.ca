@@ -1,9 +1,8 @@
-import {SideBarData} from './common'
 import DesktopSideBar from './DesktopSideBar'
 
-export default function SideBar(props: { data: SideBarData }) {
+export default function SideBar() {
   return <>
     {/*<MobileSideBar data={props.data}/>*/}
-    <DesktopSideBar data={props.data}/>
+    <DesktopSideBar/>
   </>
 }

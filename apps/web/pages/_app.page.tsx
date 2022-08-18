@@ -8,6 +8,7 @@ import {useEffect, useState} from 'react'
 import SideBar from './nav/SideBar'
 import {initRecaptcha} from './recaptcha'
 import {ModalsProvider} from '@mantine/modals'
+import {NavContext} from './contexts'
 
 initRecaptcha()
 
@@ -60,21 +61,23 @@ function MyApp({Component, pageProps}: AppProps) {
             minHeight: '100vh',
           },
         }}/>
-        {sideBarIndex === -1 ? <Component prevHrefIndex={prevHrefIndex} {...pageProps}/> :
-          <Group spacing={0}>
-            <SideBar data={pageProps.sideBarData}/>
-            <Box sx={{
-              boxShadow: '0 3px 100px #00000029',
-              flexGrow: 1,
-              height: '100vh',
-              position: 'relative',
-              overflow: 'hidden',
-            }}>
-              <AnimatePresence initial={false}>
-                <Component key={router.route} prevHrefIndex={prevHrefIndex} {...pageProps}/>
-              </AnimatePresence>
-            </Box>
-          </Group>}
+        <NavContext.Provider value={{sideBarData: pageProps.sideBarData, prevHrefIndex}}>
+          {sideBarIndex === -1 ? <Component {...pageProps}/> :
+            <Group spacing={0}>
+              <SideBar/>
+              <Box sx={{
+                boxShadow: '0 3px 100px #00000029',
+                flexGrow: 1,
+                height: '100vh',
+                position: 'relative',
+                overflow: 'hidden',
+              }}>
+                <AnimatePresence initial={false}>
+                  <Component key={router.route} {...pageProps}/>
+                </AnimatePresence>
+              </Box>
+            </Group>}
+        </NavContext.Provider>
       </ModalsProvider>
     </MantineProvider>
   </LazyMotion>

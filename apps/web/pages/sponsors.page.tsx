@@ -1,4 +1,3 @@
-import {TopLevelPageProps} from './TopLevelPageProps'
 import {GetStaticProps} from 'next'
 import {getSideBarData} from './nav/sideBarDataHelper'
 import RightPanelContainer from './RightPanelContainer'
@@ -7,6 +6,7 @@ import {Anchor, Box, Group, Stack, Title, useMantineTheme} from '@mantine/core'
 import {IconFileText} from '@tabler/icons'
 import {getGraphQLUrl, prepareImageFromUrl, ProcessedImage} from './ssrUtils'
 import Image from 'next/image'
+import {PropsWithSideBar} from './contexts'
 
 type SponsorTier = {
   name: string,
@@ -16,7 +16,7 @@ type SponsorTier = {
     logo: ProcessedImage,
   }>
 }
-type PageProp = TopLevelPageProps & { sponsorTiers: SponsorTier[] }
+type PageProp = { sponsorTiers: SponsorTier[] }
 
 function SponsorTierComponent({tier}: { tier: SponsorTier }) {
   const theme = useMantineTheme()
@@ -57,7 +57,7 @@ function SponsorTierComponent({tier}: { tier: SponsorTier }) {
 export default function SponsorsPage(props: PageProp) {
   const theme = useMantineTheme()
 
-  return <RightPanelContainer hrefIndex={5} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
+  return <RightPanelContainer hrefIndex={5}>
     <Stack py={64} align={'center'} spacing={0}>
       <Title order={2} sx={{
         backgroundColor: theme.colors.blue[6],
@@ -91,7 +91,7 @@ export default function SponsorsPage(props: PageProp) {
   </RightPanelContainer>
 }
 
-export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>> = async () => {
+export const getStaticProps: GetStaticProps<PropsWithSideBar<PageProp>> = async () => {
   const res = await request(getGraphQLUrl(), gql`
 {
   Sponsors {

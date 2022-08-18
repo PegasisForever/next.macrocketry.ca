@@ -2,1860 +2,1860 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="1500"
-   height="3500"
-   viewBox="0 0 396.875 926.04167"
-   version="1.1"
-   id="svg5"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   sodipodi:docname="flight_profile_powered_flight.svg"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview7"
-     pagecolor="#000000"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="px"
-     showgrid="false"
-     inkscape:zoom="0.63422201"
-     inkscape:cx="27.592861"
-     inkscape:cy="2863.3506"
-     inkscape:window-width="2560"
-     inkscape:window-height="1367"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs2">
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48191"
-       x="-0.65935639"
-       y="-0.65935639"
-       width="2.3187128"
-       height="2.3187128">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48189" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48195"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48193" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48199"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48197" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48203"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48201" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48207"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48205" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48211"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48209" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48215"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48213" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48219"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48217" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48223"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48221" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48227"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48225" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48231"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48229" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48235"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48233" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48239"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48237" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48243"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48241" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48247"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48245" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48251"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48249" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48255"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48253" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48259"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48257" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48263"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48261" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48267"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48265" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48271"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48269" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48275"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48273" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48279"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48277" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48283"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48281" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48287"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48285" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48291"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48289" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48295"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48293" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48299"
-       x="-0.5015617"
-       y="-0.5015617"
-       width="2.0031234"
-       height="2.0031234">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48297" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48303"
-       x="-0.55888305"
-       y="-0.55888305"
-       width="2.1177661"
-       height="2.1177661">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48301" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48307"
-       x="-0.65935639"
-       y="-0.65935639"
-       width="2.3187128"
-       height="2.3187128">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48305" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48311"
-       x="-0.5015617"
-       y="-0.5015617"
-       width="2.0031234"
-       height="2.0031234">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48309" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48315"
-       x="-0.63099695"
-       y="-0.63099695"
-       width="2.2619939"
-       height="2.2619939">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48313" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48319"
-       x="-0.65935639"
-       y="-0.65935639"
-       width="2.3187128"
-       height="2.3187128">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48317" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48323"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48321" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48327"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48325" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48331"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48329" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48335"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48333" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48339"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48337" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48343"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48341" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48347"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48345" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48351"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48349" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48355"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48353" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48359"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48357" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48363"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48361" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48367"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48365" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48371"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48369" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48375"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48373" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48379"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48377" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48383"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48381" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48387"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48385" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48391"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48389" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48395"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48393" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48399"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48397" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48403"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48401" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48407"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48405" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48411"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48409" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48415"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48413" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48419"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48417" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48423"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48421" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48427"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48425" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48431"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48429" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48435"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48433" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48439"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48437" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48443"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48441" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48447"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48445" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48451"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48449" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48455"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48453" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48459"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48457" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48463"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48461" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48467"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48465" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48471"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48469" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48475"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48473" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48479"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48477" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48483"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48481" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48487"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48485" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48491"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48489" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48495"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48493" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48499"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48497" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48503"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48501" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48507"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48505" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48511"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48509" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48515"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48513" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48519"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48517" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48523"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48521" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48527"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48525" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48531"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48529" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48535"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48533" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48539"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48537" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48543"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48541" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48547"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48545" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48551"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48549" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48555"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48553" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48559"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48557" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48563"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48561" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48567"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48565" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB;"
-       inkscape:label="Blur"
-       id="filter48571"
-       x="-1.0803468"
-       y="-1.0803468"
-       width="3.1606937"
-       height="3.1606937">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur48569" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-7"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-4" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-8"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-5" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-75"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-3" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-83"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-1" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-6"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-43" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-64"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-30" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-3"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-8" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-0"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-48" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-69"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-2" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-9"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-7" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-92"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-54" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-4"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-77" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-1"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-2" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-9"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-3" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-8"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-0" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-10"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-5" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-108"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-50" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-6"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-25" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-2"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-8" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-7"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-24" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-62"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-9" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-0"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-81" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-11"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-03" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-3"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-91" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-93"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-38" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-66"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-4" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-4"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-6" />
-    </filter>
-    <filter
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="Blur"
-       id="filter52482-5-75"
-       x="-0.5868272"
-       y="-0.5868272"
-       width="2.1736544"
-       height="2.1736544">
-      <feGaussianBlur
-         stdDeviation="5 5"
-         result="blur"
-         id="feGaussianBlur52480-9-69" />
-    </filter>
-  </defs>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1">
-    <path
-       d="m 89.588455,668.5926 c 0,0 -5.401532,14.66932 -6.903238,30.73969 l -0.004,-3.5e-4 -0.04568,0.528 -7.867044,91.0006 -7.843909,8.76305 1.311838,2.77531 5.664738,-1.5057 -0.10766,1.24531 4.218269,0.36467 4.21827,0.36467 0.107659,-1.24531 5.322287,2.45555 1.768668,-2.50901 -6.223632,-9.97919 7.867054,-91.00062 0.04558,-0.52798 -0.004,-3.5e-4 C 92.390207,683.97111 89.588331,668.5926 89.588331,668.5926 Z"
-       fill="#ffffff"
-       id="path2"
-       style="stroke-width:2" />
+        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+        width="1500"
+        height="3500"
+        viewBox="0 0 396.875 926.04167"
+        version="1.1"
+        id="svg5"
+        inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+        sodipodi:docname="flight_profile_powered_flight.svg"
+        xmlns="http://www.w3.org/2000/svg"
+>
+    <sodipodi:namedview
+            id="namedview7"
+            pagecolor="#000000"
+            bordercolor="#000000"
+            borderopacity="0.25"
+            inkscape:showpageshadow="2"
+            inkscape:pageopacity="0"
+            inkscape:pagecheckerboard="0"
+            inkscape:deskcolor="#d1d1d1"
+            inkscape:document-units="px"
+            showgrid="false"
+            inkscape:zoom="0.63422201"
+            inkscape:cx="27.592861"
+            inkscape:cy="2863.3506"
+            inkscape:window-width="2560"
+            inkscape:window-height="1367"
+            inkscape:window-x="0"
+            inkscape:window-y="0"
+            inkscape:window-maximized="1"
+            inkscape:current-layer="layer1"/>
+    <defs
+            id="defs2">
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48191"
+                x="-0.65935639"
+                y="-0.65935639"
+                width="2.3187128"
+                height="2.3187128">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48189"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48195"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48193"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48199"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48197"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48203"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48201"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48207"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48205"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48211"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48209"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48215"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48213"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48219"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48217"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48223"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48221"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48227"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48225"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48231"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48229"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48235"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48233"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48239"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48237"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48243"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48241"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48247"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48245"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48251"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48249"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48255"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48253"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48259"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48257"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48263"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48261"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48267"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48265"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48271"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48269"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48275"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48273"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48279"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48277"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48283"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48281"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48287"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48285"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48291"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48289"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48295"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48293"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48299"
+                x="-0.5015617"
+                y="-0.5015617"
+                width="2.0031234"
+                height="2.0031234">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48297"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48303"
+                x="-0.55888305"
+                y="-0.55888305"
+                width="2.1177661"
+                height="2.1177661">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48301"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48307"
+                x="-0.65935639"
+                y="-0.65935639"
+                width="2.3187128"
+                height="2.3187128">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48305"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48311"
+                x="-0.5015617"
+                y="-0.5015617"
+                width="2.0031234"
+                height="2.0031234">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48309"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48315"
+                x="-0.63099695"
+                y="-0.63099695"
+                width="2.2619939"
+                height="2.2619939">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48313"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48319"
+                x="-0.65935639"
+                y="-0.65935639"
+                width="2.3187128"
+                height="2.3187128">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48317"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48323"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48321"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48327"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48325"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48331"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48329"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48335"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48333"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48339"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48337"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48343"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48341"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48347"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48345"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48351"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48349"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48355"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48353"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48359"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48357"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48363"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48361"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48367"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48365"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48371"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48369"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48375"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48373"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48379"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48377"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48383"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48381"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48387"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48385"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48391"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48389"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48395"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48393"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48399"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48397"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48403"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48401"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48407"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48405"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48411"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48409"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48415"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48413"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48419"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48417"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48423"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48421"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48427"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48425"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48431"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48429"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48435"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48433"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48439"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48437"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48443"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48441"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48447"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48445"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48451"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48449"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48455"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48453"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48459"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48457"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48463"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48461"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48467"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48465"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48471"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48469"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48475"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48473"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48479"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48477"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48483"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48481"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48487"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48485"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48491"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48489"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48495"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48493"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48499"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48497"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48503"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48501"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48507"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48505"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48511"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48509"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48515"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48513"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48519"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48517"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48523"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48521"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48527"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48525"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48531"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48529"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48535"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48533"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48539"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48537"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48543"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48541"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48547"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48545"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48551"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48549"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48555"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48553"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48559"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48557"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48563"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48561"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48567"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48565"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB;"
+                inkscape:label="Blur"
+                id="filter48571"
+                x="-1.0803468"
+                y="-1.0803468"
+                width="3.1606937"
+                height="3.1606937">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur48569"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-7"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-4"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-8"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-5"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-75"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-3"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-83"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-1"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-6"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-43"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-64"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-30"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-3"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-8"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-0"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-48"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-69"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-2"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-9"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-7"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-92"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-54"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-4"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-77"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-1"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-2"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-9"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-3"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-8"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-0"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-10"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-5"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-108"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-50"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-6"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-25"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-2"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-8"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-7"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-24"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-62"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-9"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-0"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-81"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-11"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-03"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-3"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-91"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-93"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-38"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-66"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-4"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-4"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-6"/>
+        </filter>
+        <filter
+                style="color-interpolation-filters:sRGB"
+                inkscape:label="Blur"
+                id="filter52482-5-75"
+                x="-0.5868272"
+                y="-0.5868272"
+                width="2.1736544"
+                height="2.1736544">
+            <feGaussianBlur
+                    stdDeviation="5 5"
+                    result="blur"
+                    id="feGaussianBlur52480-9-69"/>
+        </filter>
+    </defs>
     <g
-       id="g96948">
-      <path
-         style="fill:#ffc200;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0"
-         d="m 78.554615,796.55678 c 0,0 -3.530645,0.72726 -3.957114,4.80986 -0.356207,3.40994 2.450748,12.55847 2.450748,12.55847 0,0 4.215187,-8.18095 4.571651,-11.88215 0.38469,-3.99428 -3.065285,-5.48618 -3.065285,-5.48618 z"
-         id="path9285"
-         sodipodi:nodetypes="cscsc" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482)"
-         id="path17582-3-61"
-         cx="57.025368"
-         cy="920.35767"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-7)"
-         id="path17582-3-61-1"
-         cx="70.344368"
-         cy="921.9408"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-8)"
-         id="path17582-3-61-9"
-         cx="94.506203"
-         cy="928.77191"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-75)"
-         id="path17582-3-61-8"
-         cx="85.787582"
-         cy="926.36157"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-83)"
-         id="path17582-3-61-89"
-         cx="72.152695"
-         cy="917.50745"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-6)"
-         id="path17582-3-61-3"
-         cx="46.112354"
-         cy="922.86102"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-64)"
-         id="path17582-3-61-30"
-         cx="43.666264"
-         cy="928.14392"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-3)"
-         id="path17582-3-61-6"
-         cx="63.22657"
-         cy="917.57458"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-0)"
-         id="path17582-3-61-88"
-         cx="35.959297"
-         cy="930.1875"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-69)"
-         id="path17582-3-61-2"
-         cx="25.219559"
-         cy="932.56909"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-9)"
-         id="path17582-3-61-7"
-         cx="82.000267"
-         cy="927.35974"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-92)"
-         id="path17582-3-61-0"
-         cx="106.54752"
-         cy="931.96802"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5)"
-         id="path17582-3-61-4"
-         cx="67.780983"
-         cy="916.07294"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-1)"
-         id="path17582-3-61-4-8"
-         cx="65.705498"
-         cy="890.67462"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-4)"
-         id="path17582-3-61-4-26"
-         cx="68.208572"
-         cy="901.104"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-9)"
-         id="path17582-3-61-4-6"
-         cx="70.920227"
-         cy="882.33099"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-8)"
-         id="path17582-3-61-4-2"
-         cx="71.754578"
-         cy="871.48438"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-10)"
-         id="path17582-3-61-4-1"
-         cx="74.049057"
-         cy="857.09174"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-108)"
-         id="path17582-3-61-4-64"
-         cx="76.760712"
-         cy="842.90771"
-         r="10.224475"
-         transform="matrix(1.0431378,0,0,1.3251927,-4.8556403,-267.08878)" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-6)"
-         id="path17582-3-61-4-86"
-         cx="75.300591"
-         cy="834.98132"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-2)"
-         id="path17582-3-61-4-4"
-         cx="76.760712"
-         cy="822.25739"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-7)"
-         id="path17582-3-61-4-0"
-         cx="77.386475"
-         cy="809.95068"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-62)"
-         id="path17582-3-61-4-9"
-         cx="62.159492"
-         cy="904.44147"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-0)"
-         id="path17582-3-61-4-3"
-         cx="79.263779"
-         cy="904.44147"
-         r="10.224475"
-         transform="matrix(1.1079338,0,0,1.1501688,-6.1564696,-132.48145)" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-11)"
-         id="path17582-3-61-4-40"
-         cx="78.42942"
-         cy="891.50891"
-         r="10.224475"
-         transform="matrix(1.0234639,0,0,1.0985483,-1.3187857,-90.04684)" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-4)"
-         id="path17582-3-61-5"
-         cx="81.552071"
-         cy="922.81104"
-         r="10.224475" />
-      <circle
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-66)"
-         id="path17582-3-61-4-00"
-         cx="76.134949"
-         cy="868.98138"
-         r="10.224475"
-         transform="matrix(1.1501687,0,0,1.1407833,-11.224504,-121.29507)" />
+            inkscape:label="Layer 1"
+            inkscape:groupmode="layer"
+            id="layer1">
+        <path
+                d="m 89.588455,668.5926 c 0,0 -5.401532,14.66932 -6.903238,30.73969 l -0.004,-3.5e-4 -0.04568,0.528 -7.867044,91.0006 -7.843909,8.76305 1.311838,2.77531 5.664738,-1.5057 -0.10766,1.24531 4.218269,0.36467 4.21827,0.36467 0.107659,-1.24531 5.322287,2.45555 1.768668,-2.50901 -6.223632,-9.97919 7.867054,-91.00062 0.04558,-0.52798 -0.004,-3.5e-4 C 92.390207,683.97111 89.588331,668.5926 89.588331,668.5926 Z"
+                fill="#ffffff"
+                id="path2"
+                style="stroke-width:2"/>
+        <g
+                id="g96948">
+            <path
+                    style="fill:#ffc200;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0"
+                    d="m 78.554615,796.55678 c 0,0 -3.530645,0.72726 -3.957114,4.80986 -0.356207,3.40994 2.450748,12.55847 2.450748,12.55847 0,0 4.215187,-8.18095 4.571651,-11.88215 0.38469,-3.99428 -3.065285,-5.48618 -3.065285,-5.48618 z"
+                    id="path9285"
+                    sodipodi:nodetypes="cscsc"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482)"
+                    id="path17582-3-61"
+                    cx="57.025368"
+                    cy="920.35767"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-7)"
+                    id="path17582-3-61-1"
+                    cx="70.344368"
+                    cy="921.9408"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-8)"
+                    id="path17582-3-61-9"
+                    cx="94.506203"
+                    cy="928.77191"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-75)"
+                    id="path17582-3-61-8"
+                    cx="85.787582"
+                    cy="926.36157"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-83)"
+                    id="path17582-3-61-89"
+                    cx="72.152695"
+                    cy="917.50745"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-6)"
+                    id="path17582-3-61-3"
+                    cx="46.112354"
+                    cy="922.86102"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-64)"
+                    id="path17582-3-61-30"
+                    cx="43.666264"
+                    cy="928.14392"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-3)"
+                    id="path17582-3-61-6"
+                    cx="63.22657"
+                    cy="917.57458"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-0)"
+                    id="path17582-3-61-88"
+                    cx="35.959297"
+                    cy="930.1875"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-69)"
+                    id="path17582-3-61-2"
+                    cx="25.219559"
+                    cy="932.56909"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-9)"
+                    id="path17582-3-61-7"
+                    cx="82.000267"
+                    cy="927.35974"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-92)"
+                    id="path17582-3-61-0"
+                    cx="106.54752"
+                    cy="931.96802"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5)"
+                    id="path17582-3-61-4"
+                    cx="67.780983"
+                    cy="916.07294"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-1)"
+                    id="path17582-3-61-4-8"
+                    cx="65.705498"
+                    cy="890.67462"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-4)"
+                    id="path17582-3-61-4-26"
+                    cx="68.208572"
+                    cy="901.104"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-9)"
+                    id="path17582-3-61-4-6"
+                    cx="70.920227"
+                    cy="882.33099"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-8)"
+                    id="path17582-3-61-4-2"
+                    cx="71.754578"
+                    cy="871.48438"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-10)"
+                    id="path17582-3-61-4-1"
+                    cx="74.049057"
+                    cy="857.09174"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-108)"
+                    id="path17582-3-61-4-64"
+                    cx="76.760712"
+                    cy="842.90771"
+                    r="10.224475"
+                    transform="matrix(1.0431378,0,0,1.3251927,-4.8556403,-267.08878)"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-6)"
+                    id="path17582-3-61-4-86"
+                    cx="75.300591"
+                    cy="834.98132"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-2)"
+                    id="path17582-3-61-4-4"
+                    cx="76.760712"
+                    cy="822.25739"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-7)"
+                    id="path17582-3-61-4-0"
+                    cx="77.386475"
+                    cy="809.95068"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-62)"
+                    id="path17582-3-61-4-9"
+                    cx="62.159492"
+                    cy="904.44147"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-0)"
+                    id="path17582-3-61-4-3"
+                    cx="79.263779"
+                    cy="904.44147"
+                    r="10.224475"
+                    transform="matrix(1.1079338,0,0,1.1501688,-6.1564696,-132.48145)"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-11)"
+                    id="path17582-3-61-4-40"
+                    cx="78.42942"
+                    cy="891.50891"
+                    r="10.224475"
+                    transform="matrix(1.0234639,0,0,1.0985483,-1.3187857,-90.04684)"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-4)"
+                    id="path17582-3-61-5"
+                    cx="81.552071"
+                    cy="922.81104"
+                    r="10.224475"/>
+            <circle
+                    style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter52482-5-66)"
+                    id="path17582-3-61-4-00"
+                    cx="76.134949"
+                    cy="868.98138"
+                    r="10.224475"
+                    transform="matrix(1.1501687,0,0,1.1407833,-11.224504,-121.29507)"/>
+        </g>
     </g>
-  </g>
 </svg>

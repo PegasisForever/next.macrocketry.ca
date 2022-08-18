@@ -2,7 +2,7 @@ import {Box, Text, Title} from '@mantine/core'
 import {useMarauder1Styles} from './index.page'
 import {BoxProps} from '@mantine/core/lib/components/Box/Box'
 
-export default function Marauder1Title({children,...props}: BoxProps<'div'>) {
+export default function Marauder1Title({children, ...props}: BoxProps<'div'>) {
   const {classes, theme} = useMarauder1Styles()
 
   return <Box {...props}>

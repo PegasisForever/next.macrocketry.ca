@@ -1,7 +1,6 @@
 import type {GetStaticProps} from 'next'
 import {getSideBarData} from './nav/sideBarDataHelper'
 import RightPanelContainer from './RightPanelContainer'
-import {TopLevelPageProps} from './TopLevelPageProps'
 import Image from 'next/image'
 import rocketBg from './rocketBg.png'
 import {useState} from 'react'
@@ -9,6 +8,7 @@ import {useEffectOnce, useInterval} from 'react-use'
 import {Anchor, Box, createStyles, Group, Stack, Text, Title, useMantineTheme} from '@mantine/core'
 import {gql, request} from 'graphql-request'
 import {getGraphQLUrl} from './ssrUtils'
+import {PropsWithSideBar} from './contexts'
 
 const useStyles = createStyles(theme => ({
   backgroundImage: {
@@ -140,12 +140,12 @@ function SponsorBanner() {
   </Group>
 }
 
-type PageProp = TopLevelPageProps & { numberCardData: Array<{ number: number, title: string }> }
+type PageProp = { numberCardData: Array<{ number: number, title: string }> }
 
 export default function Home(props: PageProp) {
   const {classes, theme} = useStyles()
 
-  return <RightPanelContainer hrefIndex={0} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
+  return <RightPanelContainer hrefIndex={0}>
     <Image
       className={classes.backgroundImage}
       loading={'eager'}
@@ -209,7 +209,7 @@ export default function Home(props: PageProp) {
   </RightPanelContainer>
 }
 
-export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>> = async () => {
+export const getStaticProps: GetStaticProps<PropsWithSideBar<PageProp>> = async () => {
   const res = await request(getGraphQLUrl(), gql`
 {
   Users {

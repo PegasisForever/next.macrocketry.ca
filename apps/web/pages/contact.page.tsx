@@ -1,4 +1,3 @@
-import {TopLevelPageProps} from './TopLevelPageProps'
 import RightPanelContainer from './RightPanelContainer'
 import {GetStaticProps} from 'next'
 import {getSideBarData} from './nav/sideBarDataHelper'
@@ -9,10 +8,9 @@ import {useForm} from '@mantine/form'
 import {useState} from 'react'
 import {getRecaptcha} from './recaptcha'
 import {useModals} from '@mantine/modals'
+import {PropsWithSideBar} from './contexts'
 
-type PageProp = TopLevelPageProps
-
-export default function Teams(props: PageProp) {
+export default function ContactPage() {
   const theme = useMantineTheme()
   const modals = useModals()
   const form = useForm({
@@ -49,7 +47,7 @@ export default function Teams(props: PageProp) {
     })
   }
 
-  return <RightPanelContainer hrefIndex={7} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
+  return <RightPanelContainer hrefIndex={7}>
     <Stack p={64} justify={'center'} align={'center'} sx={{
       height: '100%',
       overflowY: 'auto',
@@ -104,7 +102,7 @@ export default function Teams(props: PageProp) {
   </RightPanelContainer>
 }
 
-export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>> = async () => {
+export const getStaticProps: GetStaticProps<PropsWithSideBar<{}>> = async () => {
   return {
     props: {
       sideBarData: await getSideBarData(),

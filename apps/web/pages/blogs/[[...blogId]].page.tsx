@@ -1,5 +1,4 @@
 import {GetStaticPaths, GetStaticProps} from 'next'
-import {TopLevelPageProps} from '../TopLevelPageProps'
 import RightPanelContainer from '../RightPanelContainer'
 import {getSideBarData} from '../nav/sideBarDataHelper'
 import {Box, Button, Divider, Group, Stack, Text, Title, useMantineTheme} from '@mantine/core'
@@ -13,6 +12,7 @@ import {IconArrowRight} from '@tabler/icons'
 import Link from 'next/link'
 import BlogArticle from './BlogArticle'
 import {AnimatePresence} from 'framer-motion'
+import {PropsWithSideBar} from '../contexts'
 
 type BlogMeta = {
   id: string,
@@ -30,7 +30,7 @@ export type Blog = BlogMeta & {
   }
 }
 
-type PageProp = TopLevelPageProps & { blogMetas: BlogMeta[], blog: Blog | null }
+type PageProp = { blogMetas: BlogMeta[], blog: Blog | null }
 type PageQuery = { blogId: string[] | undefined }
 
 function BlogMetaComponent({meta}: { meta: BlogMeta }) {
@@ -78,14 +78,14 @@ function BlogMetaComponent({meta}: { meta: BlogMeta }) {
 export default function BlogsPage(props: PageProp) {
   const theme = useMantineTheme()
 
-  return <RightPanelContainer hrefIndex={4} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
+  return <RightPanelContainer hrefIndex={4}>
     <Box sx={{
       position: 'absolute',
       left: 0,
       top: 0,
       right: 0,
       bottom: 0,
-      overflowY:'auto',
+      overflowY: 'auto',
     }}>
       <Stack p={64} pt={24} spacing={32} sx={{
         maxWidth: 1200,
@@ -112,7 +112,7 @@ export default function BlogsPage(props: PageProp) {
 export const getStaticPaths: GetStaticPaths<PageQuery> = async () => {
   const paths: Array<string[] | undefined> = [undefined]
 
-    const res = await request(getGraphQLUrl(), gql`
+  const res = await request(getGraphQLUrl(), gql`
       {
         Blogs (limit:10000000) {
           docs {
@@ -137,12 +137,12 @@ export const getStaticPaths: GetStaticPaths<PageQuery> = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>, PageQuery> = async context => {
+export const getStaticProps: GetStaticProps<PropsWithSideBar<PageProp>, PageQuery> = async context => {
   const blogId = context.params?.blogId?.[0]
 
   let res
-    if (blogId) {
-      res = await request(getGraphQLUrl(), gql`
+  if (blogId) {
+    res = await request(getGraphQLUrl(), gql`
         query getBlog($id: String) {
           Blogs (limit:10000000) {
             docs {
@@ -177,10 +177,10 @@ export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>, Pag
           }
         }
       `, {
-        id: blogId,
-      })
-    } else {
-      res = await request(getGraphQLUrl(), gql`
+      id: blogId,
+    })
+  } else {
+    res = await request(getGraphQLUrl(), gql`
         query getBlog {
           Blogs (limit:10000000) {
             docs {
@@ -195,7 +195,7 @@ export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>, Pag
           }
         }
       `)
-    }
+  }
 
   const blogMetas: BlogMeta[] = []
 

@@ -1,10 +1,11 @@
-import {CSSProperties, forwardRef, PropsWithChildren, useState} from 'react'
+import {CSSProperties, forwardRef, PropsWithChildren, useContext, useState} from 'react'
 import {m} from 'framer-motion'
 import {useRouter} from 'next/router'
 import Head from 'next/head'
 import {useEffectOnce} from 'react-use'
-import {getSideBarIndex, SideBarData} from './nav/common'
+import {getSideBarIndex} from './nav/common'
 import {createStyles} from '@mantine/core'
+import {NavContext} from './contexts'
 
 const useStyles = createStyles(theme => ({
   wrapper: {
@@ -18,9 +19,10 @@ const useStyles = createStyles(theme => ({
   },
 }))
 
-const RightPanelContainer = forwardRef<HTMLDivElement, PropsWithChildren<{ hrefIndex: number, prevHrefIndex: number, sideBarData: SideBarData, style?: CSSProperties }>>(function RightPanelContainer(props, ref) {
+const RightPanelContainer = forwardRef<HTMLDivElement, PropsWithChildren<{ hrefIndex: number, style?: CSSProperties }>>(function RightPanelContainer(props, ref) {
   const {classes} = useStyles()
   const router = useRouter()
+  const {sideBarData, prevHrefIndex} = useContext(NavContext)!
   const [exitStyle, setExitStyle] = useState({opacity: 0, translateY: '0px'})
   useEffectOnce(() => {
     const handleRouteChange = (nextHref: string) => {
@@ -37,12 +39,12 @@ const RightPanelContainer = forwardRef<HTMLDivElement, PropsWithChildren<{ hrefI
 
   return <>
     <Head>
-      <title>{props.sideBarData[props.hrefIndex].children}</title>
+      <title>{sideBarData[props.hrefIndex].children}</title>
     </Head>
     <m.div ref={ref}
            style={{...props.style, zIndex: props.hrefIndex}}
            className={classes.wrapper}
-           initial={props.prevHrefIndex < props.hrefIndex ? {opacity: 0, translateY: '50px'} : {opacity: 1, translateY: '-50px'}}
+           initial={prevHrefIndex < props.hrefIndex ? {opacity: 0, translateY: '50px'} : {opacity: 1, translateY: '-50px'}}
            animate={{opacity: 1, translateY: '0px'}}
            exit={exitStyle}
            transition={{type: 'spring', bounce: 0, duration: 0.5}}>

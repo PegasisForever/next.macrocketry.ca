@@ -1,6 +1,5 @@
 import {GetStaticProps} from 'next'
 import {getSideBarData} from '../../nav/sideBarDataHelper'
-import {TopLevelPageProps} from '../../TopLevelPageProps'
 import {Box, Button, createStyles, Group, Stack, Text, Title} from '@mantine/core'
 import RightPanelContainer from '../../RightPanelContainer'
 import launchSiteImage from './images/launch_site.jpg'
@@ -17,7 +16,7 @@ import imageG from './images/g.jpg'
 import sizeComparisonImage from './images/size_comparison.svg'
 import {Fragment, memo, useCallback, useEffect, useRef, useState} from 'react'
 import FlightProfile from './FlightProfile'
-import {ScrollContext} from '../../contexts'
+import {PropsWithSideBar, ScrollContext} from '../../contexts'
 import {useElementScroll} from 'framer-motion'
 import Marauder1Title from './Marauder1Title'
 
@@ -28,7 +27,7 @@ export const useMarauder1Styles = createStyles(theme => ({
   title: {
     fontWeight: 500,
     fontSize: 48,
-    lineHeight:1,
+    lineHeight: 1,
   },
   subTitle: {
     fontWeight: 500,
@@ -36,7 +35,7 @@ export const useMarauder1Styles = createStyles(theme => ({
   },
 }))
 
-export default function Marauder1Page(props: TopLevelPageProps) {
+export default function Marauder1Page() {
   const {classes, theme} = useMarauder1Styles()
   const [isInsideLaunchProfile, setIsInsideLaunchProfile] = useState(false)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
@@ -59,7 +58,7 @@ export default function Marauder1Page(props: TopLevelPageProps) {
     }
   }, [scrollListener])
 
-  return <RightPanelContainer hrefIndex={2} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
+  return <RightPanelContainer hrefIndex={2}>
     <Text sx={{
       position: 'absolute',
       width: '100%',
@@ -316,7 +315,7 @@ const ImageGalleryItem = memo(function ImageGalleryItem(props: ReactImageGallery
   </Box>
 })
 
-export const getStaticProps: GetStaticProps<Omit<TopLevelPageProps, 'prevHrefIndex'>> = async () => {
+export const getStaticProps: GetStaticProps<PropsWithSideBar<{}>> = async () => {
   return {
     props: {
       sideBarData: await getSideBarData(),

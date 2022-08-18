@@ -1,9 +1,10 @@
-import {PropsWithChildren} from 'react'
+import {PropsWithChildren, useContext} from 'react'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from './logo.png'
 import {Anchor, Box, Stack, Title, useMantineTheme} from '@mantine/core'
+import {NavContext} from '../contexts'
 
 export type SideBarData = Array<{ href: string, children: string }>
 
@@ -32,11 +33,13 @@ function NavLink(props: PropsWithChildren<{ href: string }>) {
   </Link>
 }
 
-export function NavLinks(props: { data: SideBarData }) {
+export function NavLinks() {
+  const {sideBarData} = useContext(NavContext)!
+
   return <Stack mb={32} spacing={6} align={'flex-start'} justify={'center'} sx={{
     flexGrow: 1,
   }}>
-    {props.data.map(data => <NavLink key={data.children} {...data}/>)}
+    {sideBarData.map(data => <NavLink key={data.children} {...data}/>)}
   </Stack>
 }
 

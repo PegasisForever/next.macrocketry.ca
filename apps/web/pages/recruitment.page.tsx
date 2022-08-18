@@ -1,5 +1,4 @@
 import {GetStaticProps} from 'next'
-import {TopLevelPageProps} from './TopLevelPageProps'
 import RightPanelContainer from './RightPanelContainer'
 import {getSideBarData} from './nav/sideBarDataHelper'
 import {Button, Divider, Group, Paper, Stack, Text, Title} from '@mantine/core'
@@ -7,6 +6,7 @@ import {gql, request} from 'graphql-request'
 import {RichText, RichTextData} from './components/RichText'
 import PageTitle from './components/PageTItle'
 import {getGraphQLUrl} from './ssrUtils'
+import {PropsWithSideBar} from './contexts'
 
 
 type Position = {
@@ -14,11 +14,11 @@ type Position = {
   url: string,
   description: RichTextData,
 }
-type PageProp = TopLevelPageProps & { positions: Position[] }
+type PageProp = { positions: Position[] }
 
 
 export default function RecruitmentPage(props: PageProp) {
-  return <RightPanelContainer hrefIndex={6} prevHrefIndex={props.prevHrefIndex} sideBarData={props.sideBarData}>
+  return <RightPanelContainer hrefIndex={6}>
     <Stack p={64} pt={24} spacing={32} sx={{
       maxWidth: 1200,
       marginLeft: 'auto',
@@ -54,7 +54,7 @@ export default function RecruitmentPage(props: PageProp) {
 }
 
 
-export const getStaticProps: GetStaticProps<Omit<PageProp, 'prevHrefIndex'>> = async () => {
+export const getStaticProps: GetStaticProps<PropsWithSideBar<PageProp>> = async () => {
   const res = await request(getGraphQLUrl(), gql`
 {
   Recruitment {
