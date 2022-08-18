@@ -19,14 +19,16 @@ import {Fragment, memo, useCallback, useEffect, useRef, useState} from 'react'
 import LaunchProfile from './LaunchProfile'
 import {ScrollContext} from '../../contexts'
 import {useElementScroll} from 'framer-motion'
+import Marauder1Title from './Marauder1Title'
 
-const useStyles = createStyles(theme => ({
+export const useMarauder1Styles = createStyles(theme => ({
   marauderFont: {
     fontFamily: '"Arvo", serif',
   },
   title: {
     fontWeight: 500,
     fontSize: 48,
+    lineHeight:1,
   },
   subTitle: {
     fontWeight: 500,
@@ -35,7 +37,7 @@ const useStyles = createStyles(theme => ({
 }))
 
 export default function Marauder1Page(props: TopLevelPageProps) {
-  const {classes, theme} = useStyles()
+  const {classes, theme} = useMarauder1Styles()
   const [isInsideLaunchProfile, setIsInsideLaunchProfile] = useState(false)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const {scrollY} = useElementScroll(scrollContainerRef)
@@ -120,12 +122,9 @@ export default function Marauder1Page(props: TopLevelPageProps) {
           <Box sx={{
             width: 500,
           }}>
-            <Text color={theme.colors.gray[5]} className={classes.marauderFont}>
-              Marauder I
-            </Text>
-            <Title order={1} mb={32} className={classes.title} sx={{lineHeight: 1}}>
+            <Marauder1Title>
               Overview
-            </Title>
+            </Marauder1Title>
             {
               [
                 {
