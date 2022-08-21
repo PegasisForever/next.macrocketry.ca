@@ -24,23 +24,31 @@ export default function LaunchVideo(){
       objectPosition={'50% 50%'}
       alt={'Marauder I standing on the launch pad.'}
     />
-    <Group p={64} align={'center'} sx={{
+    <Group align={'center'} sx={{
       height: '100%',
     }}>
-      <Box sx={{
+      <Box sx={theme => ({
         padding: 32,
         width: 470,
+        marginLeft: 64,
+
+        [`@media (min-width: 1700px)`]:{
+          padding: 64,
+          width: 700,
+          marginLeft: 96,
+        },
+
         backgroundColor: theme.fn.rgba(theme.black, 0.1),
         backdropFilter: 'blur(32px)',
-      }}>
+      })}>
         <Title order={1} sx={{
           fontWeight: 500,
           fontSize: 48,
           lineHeight: 1,
         }}>
-              <span className={classes.marauderFont}>
-                Marauder I
-              </span>
+          <span className={classes.marauderFont}>
+            Marauder I
+          </span>
           &apos;s First Launch
         </Title>
         <Text size={'lg'} mt={24} sx={{
@@ -49,8 +57,8 @@ export default function LaunchVideo(){
         }}>
           <IconMapPin/>
           <span style={{marginLeft: 4}}>
-                Launch Canada 2022, Cochrane, ON
-              </span>
+            Launch Canada 2022, Cochrane, ON
+          </span>
         </Text>
         <Text size={'lg'} mt={8}>
           After one and half year of preparation, Marauder I is finally standing on the launch pad, ready to launch.

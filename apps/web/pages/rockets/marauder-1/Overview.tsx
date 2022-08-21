@@ -1,5 +1,4 @@
 import {Box, Group, Text} from '@mantine/core'
-import Image from 'next/image'
 import sizeComparisonImage from './images/size_comparison.svg'
 import Marauder1Title from './Marauder1Title'
 import {Fragment} from 'react'
@@ -15,19 +14,19 @@ export default function Overview() {
       display: 'flex',
       justifyContent: 'space-evenly',
       alignItems: 'center',
+      height: '100vh',
     }}>
-    <Box sx={{
-      width: '30%',
-      maxWidth: '200px',
-      position: 'relative',
-    }}>
-      <Image
-        title={'Human Silhouette by Madhero88, Source: https://commons.wikimedia.org/wiki/File:SVG_Human_Silhouette.svg'}
-        src={sizeComparisonImage}
-        alt={'Size comparison between the rocket and a human.'}
-        layout={'responsive'}
-      />
-    </Box>
+    <Box
+      title={'Human Silhouette by Madhero88, Source: https://commons.wikimedia.org/wiki/File:SVG_Human_Silhouette.svg'}
+      sx={{
+        width: '30%',
+        height: '70vh',
+        position: 'relative',
+        backgroundImage: `url("${sizeComparisonImage.src}")`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '50% 50%',
+        backgroundSize: 'contain',
+      }}/>
     <Box sx={{
       width: 500,
     }}>

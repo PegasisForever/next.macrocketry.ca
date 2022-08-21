@@ -17,7 +17,7 @@ import flightProfileTouchdown from './images/flight_profile_touchdown.svg'
 import {useMarauder1Styles} from './index.page'
 
 
-const LaunchProfileStepContext = createContext<{ minStepHeight: number, setMinStepHeight: Dispatch<SetStateAction<number>>, setStepCenterYs: Dispatch<SetStateAction<number[]>> } | undefined>(undefined)
+const LaunchProfileStepContext = createContext<{ stepI: number, minStepHeight: number, setMinStepHeight: Dispatch<SetStateAction<number>>, setStepCenterYs: Dispatch<SetStateAction<number[]>> } | undefined>(undefined)
 
 const flightProfileData = [
   {
@@ -70,20 +70,79 @@ const flightProfileData = [
   },
 ]
 
-const useStyles = createStyles(theme => ({
-  launchProfileStep: {
-    paddingTop: stepPadding,
-    paddingBottom: stepPadding,
-    scrollSnapAlign: 'center',
-  },
-  flightProfileNumberText: {
-    fontSize: 32,
-  },
-  flightProfileNumberSpan: {
-    fontFamily: '"JetBrains Mono", monospace',
-    fontWeight: 500,
-  },
-}))
+const stepPadding = 64
+
+const useStyles = createStyles(theme => {
+  const stepIndicatorPadding = 16
+  const stepIndicatorSize = 8
+  const stepIndicatorWidth = stepIndicatorPadding * 2 + stepIndicatorSize
+  const imageAndDataPercentageWidth = 60
+  const flightDataDisplayWidth = 270
+
+
+  return {
+    launchProfileStep: {
+      paddingTop: stepPadding,
+      paddingBottom: stepPadding,
+      scrollSnapAlign: 'center',
+    },
+    flightProfileNumberText: {
+      fontSize: 32,
+    },
+    flightProfileNumberSpan: {
+      fontFamily: '"JetBrains Mono", monospace',
+      fontWeight: 500,
+    },
+    stepIndicatorWrapper: {
+      position: 'absolute',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      right: stepIndicatorPadding,
+
+      '& > div': {
+        width: stepIndicatorSize,
+        height: stepIndicatorSize,
+        borderRadius: '100%',
+        transition: 'background-color 300ms',
+        transitionTimingFunction: 'linear',
+      },
+    },
+    launchProfileStepWrapper: {
+      marginLeft: `calc(${imageAndDataPercentageWidth}% - ${stepIndicatorWidth}px)`,
+      marginRight: stepIndicatorWidth,
+      maxWidth: 700,
+    },
+    flightDataDisplay: {
+      position: 'absolute',
+      width: flightDataDisplayWidth,
+      top: '50%',
+      transform: 'translateY(-50%)',
+      right: `calc(${100 - imageAndDataPercentageWidth}% + ${stepIndicatorWidth}px + 32px)`,
+    },
+    flightImageWrapper: {
+      backgroundImage: `url("${flightProfileBackground.src}")`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: '50% 50%',
+      backgroundSize: 'contain',
+      position: 'relative',
+      flexGrow: '1',
+      marginLeft: 32,
+      marginBottom: 32,
+      width: `calc(100% - ${32 * 2}px - ${100 - imageAndDataPercentageWidth}% - ${stepIndicatorWidth}px - 32px - ${flightDataDisplayWidth}px)`,
+
+      '& > div': {
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '50% 50%',
+        backgroundSize: 'contain',
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+      },
+    },
+  }
+})
 
 const FlightProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(props, ref) {
   const {classes, theme} = useStyles()
@@ -94,9 +153,6 @@ const FlightProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(p
   const [stepCenterYs, setStepCenterYs] = useState<number[]>(flightProfileData.map(() => 0))
   const scrollY = useContext(ScrollContext)!
   const [stepI, setStepI] = useState(0)
-  const interpolatedT = useInterpolatedValue(flightProfileData[stepI].t)
-  const interpolatedAltitude = useInterpolatedValue(flightProfileData[stepI].altitude)
-  const interpolatedSpeed = useInterpolatedValue(flightProfileData[stepI].speed)
 
   useEffect(() => {
     return scrollY.onChange(y => {
@@ -106,101 +162,35 @@ const FlightProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(p
     })
   }, [scrollY, stepCenterYs])
 
-  return <LaunchProfileStepContext.Provider value={{minStepHeight, setMinStepHeight, setStepCenterYs}}>
+  return <LaunchProfileStepContext.Provider value={{stepI, minStepHeight, setMinStepHeight, setStepCenterYs}}>
     <Box
       ref={ref}
       className={mClasses.blackSectionBackground}
       sx={{
         position: 'relative',
       }}>
-      <Box sx={{
+      <Stack spacing={0} align={'flex-start'} sx={{
         position: 'sticky',
         top: 0,
         left: 0,
         height: '100vh',
       }}>
-        <Stack spacing={6} sx={{
-          position: 'absolute',
-          top: '50%',
-          right: 16,
-          transform: 'translateY(-50%)',
-        }}>
-          {stepCenterYs.map((_, i) => <Box key={i} sx={{
-            width: 8,
-            height: 8,
-            borderRadius: '100%',
-            backgroundColor: stepI === i ? theme.colors.gray[2] : theme.colors.gray[6],
-          }}/>)}
-        </Stack>
-        <Box sx={{
-          position: 'absolute',
-          top: '50%',
-          left: 340,
-          transform: 'translateY(-50%)',
-        }}>
-          <Text className={classes.flightProfileNumberText}>
-            T
-            <span className={classes.flightProfileNumberSpan}>
-              {stepI === 0 ? '-' : '+'}
-              {interpolatedT.toFixed(1)}
-            </span>
-          </Text>
-          <Text className={classes.flightProfileNumberText}>
-            {'ALT: '}
-            <span className={classes.flightProfileNumberSpan}>
-              {interpolatedAltitude.toFixed(1)}
-            </span>
-            m
-          </Text>
-          <Text className={classes.flightProfileNumberText}>
-            {'SPEED: '}
-            <span className={classes.flightProfileNumberSpan}>
-              {interpolatedSpeed.toFixed(1)}
-            </span>
-            m/s
-          </Text>
-        </Box>
+        <StepIndicator stepCenterYs={stepCenterYs}/>
+        <FlightDataDisplay/>
         <Marauder1Title sx={{
           paddingLeft: 64,
           paddingTop: 64,
         }}>
           Flight Profile
         </Marauder1Title>
-        <Box sx={{
-          backgroundImage: `url("${flightProfileBackground.src}")`,
-          backgroundSize: '100% 100%',
-          position: 'relative',
-          aspectRatio: `${flightProfileBackground.width / flightProfileBackground.height}`,
-          height: '70vh',
-          marginLeft: 32,
-        }}>
-          <AnimatePresence>
-            <m.img
-              key={stepI}
-              initial={{opacity: 0}}
-              animate={{opacity: 1}}
-              exit={{opacity: 0}}
-              style={{
-                position: 'absolute',
-                left: 0,
-                top: 0,
-              }}
-              src={flightProfileData[stepI].image.src}
-              width={'100%'}
-              height={'100%'}/>
-          </AnimatePresence>
-        </Box>
-
-      </Box>
+        <FlightImage/>
+      </Stack>
 
       <Box sx={{
         height: `calc(50vh - ${firstHeight / 2 + stepPadding - 1}px)`,
         marginTop: '-100vh',
       }}/>
-      <Box sx={{
-        marginLeft: `calc(60% - ${16 + 16 + 8}px)`,
-        marginRight: 16 + 16 + 8,
-      }}>
+      <Box className={classes.launchProfileStepWrapper}>
         <LaunchProfileStep i={0} ref={firstRef} first title={'Ground Handling'}>
           All components have been assembled and the rocket is standing on the launch pad. All the electronics are armed and live telemetry is established.
         </LaunchProfileStep>
@@ -238,7 +228,66 @@ const FlightProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(p
 
 export default FlightProfile
 
-const stepPadding = 64
+function StepIndicator(props: { stepCenterYs: number[] }) {
+  const {classes, theme} = useStyles()
+  const {stepI} = useContext(LaunchProfileStepContext)!
+
+  return <Stack spacing={6} className={classes.stepIndicatorWrapper}>
+    {props.stepCenterYs.map((_, i) => <Box key={i} sx={{
+      backgroundColor: stepI === i ? theme.colors.gray[2] : theme.colors.gray[6],
+    }}/>)}
+  </Stack>
+}
+
+function FlightDataDisplay() {
+  const {classes} = useStyles()
+  const {stepI} = useContext(LaunchProfileStepContext)!
+  const interpolatedT = useInterpolatedValue(flightProfileData[stepI].t)
+  const interpolatedAltitude = useInterpolatedValue(flightProfileData[stepI].altitude)
+  const interpolatedSpeed = useInterpolatedValue(flightProfileData[stepI].speed)
+
+  return <Box className={classes.flightDataDisplay}>
+    <Text className={classes.flightProfileNumberText}>
+      T
+      <span className={classes.flightProfileNumberSpan}>
+        {(stepI === 0 && interpolatedT === 0) ? '-' : '+'}
+        {interpolatedT.toFixed(1)}
+      </span>
+    </Text>
+    <Text className={classes.flightProfileNumberText}>
+      {'ALT: '}
+      <span className={classes.flightProfileNumberSpan}>
+        {interpolatedAltitude.toFixed(1)}
+      </span>
+      m
+    </Text>
+    <Text className={classes.flightProfileNumberText}>
+      {'SPEED: '}
+      <span className={classes.flightProfileNumberSpan}>
+        {interpolatedSpeed.toFixed(1)}
+      </span>
+      m/s
+    </Text>
+  </Box>
+}
+
+function FlightImage() {
+  const {classes} = useStyles()
+  const {stepI} = useContext(LaunchProfileStepContext)!
+
+  return <Box className={classes.flightImageWrapper}>
+    <AnimatePresence>
+      <m.div
+        key={stepI}
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+        style={{
+          backgroundImage: `url("${flightProfileData[stepI].image.src}")`,
+        }}/>
+    </AnimatePresence>
+  </Box>
+}
 
 const LaunchProfileStep = forwardRef<HTMLDivElement, PropsWithChildren<{ title: string, i: number, first?: boolean, last?: boolean }>>(function LaunchProfileStep(props, ref) {
   const {classes} = useStyles()
