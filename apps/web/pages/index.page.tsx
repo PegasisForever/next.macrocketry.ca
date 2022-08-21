@@ -2,13 +2,17 @@ import type {GetStaticProps} from 'next'
 import {getSideBarData} from './nav/sideBarDataHelper'
 import RightPanelContainer from './RightPanelContainer'
 import Image from 'next/image'
-import rocketBg from './rocketBg.png'
 import {useState} from 'react'
 import {useEffectOnce, useInterval} from 'react-use'
-import {Anchor, Box, createStyles, Group, Stack, Text, Title, useMantineTheme} from '@mantine/core'
+import {ActionIcon, Anchor, Box, Center, createStyles, Group, Stack, Text, Title, useMantineTheme} from '@mantine/core'
 import {gql, request} from 'graphql-request'
 import {getGraphQLUrl} from './ssrUtils'
 import {PropsWithSideBar} from './contexts'
+import marauder1Image from './rockets/marauder-1/images/launch_site.jpg'
+import NoSSR from './components/NoSSR'
+import {atomWithStorage} from 'jotai/utils'
+import {useAtom} from 'jotai'
+import {IconX} from '@tabler/icons'
 
 const useStyles = createStyles(theme => ({
   backgroundImage: {
@@ -17,6 +21,10 @@ const useStyles = createStyles(theme => ({
   teamDesc: {
     lineHeight: '28px',
     fontSize: 18,
+  },
+  blurBackground: {
+    backdropFilter: 'blur(32px)',
+    color: theme.black,
   },
 }))
 
@@ -75,19 +83,19 @@ function IncreasingCounter(props: { number: number, intervalMs: number }) {
 }
 
 function NumberCard(props: { title: string, number: number }) {
-  const theme = useMantineTheme()
+  const {classes, theme} = useStyles()
 
-  return <Stack justify={'center'} spacing={8}
-                sx={{
-                  height: 96,
-                  borderRadius: 12,
-                  backgroundColor: theme.fn.rgba(theme.black, 0.5),
-                  width: '100%',
-                  maxWidth: 160,
-                  backdropFilter: 'blur(8px)',
-                  color: theme.white,
-                  textAlign: 'center',
-                }}>
+  return <Stack
+    justify={'center'} spacing={8}
+    className={classes.blurBackground}
+    sx={{
+      height: 96,
+      borderRadius: 12,
+      width: '100%',
+      maxWidth: 160,
+      textAlign: 'center',
+      backgroundColor: theme.fn.rgba(theme.white, 0.2),
+    }}>
     <Text className={'text-5xl font-medium tracking-widest'} sx={{
       fontSize: 48,
       lineHeight: '48px',
@@ -106,8 +114,14 @@ function NumberCard(props: { title: string, number: number }) {
   </Stack>
 }
 
+const showSponsorBannerAtom = atomWithStorage('showSponsorBanner', true)
+
 function SponsorBanner() {
   const theme = useMantineTheme()
+  const [show, setShow] = useAtom(showSponsorBannerAtom)
+
+  if (!show) return null
+
   return <Group
     py={4}
     spacing={24}
@@ -137,6 +151,20 @@ function SponsorBanner() {
     }} href={'/Sponsorship Package 2022 V1.pdf'} target={'_blank'} rel={'noreferrer'}>
       Sponsor Package
     </Anchor>
+    <ActionIcon
+      variant={'hover'}
+      onClick={() => setShow(false)}
+      sx={{
+        position: 'absolute',
+        right: 4,
+        top: 4,
+        color: theme.white,
+        '&:hover': {
+          backgroundColor: theme.fn.rgba(theme.white, 0.3),
+        },
+      }}>
+      <IconX/>
+    </ActionIcon>
   </Group>
 }
 
@@ -150,12 +178,14 @@ export default function Home(props: PageProp) {
       className={classes.backgroundImage}
       loading={'eager'}
       placeholder={'blur'}
-      src={rocketBg}
+      src={marauder1Image}
       layout={'fill'}
       objectFit={'cover'}
-      objectPosition={'70% 30%'}
+      // objectPosition={'70% 30%'}
       alt={''}/>
-    <SponsorBanner/>
+    <NoSSR>
+      <SponsorBanner/>
+    </NoSSR>
     <Stack sx={{
       position: 'absolute',
       left: 0,
@@ -166,36 +196,43 @@ export default function Home(props: PageProp) {
       zIndex: 10,
       padding: 80,
     }}>
-      <Stack justify={'center'} spacing={32} sx={{
+      <Center sx={{
         flexGrow: 1,
+        width: '55%',
+        maxWidth: 700,
       }}>
-        <Title order={2} sx={{
-          fontSize: 60,
-          lineHeight: '60px',
-          fontWeight: 500,
-        }} className={'font-medium text-6xl text-center md:text-left'}>
-          <TypeWriter intervalMs={100}>
-            Fueling Innovation
-          </TypeWriter>
-        </Title>
-        <Text className={classes.teamDesc} sx={{
-          width: '70%',
+        <Box p={32} className={classes.blurBackground} sx={{
+          flexGrow: 1,
+          backgroundColor: theme.fn.rgba(theme.white, 0.3),
         }}>
-          We are a student run team based at McMaster University in Hamilton, Ontario, Canada. We design, build and launch rockets and innovative payloads. This year we are
-          competing in the{' '}
-          <Anchor className={classes.teamDesc}
-                  href={'http://www.launchcanada.org/'}
-                  target={'_blank'} rel={'noreferrer'}
-                  sx={{
-                    color: theme.black,
-                    textDecoration: 'underline',
-                    textUnderlineOffset: 1,
-                    textDecorationColor: theme.colors.gray[8],
-                  }}>
-            Launch Canada Competition
-          </Anchor> and building a rocket to launch to 3km (10,000ft) in altitude!
-        </Text>
-      </Stack>
+          <Title order={2} mb={24} sx={{
+            fontSize: 60,
+            lineHeight: '60px',
+            fontWeight: 500,
+          }} className={'font-medium text-6xl text-center md:text-left'}>
+            <TypeWriter intervalMs={100}>
+              Fueling Innovation
+            </TypeWriter>
+          </Title>
+          <Text className={classes.teamDesc}>
+            We are a student run team based at McMaster University in Hamilton, Ontario, Canada. We design, build and launch rockets and innovative payloads. This year we are
+            competing in the{' '}
+            <Anchor
+              className={classes.teamDesc}
+              href={'http://www.launchcanada.org/'}
+              target={'_blank'} rel={'noreferrer'}
+              sx={{
+                color: theme.black,
+                textDecoration: 'underline',
+                textUnderlineOffset: 2,
+                textDecorationColor: theme.colors.gray[8],
+              }}>
+              Launch Canada Competition
+            </Anchor> and building a rocket to launch to 3km (10,000ft) in altitude!
+          </Text>
+        </Box>
+      </Center>
+
       <Group position={'apart'}>
         {props.numberCardData.map(data => <NumberCard key={data.title} {...data}/>)}
       </Group>

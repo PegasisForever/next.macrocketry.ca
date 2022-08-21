@@ -125,7 +125,7 @@ const useStyles = createStyles(theme => {
       backgroundPosition: '50% 50%',
       backgroundSize: 'contain',
       position: 'relative',
-      flexGrow: '1',
+      flexGrow: 1,
       marginLeft: 32,
       marginBottom: 32,
       width: `calc(100% - ${32 * 2}px - ${100 - imageAndDataPercentageWidth}% - ${stepIndicatorWidth}px - 32px - ${flightDataDisplayWidth}px)`,
