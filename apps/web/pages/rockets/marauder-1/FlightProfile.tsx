@@ -14,6 +14,7 @@ import flightProfileApogee from './images/flight_profile_apogee.svg'
 import flightProfileDrogue from './images/flight_profile_drogue.svg'
 import flightProfileMainDescent from './images/flight_profile_main_descent.svg'
 import flightProfileTouchdown from './images/flight_profile_touchdown.svg'
+import {useMarauder1Styles} from './index.page'
 
 
 const LaunchProfileStepContext = createContext<{ minStepHeight: number, setMinStepHeight: Dispatch<SetStateAction<number>>, setStepCenterYs: Dispatch<SetStateAction<number[]>> } | undefined>(undefined)
@@ -86,6 +87,7 @@ const useStyles = createStyles(theme => ({
 
 const FlightProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(props, ref) {
   const {classes, theme} = useStyles()
+  const {classes: mClasses} = useMarauder1Styles()
   const [firstRef, {height: firstHeight}] = useMeasure<HTMLDivElement>()
   const [lastRef, {height: lastHeight}] = useMeasure<HTMLDivElement>()
   const [minStepHeight, setMinStepHeight] = useState(0)
@@ -107,9 +109,8 @@ const FlightProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(p
   return <LaunchProfileStepContext.Provider value={{minStepHeight, setMinStepHeight, setStepCenterYs}}>
     <Box
       ref={ref}
+      className={mClasses.blackSectionBackground}
       sx={{
-        background: theme.fn.linearGradient(180, theme.colors.gray[9], theme.fn.lighten(theme.colors.gray[9], 0.03)),
-        color: theme.white,
         position: 'relative',
       }}>
       <Box sx={{
