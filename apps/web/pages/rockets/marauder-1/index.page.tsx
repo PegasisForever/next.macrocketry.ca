@@ -256,6 +256,13 @@ export default function Marauder1Page() {
 
         <FlightProfile ref={launchProfileRef}/>
 
+        <Box sx={{
+          background: theme.colors.gray[9],
+          height:'50vh',
+        }}>
+
+        </Box>
+
         <Stack align={'center'} py={32} sx={{
           background: theme.colors.gray[0],
           color: theme.black,

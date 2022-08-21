@@ -1,10 +1,9 @@
 import {Box, createStyles, Stack, Text, Title} from '@mantine/core'
 import {createContext, Dispatch, forwardRef, PropsWithChildren, RefObject, SetStateAction, useContext, useEffect, useRef, useState} from 'react'
 import {useMeasure, useWindowSize} from 'react-use'
-import {animate, AnimatePresence, AnimationPlaybackControls, m, useTransform} from 'framer-motion'
+import {animate, AnimatePresence, AnimationPlaybackControls, m, MotionValue, useTransform} from 'framer-motion'
 import {useMergedRef} from '@mantine/hooks'
 import {ScrollContext} from '../../contexts'
-import {MotionValue} from 'framer-motion/types/value'
 import Marauder1Title from './Marauder1Title'
 import flightProfileBackground from './images/flight_profile_background.svg'
 import flightProfileGroundHandling from './images/flight_profile_ground_handling.svg'
@@ -109,7 +108,7 @@ const FlightProfile = forwardRef<HTMLDivElement | null>(function LaunchProfile(p
     <Box
       ref={ref}
       sx={{
-        background: theme.colors.gray[9],
+        background: theme.fn.linearGradient(180, theme.colors.gray[9], theme.fn.lighten(theme.colors.gray[9], 0.03)),
         color: theme.white,
         position: 'relative',
       }}>
