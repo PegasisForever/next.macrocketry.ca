@@ -8,6 +8,8 @@ import {NavContext} from '../contexts'
 
 export type SideBarData = Array<{ href: string, children: string }>
 
+export const desktopSideBarBreakPoint = 1150
+
 export function normalizeHref(href: string): string {
   return '/' + href.split('/')[1]
 }
