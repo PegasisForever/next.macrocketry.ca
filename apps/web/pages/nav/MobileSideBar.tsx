@@ -24,7 +24,6 @@ export default function MobileSideBar() {
   const {classes, theme} = useStyles()
   const router = useRouter()
   const [show, setShow] = useState(false)
-  console.log('show', show)
 
   useEffect(() => {
     const handleRouteChange = () => {
