@@ -152,7 +152,7 @@ function SponsorBanner() {
       Sponsor Package
     </Anchor>
     <ActionIcon
-      variant={'hover'}
+      variant={'transparent'}
       onClick={() => setShow(false)}
       sx={{
         position: 'absolute',

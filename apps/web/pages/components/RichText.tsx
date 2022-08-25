@@ -1,5 +1,4 @@
-import {Anchor, Box, List, Text, Title, TitleOrder} from '@mantine/core'
-import {BoxProps} from '@mantine/core/lib/components/Box/Box'
+import {Anchor, Box, BoxProps, List, Text, Title, TitleOrder} from '@mantine/core'
 
 type Leaf = {
   text: string,
@@ -73,7 +72,7 @@ function RichTextNode(props: { data: RichTextData }) {
   </>
 }
 
-export function RichText({data, ...wrapperProps}: { data: RichTextData } & BoxProps<'div'>) {
+export function RichText({data, ...wrapperProps}: { data: RichTextData } & BoxProps) {
   return <Box {...wrapperProps}>
     <RichTextNode data={data}/>
   </Box>
