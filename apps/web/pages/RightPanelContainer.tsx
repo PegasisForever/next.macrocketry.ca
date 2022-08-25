@@ -1,26 +1,15 @@
-import {CSSProperties, forwardRef, PropsWithChildren, useContext, useState} from 'react'
+import {forwardRef, PropsWithChildren, useContext, useState} from 'react'
 import {m} from 'framer-motion'
 import {useRouter} from 'next/router'
 import Head from 'next/head'
 import {useEffectOnce} from 'react-use'
 import {getSideBarIndex} from './nav/common'
-import {createStyles} from '@mantine/core'
+import {Box, useMantineTheme} from '@mantine/core'
 import {NavContext} from './contexts'
+import {Sx} from '@mantine/styles/lib/theme/types/DefaultProps'
 
-const useStyles = createStyles(theme => ({
-  wrapper: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundColor: theme.colors.gray[0],
-    overflowY: 'auto',
-  },
-}))
-
-const RightPanelContainer = forwardRef<HTMLDivElement, PropsWithChildren<{ hrefIndex: number, style?: CSSProperties }>>(function RightPanelContainer(props, ref) {
-  const {classes} = useStyles()
+const RightPanelContainer = forwardRef<HTMLDivElement, PropsWithChildren<{ hrefIndex: number, sx?: Sx }>>(function RightPanelContainer(props, ref) {
+  const theme = useMantineTheme()
   const router = useRouter()
   const {sideBarData, prevHrefIndex} = useContext(NavContext)!
   const [exitStyle, setExitStyle] = useState({opacity: 0, translateY: '0px'})
@@ -41,15 +30,25 @@ const RightPanelContainer = forwardRef<HTMLDivElement, PropsWithChildren<{ hrefI
     <Head>
       <title>{sideBarData[props.hrefIndex].children}</title>
     </Head>
-    <m.div ref={ref}
-           style={{...props.style, zIndex: props.hrefIndex}}
-           className={classes.wrapper}
-           initial={prevHrefIndex < props.hrefIndex ? {opacity: 0, translateY: '50px'} : {opacity: 1, translateY: '-50px'}}
-           animate={{opacity: 1, translateY: '0px'}}
-           exit={exitStyle}
-           transition={{type: 'spring', bounce: 0, duration: 0.5}}>
+    <Box
+      component={m.div}
+      sx={[{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: theme.colors.gray[0],
+        overflowY: 'auto',
+      }, props.sx]}
+      ref={ref}
+      style={{zIndex: props.hrefIndex}}
+      initial={prevHrefIndex < props.hrefIndex ? {opacity: 0, translateY: '50px'} : {opacity: 1, translateY: '-50px'}}
+      animate={{opacity: 1, translateY: '0px'}}
+      exit={exitStyle}
+      transition={{type: 'spring', bounce: 0, duration: 0.5}}>
       {props.children}
-    </m.div>
+    </Box>
   </>
 })
 
