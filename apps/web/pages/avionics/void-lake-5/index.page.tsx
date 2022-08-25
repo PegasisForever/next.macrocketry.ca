@@ -6,6 +6,7 @@ import {Box, Group, Stack, Text, useMantineTheme} from '@mantine/core'
 import pcbSchema from './images/pcb_schema.png'
 import pcbLayout from './images/pcb_layout.png'
 import pcb2d from './images/pcb_2d.png'
+import pcb3d from './images/pcb_3d.png'
 import Image from 'next/image'
 import {Sx} from '@mantine/styles/lib/theme/types/DefaultProps'
 import {forwardRef, PropsWithChildren, ReactNode, useRef} from 'react'
@@ -17,7 +18,7 @@ export default function VoidLake5Page() {
 
   return <RightPanelContainer hrefIndex={3} sx={{
     overflowY: 'hidden',
-    backgroundColor: theme.black,
+    backgroundColor: theme.colors.gray[9],
   }}>
     <Box ref={scrollContainerRef} sx={{
       position: 'relative',
@@ -72,6 +73,7 @@ export default function VoidLake5Page() {
       </ParallaxContainer>
       <PCBLayoutSection/>
       <PCB2DSection/>
+      <PCB3DSection/>
       <Box sx={{
         height: '100vh',
       }}/>
@@ -80,11 +82,14 @@ export default function VoidLake5Page() {
 }
 
 function PCBLayoutSection() {
-  const [ref, {width: imageWidth}] = useMeasure<HTMLDivElement>()
+  const [ref, {width: containerWidth}] = useMeasure<HTMLDivElement>()
   const {height: windowHeight} = useWindowSize()
 
+  const paddingX = 64
+  const imageWidth = containerWidth - paddingX * 2
   const imageHeight = pcbLayout.height / (pcbLayout.width / imageWidth)
   const paddingTop = (windowHeight - imageHeight) / 2
+
 
   return <ParallaxContainer
     ref={ref}
@@ -93,6 +98,8 @@ function PCBLayoutSection() {
     }}
     innerSx={{
       paddingTop,
+      paddingLeft: paddingX,
+      paddingRight: paddingX,
     }}>
     <Image
       priority
@@ -104,9 +111,11 @@ function PCBLayoutSection() {
 }
 
 function PCB2DSection() {
-  const [ref, {width: imageWidth}] = useMeasure<HTMLDivElement>()
+  const [ref, {width: containerWidth}] = useMeasure<HTMLDivElement>()
   const {height: windowHeight} = useWindowSize()
 
+  const paddingX = 64
+  const imageWidth = containerWidth - paddingX * 2
   const imageHeight = pcbLayout.height / (pcbLayout.width / imageWidth)
   const paddingTop = (windowHeight - imageHeight) / 2
 
@@ -118,10 +127,42 @@ function PCB2DSection() {
     innerSx={{
       height: imageHeight + paddingTop,
       paddingTop,
+      paddingLeft: paddingX,
+      paddingRight: paddingX,
     }}>
     <Image
       priority
       src={pcb2d}
+      placeholder={'blur'}
+      layout={'responsive'}
+    />
+  </ParallaxContainer>
+}
+
+function PCB3DSection() {
+  const [ref, {width: containerWidth}] = useMeasure<HTMLDivElement>()
+  const {height: windowHeight} = useWindowSize()
+
+  const paddingLeft = 0
+  const paddingRight= 48
+  const imageWidth = containerWidth - paddingLeft-paddingRight
+  const imageHeight = pcbLayout.height / (pcbLayout.width / imageWidth)
+  const paddingTop = (windowHeight - imageHeight) / 2
+
+  return <ParallaxContainer
+    ref={ref}
+    sx={{
+      height: imageHeight,
+    }}
+    innerSx={{
+      height: imageHeight + paddingTop,
+      paddingTop,
+      paddingLeft,
+      paddingRight,
+    }}>
+    <Image
+      priority
+      src={pcb3d}
       placeholder={'blur'}
       layout={'responsive'}
     />
