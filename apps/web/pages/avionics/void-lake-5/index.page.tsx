@@ -44,23 +44,32 @@ export default function VoidLake5Page() {
               fontWeight: 500,
               fontSize: 96,
               lineHeight: '100%',
+              textShadow:`0 0 10px ${theme.fn.rgba(theme.black, 0.5)}`
             }}>
               VOID LAKE
             </Box>
             <Box component={'span'} sx={{
-              fontWeight: 500,
-              fontSize: 20,
-              color: theme.black,
-              backgroundColor: theme.white,
-              borderRadius: 8,
-              marginTop: 16,
-              padding: '4px 8px',
-              lineHeight: '100%',
+              filter:`drop-shadow(0 0 6px ${theme.fn.rgba(theme.black, 0.5)})`,
+              marginTop: 20,
             }}>
-              V5
+              <Box component={'span'} sx={{
+                fontWeight: 500,
+                fontSize: 20,
+                color: theme.colors.gray[7],
+                backgroundColor: theme.white,
+
+                padding: '2px 12px',
+                lineHeight: '100%',
+                clipPath: 'polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%)',
+              }}>
+                V5
+              </Box>
             </Box>
+
           </Group>
-          <Text size={'lg'}>
+          <Text size={'lg'} sx={{
+            textShadow:`0 0 6px ${theme.black}`
+          }}>
             Striving Perfection
           </Text>
         </Stack>}>
