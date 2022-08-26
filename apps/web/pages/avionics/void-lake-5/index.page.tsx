@@ -6,15 +6,17 @@ import {Box, Group, Stack, Text, useMantineTheme} from '@mantine/core'
 import pcbSchema from './images/pcb_schema.png'
 import pcbLayout from './images/pcb_layout.png'
 import pcb2d from './images/pcb_2d.png'
-import pcb3d from './images/pcb_3d.png'
 import Image from 'next/image'
 import {Sx} from '@mantine/styles/lib/theme/types/DefaultProps'
-import {forwardRef, PropsWithChildren, ReactNode, useRef} from 'react'
+import {forwardRef, PropsWithChildren, ReactNode, useEffect, useRef, useState} from 'react'
 import {useMeasure, useWindowSize} from 'react-use'
+import {useMergedRef} from '@mantine/hooks'
+import {MotionValue, useElementScroll, useTransform} from 'framer-motion'
 
 export default function VoidLake5Page() {
   const theme = useMantineTheme()
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const {scrollY} = useElementScroll(scrollContainerRef)
 
   return <RightPanelContainer hrefIndex={3} sx={{
     overflowY: 'hidden',
@@ -44,12 +46,12 @@ export default function VoidLake5Page() {
               fontWeight: 500,
               fontSize: 96,
               lineHeight: '100%',
-              textShadow:`0 0 10px ${theme.fn.rgba(theme.black, 0.5)}`
+              textShadow: `0 0 10px ${theme.fn.rgba(theme.black, 0.5)}`,
             }}>
               VOID LAKE
             </Box>
             <Box component={'span'} sx={{
-              filter:`drop-shadow(0 0 6px ${theme.fn.rgba(theme.black, 0.5)})`,
+              filter: `drop-shadow(0 0 6px ${theme.fn.rgba(theme.black, 0.5)})`,
               marginTop: 20,
             }}>
               <Box component={'span'} sx={{
@@ -68,7 +70,7 @@ export default function VoidLake5Page() {
 
           </Group>
           <Text size={'lg'} sx={{
-            textShadow:`0 0 6px ${theme.black}`
+            textShadow: `0 0 6px ${theme.black}`,
           }}>
             Striving Perfection
           </Text>
@@ -82,10 +84,7 @@ export default function VoidLake5Page() {
       </ParallaxContainer>
       <PCBLayoutSection/>
       <PCB2DSection/>
-      <PCB3DSection/>
-      <Box sx={{
-        height: '100vh',
-      }}/>
+      <PCB3DSection scrollY={scrollY}/>
     </Box>
   </RightPanelContainer>
 }
@@ -148,33 +147,56 @@ function PCB2DSection() {
   </ParallaxContainer>
 }
 
-function PCB3DSection() {
-  const [ref, {width: containerWidth}] = useMeasure<HTMLDivElement>()
-  const {height: windowHeight} = useWindowSize()
+function PCB3DSection(props: { scrollY: MotionValue<number> }) {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const lastProgress = useRef<number>(0)
+  const ref1 = useRef<HTMLDivElement>(null)
+  const [ref2, {width: containerWidth}] = useMeasure<HTMLDivElement>()
+  // @ts-ignore
+  const mergedRef = useMergedRef(ref1, ref2)
 
-  const paddingLeft = 0
-  const paddingRight= 48
-  const imageWidth = containerWidth - paddingLeft-paddingRight
-  const imageHeight = pcbLayout.height / (pcbLayout.width / imageWidth)
+  const [absoluteTop, setAbsoluteTop] = useState(0)
+  const {height: windowHeight} = useWindowSize()
+  const videoProgress = useTransform(props.scrollY, [absoluteTop + windowHeight, absoluteTop + windowHeight * 2], [0, 1])
+
+
+  const paddingLeft = 8
+  const paddingRight = 8
+  const imageWidth = containerWidth - paddingLeft - paddingRight
+  const imageHeight = 1080 / (1920 / imageWidth)
   const paddingTop = (windowHeight - imageHeight) / 2
 
+  useEffect(() => {
+    if (ref1.current) {
+      const rect = ref1.current.getBoundingClientRect()
+      const absoluteTop = rect.top + props.scrollY.get()
+      setAbsoluteTop(absoluteTop + 300)
+    }
+  }, [props.scrollY, ref1])
+
+  useEffect(() => videoProgress.onChange(p => {
+    p = Math.round(p * 26) / 26
+    console.log(p)
+    if (videoRef.current && lastProgress.current !== p) {
+      videoRef.current.currentTime = p
+      lastProgress.current = p
+    }
+  }), [videoProgress])
+
   return <ParallaxContainer
-    ref={ref}
+    ref={mergedRef}
     sx={{
-      height: imageHeight,
+      height: '300vh',
     }}
     innerSx={{
-      height: imageHeight + paddingTop,
       paddingTop,
       paddingLeft,
       paddingRight,
     }}>
-    <Image
-      priority
-      src={pcb3d}
-      placeholder={'blur'}
-      layout={'responsive'}
-    />
+    <video ref={videoRef} width={'100%'} loop muted playsInline>
+      <source src={'/videos/3d.webm'} type={'video/webm'}/>
+      <source src={'/videos/3d.mov'} type={'video/mp4; codecs="hvc1"'}/>
+    </video>
   </ParallaxContainer>
 }
 
