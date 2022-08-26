@@ -9,7 +9,7 @@ import pcb2d from './images/pcb_2d.png'
 import Image from 'next/image'
 import {Sx} from '@mantine/styles/lib/theme/types/DefaultProps'
 import {forwardRef, PropsWithChildren, ReactNode, useEffect, useRef, useState} from 'react'
-import {useMeasure, useWindowSize} from 'react-use'
+import {useMeasure, useScrollbarWidth, useWindowSize} from 'react-use'
 import {MotionValue, useElementScroll, useTransform} from 'framer-motion'
 import {useBoundingclientrect} from 'rooks'
 
@@ -33,6 +33,9 @@ export default function VoidLake5Page() {
       <ParallaxContainer
         sx={{
           height: '100vh',
+        }}
+        innerSx={{
+          height: '100%',
         }}
         noneParallax={<Stack spacing={8} align={'center'} justify={'center'} sx={{
           width: '100%',
@@ -80,11 +83,16 @@ export default function VoidLake5Page() {
           src={pcbSchema}
           placeholder={'blur'}
           layout={'fill'}
+          objectFit={'cover'}
         />
       </ParallaxContainer>
       <PCBLayoutSection/>
       <PCB2DSection/>
       <PCB3DSection scrollY={scrollY}/>
+      <Box sx={{
+        height: '100vh',
+        backgroundColor: theme.colors.green[4],
+      }}/>
     </Box>
   </RightPanelContainer>
 }
@@ -148,28 +156,32 @@ function PCB2DSection() {
 }
 
 function PCB3DSection(props: { scrollY: MotionValue<number> }) {
+  const theme = useMantineTheme()
   const videoRef = useRef<HTMLVideoElement>(null)
   const lastProgress = useRef<number>(0)
   const ref = useRef<HTMLDivElement>(null)
   const rect = useBoundingclientrect(ref)
   const containerWidth = rect?.width ?? 0
 
+  const [parallaxStickBottom, setParallaxStickBottom] = useState(false)
   const [absoluteTop, setAbsoluteTop] = useState(0)
+
   const {height: windowHeight} = useWindowSize()
-  const videoProgress = useTransform(props.scrollY, [absoluteTop, absoluteTop + windowHeight], [0, 1])
+  const videoProgress = useTransform(props.scrollY, [absoluteTop, absoluteTop + windowHeight / 2], [0, 1])
 
   const paddingLeft = 8
   const paddingRight = 8
   const imageWidth = containerWidth - paddingLeft - paddingRight
   const imageHeight = 1080 / (1920 / imageWidth)
   const paddingTop = (windowHeight - imageHeight) / 2
+  const absoluteBottom = absoluteTop + (rect?.height ?? 0) + paddingTop
 
   useEffect(() => {
     if (rect) {
-      const absoluteTop = rect.top + props.scrollY.get()
+      const absoluteTop = rect.top + props.scrollY.get() - paddingTop
       setAbsoluteTop(absoluteTop)
     }
-  }, [props.scrollY, rect])
+  }, [paddingTop, props.scrollY, rect])
 
   useEffect(() => videoProgress.onChange(p => {
     p = Math.round(p * 26) / 26
@@ -180,16 +192,30 @@ function PCB3DSection(props: { scrollY: MotionValue<number> }) {
     }
   }), [videoProgress])
 
+  useEffect(() => props.scrollY.onChange(scrollY => {
+    setParallaxStickBottom(scrollY + windowHeight > absoluteBottom)
+  }), [absoluteBottom, props.scrollY, windowHeight])
+
   return <ParallaxContainer
     ref={ref}
+    stickBottom={parallaxStickBottom}
     sx={{
-      height: '300vh',
+      height: '150vh',
     }}
     innerSx={{
       paddingTop,
       paddingLeft,
       paddingRight,
+      paddingBottom: paddingTop,
+    }}
+    noneParallax={<Box sx={{
+      opacity: 0.9999,
+      color: theme.white,
+      width: '100%',
     }}>
+      awa
+    </Box>}
+  >
     <video ref={videoRef} width={'100%'} loop muted playsInline>
       <source src={'/videos/3d.webm'} type={'video/webm'}/>
       <source src={'/videos/3d.mov'} type={'video/mp4; codecs="hvc1"'}/>
@@ -197,20 +223,20 @@ function PCB3DSection(props: { scrollY: MotionValue<number> }) {
   </ParallaxContainer>
 }
 
-const ParallaxContainer = forwardRef<HTMLDivElement, PropsWithChildren<{ sx?: Sx, innerSx?: Sx, noneParallax?: ReactNode }>>(function ParallaxContainer(props, ref) {
+const ParallaxContainer = forwardRef<HTMLDivElement, PropsWithChildren<{ sx?: Sx, innerSx?: Sx, stickBottom?: boolean, noneParallax?: ReactNode }>>(function ParallaxContainer(props, ref) {
+    const sbw = useScrollbarWidth()
     return <Box ref={ref} sx={[{
       position: 'relative',
       width: '100%',
       backfaceVisibility: 'hidden',
-      overflow: 'hidden',
       clipPath: 'inset(0 0 0 0)',
     }, props.sx]}>
       <Box sx={[{
-        position: 'fixed',
+        position: props.stickBottom ? 'absolute' : 'fixed',
         left: 0,
-        top: 0,
-        width: '100%',
-        height: '100%',
+        bottom: props.stickBottom ? 0 : undefined,
+        top: props.stickBottom ? undefined : 0,
+        width: `calc(100% - ${props.stickBottom ? 0 : sbw}px)`,
         pointerEvents: 'none',
       }, props.innerSx]}>
         {props.children}
