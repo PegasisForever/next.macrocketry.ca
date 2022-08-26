@@ -10,8 +10,8 @@ import Image from 'next/image'
 import {Sx} from '@mantine/styles/lib/theme/types/DefaultProps'
 import {forwardRef, PropsWithChildren, ReactNode, useEffect, useRef, useState} from 'react'
 import {useMeasure, useWindowSize} from 'react-use'
-import {useMergedRef} from '@mantine/hooks'
 import {MotionValue, useElementScroll, useTransform} from 'framer-motion'
+import {useBoundingclientrect} from 'rooks'
 
 export default function VoidLake5Page() {
   const theme = useMantineTheme()
@@ -150,15 +150,13 @@ function PCB2DSection() {
 function PCB3DSection(props: { scrollY: MotionValue<number> }) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const lastProgress = useRef<number>(0)
-  const ref1 = useRef<HTMLDivElement>(null)
-  const [ref2, {width: containerWidth}] = useMeasure<HTMLDivElement>()
-  // @ts-ignore
-  const mergedRef = useMergedRef(ref1, ref2)
+  const ref = useRef<HTMLDivElement>(null)
+  const rect = useBoundingclientrect(ref)
+  const containerWidth = rect?.width ?? 0
 
   const [absoluteTop, setAbsoluteTop] = useState(0)
   const {height: windowHeight} = useWindowSize()
-  const videoProgress = useTransform(props.scrollY, [absoluteTop + windowHeight, absoluteTop + windowHeight * 2], [0, 1])
-
+  const videoProgress = useTransform(props.scrollY, [absoluteTop, absoluteTop + windowHeight], [0, 1])
 
   const paddingLeft = 8
   const paddingRight = 8
@@ -167,12 +165,11 @@ function PCB3DSection(props: { scrollY: MotionValue<number> }) {
   const paddingTop = (windowHeight - imageHeight) / 2
 
   useEffect(() => {
-    if (ref1.current) {
-      const rect = ref1.current.getBoundingClientRect()
+    if (rect) {
       const absoluteTop = rect.top + props.scrollY.get()
-      setAbsoluteTop(absoluteTop + 300)
+      setAbsoluteTop(absoluteTop)
     }
-  }, [props.scrollY, ref1])
+  }, [props.scrollY, rect])
 
   useEffect(() => videoProgress.onChange(p => {
     p = Math.round(p * 26) / 26
@@ -184,7 +181,7 @@ function PCB3DSection(props: { scrollY: MotionValue<number> }) {
   }), [videoProgress])
 
   return <ParallaxContainer
-    ref={mergedRef}
+    ref={ref}
     sx={{
       height: '300vh',
     }}
