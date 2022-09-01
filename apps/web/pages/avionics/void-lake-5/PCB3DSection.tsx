@@ -1,6 +1,6 @@
 import {m, MotionValue, useTransform} from 'framer-motion'
 import {Box, Text, Title, useMantineTheme} from '@mantine/core'
-import {PropsWithChildren, useEffect, useRef, useState} from 'react'
+import {createContext, PropsWithChildren, ReactNode, useContext, useEffect, useRef, useState} from 'react'
 import {useBoundingclientrect} from 'rooks'
 import {useWindowSize} from 'react-use'
 import {ParallaxContainer} from './ParallaxContainer'
@@ -17,8 +17,6 @@ export function PCB3DSection(props: { scrollY: MotionValue<number> }) {
   const [absoluteTop, setAbsoluteTop] = useState(0)
 
   const {height: windowHeight} = useWindowSize()
-  const videoProgress = useTransform(props.scrollY, [absoluteTop, absoluteTop + windowHeight / 2], [0, 1])
-
   const paddingLeft = 8
   const paddingRight = 8
   const imageWidth = containerWidth - paddingLeft - paddingRight
@@ -26,6 +24,7 @@ export function PCB3DSection(props: { scrollY: MotionValue<number> }) {
   const paddingTop = (windowHeight - imageHeight) / 2
   const absoluteBottom = absoluteTop + (rect?.height ?? 0) + paddingTop
 
+  const videoProgress = useTransform(props.scrollY, [absoluteTop, absoluteBottom - windowHeight], [0, 1])
   const textOpacity = useTransform(props.scrollY, [absoluteBottom - windowHeight - 100, absoluteBottom - windowHeight], [0, 0.999])
 
   useEffect(() => {
@@ -37,7 +36,6 @@ export function PCB3DSection(props: { scrollY: MotionValue<number> }) {
 
   useEffect(() => videoProgress.onChange(p => {
     p = Math.round(p * 26) / 26
-    console.log(p)
     if (videoRef.current && lastProgress.current !== p) {
       videoRef.current.currentTime = p
       lastProgress.current = p
@@ -80,54 +78,46 @@ export function PCB3DSection(props: { scrollY: MotionValue<number> }) {
         marginTop: paddingTop,
         height: imageHeight,
       }}>
-        <ComponentLabel title={'E22-900M30S'} x={37} y={36} arrowDx={-75} arrowDy={-125} dividerWidth={230}>
-          <Text>915Mhz Long Range Radio (LoRa)</Text>
-          <Text>30db transmission power</Text>
-          <Text>62kbps maximum bandwidth</Text>
-        </ComponentLabel>
-        <ComponentLabel title={'BMP280'} x={49} y={40} arrowDx={-50} arrowDy={-250} dividerWidth={160}>
-          <Text>Pressure sensor</Text>
-          <Text>100hz sampling rate</Text>
-          <Text>9km maximum altitude</Text>
-        </ComponentLabel>
-        <ComponentLabel title={'MPU6050'} x={62.2} y={35} arrowDx={50} arrowDy={-150} dividerWidth={270}>
-          <Text>6-axis inertial measurement unit (IMU)</Text>
-          <Text>1000Hz sampling rate</Text>
-          <Text>±16g max acceleration</Text>
-        </ComponentLabel>
-        <ComponentLabel title={'NEO-7M'} x={64} y={39.5} arrowDx={100} arrowDy={-50} dividerWidth={200}>
-          <Text>GNSS receiver</Text>
-          <Text>Supports GPS & GLONASS</Text>
-          <Text>2m accuracy</Text>
-        </ComponentLabel>
-        <ComponentLabel title={'Raspberry Pi Zero 2 W'} x={58} y={54} arrowDx={50} arrowDy={100} dividerWidth={270}>
-          <Text>Single Board Computer (SBC)</Text>
-          <Text>Running custom control software</Text>
-          <Text>4 Cortex-A53 @ 1GHz</Text>
-          <Text>Wi-Fi enabled</Text>
-        </ComponentLabel>
-        <ComponentLabel title={'LM2596'} x={37} y={54} arrowDx={-50} arrowDy={100} dividerWidth={200}>
-          <Text>DC-DC switching regulator</Text>
-          <Text>7-40V input voltage</Text>
-          <Text>80% efficiency</Text>
-        </ComponentLabel>
+        <ComponentLabelContext.Provider value={{containerWidth, containerHeight: windowHeight}}>
+          <ComponentLabel title={'E22-900M30S'} x={37} y={36} arrowDx={-75} arrowDy={-125} dividerWidth={230}>
+            <Text>915Mhz Long Range Radio (LoRa)</Text>
+            <Text>30db transmission power</Text>
+            <Text>62kbps maximum bandwidth</Text>
+          </ComponentLabel>
+          <ComponentLabel title={'BMP280'} x={49} y={40} arrowDx={-50} arrowDy={-250} dividerWidth={160}>
+            <Text>Pressure sensor</Text>
+            <Text>100hz sampling rate</Text>
+            <Text>9km maximum altitude</Text>
+          </ComponentLabel>
+          <ComponentLabel title={'MPU6050'} x={62.2} y={35} arrowDx={50} arrowDy={-150} dividerWidth={270}>
+            <Text>6-axis inertial measurement unit (IMU)</Text>
+            <Text>1000Hz sampling rate</Text>
+            <Text>±16g max acceleration</Text>
+          </ComponentLabel>
+          <ComponentLabel title={'NEO-7M'} x={64} y={39.5} arrowDx={100} arrowDy={-50} dividerWidth={200}>
+            <Text>GNSS receiver</Text>
+            <Text>Supports GPS & GLONASS</Text>
+            <Text>2m accuracy</Text>
+          </ComponentLabel>
+          <ComponentLabel title={'Raspberry Pi Zero 2 W'} x={58} y={54} arrowDx={-20} arrowDy={180} dividerWidth={270}>
+            <Text>Single Board Computer (SBC)</Text>
+            <Text>Running custom control software</Text>
+            <Text>4 Cortex-A53 @ 1GHz</Text>
+            <Text>Wi-Fi enabled</Text>
+          </ComponentLabel>
+          <ComponentLabel title={'LM2596'} x={37} y={54} arrowDx={-60} arrowDy={100} dividerWidth={200}>
+            <Text>DC-DC switching regulator</Text>
+            <Text>7-40V input voltage</Text>
+            <Text>80% efficiency</Text>
+          </ComponentLabel>
+          <ComponentLabel title={<>Parachute E-Match<br/>Connector</>} x={34.3} y={48.5} arrowDx={-120} arrowDy={50} dividerWidth={190}>
+            <Text>3A maximum current</Text>
+          </ComponentLabel>
+          <ComponentLabel title={<>GPIO & I2C<br/>Extension</>} x={62} y={48.5} arrowDx={100} arrowDy={150} dividerWidth={190}>
+            <Text>TVC capable PWM output</Text>
+          </ComponentLabel>
+        </ComponentLabelContext.Provider>
       </Box>
-      {/*<Title>E22-900M30S</Title>*/}
-      {/*<Text>915Mhz Long Range Radio (LoRa)</Text>*/}
-      {/*<Text>30db transmission power</Text>*/}
-      {/*<Text>62kbps maximum bandwidth</Text>*/}
-      {/*<Title>MPU6050</Title>*/}
-      {/*<Text>6-axis inertial measurement unit</Text>*/}
-      {/*<Text>1000Hz sampling rate</Text>*/}
-      {/*<Text>±16g max acceleration</Text>*/}
-      {/*<Title>BMP280</Title>*/}
-      {/*<Text>Pressure sensor</Text>*/}
-      {/*<Text>100hz sampling rate</Text>*/}
-      {/*<Text>9km maximum altitude</Text>*/}
-      {/*<Title>Neo-7M</Title>*/}
-      {/*<Text>GNSS receiver</Text>*/}
-      {/*<Text>Supports GPS, GLONASS, QZSS, SBAS</Text>*/}
-      {/*<Text>2m accuracy</Text>*/}
     </Box>}
   >
     <video ref={videoRef} width={'100%'} loop muted playsInline>
@@ -136,15 +126,18 @@ export function PCB3DSection(props: { scrollY: MotionValue<number> }) {
   </ParallaxContainer>
 }
 
+const ComponentLabelContext = createContext<{ containerWidth: number, containerHeight: number } | undefined>(undefined)
+
 function ComponentLabel({dividerWidth, arrowDx, arrowDy, ...props}: PropsWithChildren<{
   x: number,
   y: number,
-  title: string,
+  title: ReactNode,
   arrowDx: number,
   arrowDy: number,
   dividerWidth: number,
 }>) {
   const theme = useMantineTheme()
+  const {containerWidth, containerHeight} = useContext(ComponentLabelContext)!
   const dotSize = 8
   const strokeWidth = 2
 
@@ -152,6 +145,17 @@ function ComponentLabel({dividerWidth, arrowDx, arrowDy, ...props}: PropsWithChi
   const yDirection = arrowDy > 0 ? 'down' : 'up'
   arrowDx = Math.abs(arrowDx)
   arrowDy = Math.abs(arrowDy)
+  let xScale = 1
+  if (containerWidth > 1150) {
+    xScale = containerWidth / 1100
+  }
+  arrowDx *= xScale
+  let yScale = 1
+  if (containerHeight > 1000) {
+    yScale = containerHeight / 1000
+  }
+  arrowDy *= yScale
+  console.log(xScale)
 
   const svgWidth = arrowDx + dividerWidth + dotSize / 2
   const svgHeight = arrowDy + dotSize / 2
