@@ -90,11 +90,11 @@ function NumberCard(props: { title: string, number: number }) {
     className={classes.blurBackground}
     sx={{
       height: 96,
-      borderRadius: 12,
       width: '100%',
       maxWidth: 160,
       textAlign: 'center',
-      backgroundColor: theme.fn.rgba(theme.white, 0.2),
+      backgroundColor: theme.fn.rgba(theme.white, 0.3),
+      clipPath: 'polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)',
     }}>
     <Text className={'text-5xl font-medium tracking-widest'} sx={{
       fontSize: 48,
@@ -203,7 +203,7 @@ export default function Home(props: PageProp) {
       }}>
         <Box p={32} className={classes.blurBackground} sx={{
           flexGrow: 1,
-          backgroundColor: theme.fn.rgba(theme.white, 0.3),
+          backgroundColor: theme.fn.rgba(theme.white, 0.5),
         }}>
           <Title order={2} mb={24} sx={{
             fontSize: 60,
@@ -215,8 +215,8 @@ export default function Home(props: PageProp) {
             </TypeWriter>
           </Title>
           <Text className={classes.teamDesc}>
-            We are a student run team based at McMaster University in Hamilton, Ontario, Canada. We design, build and launch rockets and innovative payloads. This year we are
-            competing in the{' '}
+            We are a student run team based at McMaster University in Hamilton, Ontario, Canada. We design, build and launch rockets and innovative payloads.
+            Recently, we had a successful launch to 3km (10,000ft) in altitude at the inaugural{' '}
             <Anchor
               className={classes.teamDesc}
               href={'http://www.launchcanada.org/'}
@@ -228,7 +228,8 @@ export default function Home(props: PageProp) {
                 textDecorationColor: theme.colors.gray[8],
               }}>
               Launch Canada Competition
-            </Anchor> and building a rocket to launch to 3km (10,000ft) in altitude!
+            </Anchor>
+            ! We are now working on building an improved solid rocket for 2023 competitions and developing a hybrid rocket for 2024.
           </Text>
         </Box>
       </Center>
