@@ -2,30 +2,17 @@ import {useVoidLake5Styles} from './index.page'
 import {Box, Group, Stack, Text, Title, useMantineTheme} from '@mantine/core'
 import {PropsWithChildren} from 'react'
 import {IconApiApp, IconArrowLoopLeft2, IconFeather, IconFileZip, IconLink, IconLock, TablerIcon} from '@tabler/icons'
+import {VoidLake5Title} from './VoidLake5Title'
 
 export function VLPSection() {
-  const {classes, theme} = useVoidLake5Styles()
+  const {classes} = useVoidLake5Styles()
 
   return <Stack p={64} align={'center'} justify={'center'} className={classes.blackSectionBackground}>
-    <Title className={classes.title} sx={{
-      textAlign: 'center',
-      backgroundColor: theme.colors.gray[7],
-      clipPath: 'polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)',
-      display: 'flex',
-    }}>
-      <Box component={'span'} px={20} pb={2} sx={{
-        backgroundColor: theme.colors.gray[1],
-        color: theme.colors.gray[9],
-        clipPath: 'polygon(0% 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)',
-      }}>
-        VLP
-      </Box>
-      <Box component={'span'} pl={16} pr={28} pb={2}>
-        Void Lake Protocol
-      </Box>
-    </Title>
+    <VoidLake5Title icon={'VLP'}>
+      Void Lake Protocol
+    </VoidLake5Title>
     <Text size={'xl'}>
-      Our in-house communication protocol over bandwidth constrained mediums
+      Our in-house communication protocol over bandwidth constrained mediums.
     </Text>
     <Box sx={{
       display: 'grid',

@@ -2,18 +2,18 @@ import {Box, Center, Stack, Title, useMantineTheme} from '@mantine/core'
 import {useVoidLake5Styles} from './index.page'
 import {Sx} from '@mantine/styles/lib/theme/types/DefaultProps'
 import {PropsWithChildren} from 'react'
+import {VoidLake5Title} from './VoidLake5Title'
+import {IconArrowsJoin2} from '@tabler/icons'
 
 export function DataFlowSection() {
   const {classes} = useVoidLake5Styles()
 
   return <Stack p={64} align={'center'} justify={'center'} className={classes.blackSectionBackground}>
-    <Title className={classes.title} sx={{
-      textAlign: 'center',
-    }}>
+    <VoidLake5Title icon={<IconArrowsJoin2 size={48} stroke={2.25} style={{transform:'translateY(5px)'}}/>}>
       Data Flow
-    </Title>
+    </VoidLake5Title>
     <Box className={classes.blackSectionBackground} sx={{
-      marginTop: 32,
+      marginTop: 48,
       width: '100%',
       maxWidth: 1000,
       display: 'grid',
