@@ -23,6 +23,11 @@ const MemberGroups: GlobalConfig = {
           required: true,
         },
         {
+          name: 'desc',
+          label: 'Group Description',
+          type: 'text',
+        },
+        {
           name: 'members',
           type: 'array',
           required: true,

@@ -1,5 +1,5 @@
 import payload from 'payload'
-import {Media, Overview, Recruitment, Sponsors, Team, User} from './payload-types'
+import {Media, Overview, Recruitment, Sponsors, User} from './payload-types'
 import {getAuth} from 'firebase-admin/auth'
 import {getFirestore} from 'firebase-admin/firestore'
 import {getStorage} from 'firebase-admin/storage'
@@ -94,95 +94,49 @@ export async function importFromFirestore() {
     })
   }
 
-  // import teams
-  for (const teamRef of await db.collection('teams').listDocuments()) {
-    const teamDoc = await teamRef.get()
-    const dbTeam = teamDoc.data()
-    console.log(`importing ${dbTeam.name}`)
-
-    let imageID = undefined
-    if (dbTeam.coverImage?.ref) {
-      imageID = await importImage(dbTeam.coverImage?.ref)
-    }
-
-    let members = []
-    for (const [fbUserId, {title, order, allowEdit}] of Object.entries(dbTeam.members) as [string, any]) {
-      const fbUser = await auth.getUser(fbUserId)
-      const {docs: [{id: userId}]} = await payload.find<User>({
-        collection: 'users',
-        where: {
-          email: {
-            equals: fbUser.email,
-          },
-        },
-      })
-
-      members.push({
-        user: userId,
-        allowEdit,
-        order,
-        title,
-      })
-    }
-    members.sort((a, b) => a.order - b.order)
-
-    await createIfNotExist<Team>({
-      collection: 'teams',
-      data: {
-        urlName: teamDoc.id,
-        name: dbTeam.name,
-        shortDescription: dbTeam.shortDescription ?? '',
-        coverImage: imageID,
-        members,
-        projects: dbTeam.currentProjects.map(p => ({
-          name: p.name,
-          start: new Date(p.startTimestamp).toISOString(),
-          end: new Date(p.endTimestamp).toISOString(),
-        })),
-      },
-      id: 'name',
-    })
-  }
-
-  // import team groups
+  // import member groups from teams
   {
-    const teamGroups = []
+    const memberGroups = []
+    for (const teamRef of await db.collection('teams').listDocuments()) {
+      const teamDoc = await teamRef.get()
+      const dbTeam = teamDoc.data()
+      console.log(`importing ${dbTeam.name}`)
 
-    for (const teamGroupRef of await db.collection('teamGroups').listDocuments()) {
-      const teamGroupDoc = await teamGroupRef.get()
-      const dbTeamGroup = teamGroupDoc.data()
-      console.log(`importing ${dbTeamGroup.name} team group`)
-
-      const teams = []
-      for (const teamUrlName of Object.keys(dbTeamGroup.teams)) {
-        const {docs: [{id: teamId}]} = await payload.find<Team>({
-          collection: 'teams',
+      let members = []
+      for (const [fbUserId, {title, order, allowEdit}] of Object.entries(dbTeam.members) as [string, any]) {
+        const fbUser = await auth.getUser(fbUserId)
+        const {docs: [{id: userId}]} = await payload.find<User>({
+          collection: 'users',
           where: {
-            urlName: {
-              equals: teamUrlName,
+            email: {
+              equals: fbUser.email,
             },
           },
         })
 
-        teams.push({
-          team: teamId,
+        members.push({
+          title,
+          member: userId,
+          order,
         })
       }
+      members.sort((a, b) => a.order - b.order)
 
-      teamGroups.push({
-        name: dbTeamGroup.name,
-        urlName: teamGroupDoc.id,
-        order: dbTeamGroup.order,
-        teams,
-      })
+      if (members.length === 0) {
+        console.warn(`${dbTeam.name} has 0 member`)
+      } else {
+        memberGroups.push({
+          name: dbTeam.name,
+          desc: dbTeam.shortDescription ?? undefined,
+          members,
+        })
+      }
     }
 
-    teamGroups.sort((a, b) => a.order - b.order)
-
     await payload.updateGlobal({
-      slug: 'team_groups',
+      slug: 'member_groups',
       data: {
-        groups: teamGroups,
+        groups: memberGroups,
       },
       overrideAccess: true,
     })
