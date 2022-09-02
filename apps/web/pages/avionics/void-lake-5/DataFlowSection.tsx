@@ -1,6 +1,7 @@
 import {Box, Center, Stack, Title, useMantineTheme} from '@mantine/core'
 import {useVoidLake5Styles} from './index.page'
 import {Sx} from '@mantine/styles/lib/theme/types/DefaultProps'
+import {PropsWithChildren} from 'react'
 
 export function DataFlowSection() {
   const {classes} = useVoidLake5Styles()
@@ -25,23 +26,37 @@ export function DataFlowSection() {
         `${FlowChartBox.height}px ${FlowChartArrow.height}px ` +
         `${FlowChartBox.height}px ${FlowChartArrow.height}px ${FlowChartBox.height}px`,
     }}>
-      <FlowChartBox row={1} column={1} color={'#12B886'}/>
-      <FlowChartBox row={1} column={3} color={'#12B886'}/>
-      <FlowChartBox row={1} column={5} color={'#12B886'}/>
-      <FlowChartBox row={1} column={7} color={'#12B886'}/>
+      <FlowChartBox row={1} column={1} color={'#12B886'}>
+        Gyroscope
+      </FlowChartBox>
+      <FlowChartBox row={1} column={3} color={'#12B886'}>
+        Accelerometer
+      </FlowChartBox>
+      <FlowChartBox row={1} column={5} color={'#12B886'}>
+        GPS
+      </FlowChartBox>
+      <FlowChartBox row={1} column={7} color={'#12B886'}>Baro</FlowChartBox>
       <FlowChartArrow row={2} column={1} start={'top'} end={'bottom'} arrow/>
       <FlowChartArrow row={2} column={3} start={'top'} end={'bottom'} arrow/>
       <FlowChartArrow row={2} column={5} start={'top'} end={'bottom'}/>
       <FlowChartArrow row={2} column={7} start={'top'} end={'bottom'} arrow/>
-      <FlowChartBox row={3} column={1} color={'#15AABF'}/>
-      <FlowChartBox row={3} column={3} color={'#15AABF'}/>
+      <FlowChartBox row={3} column={1} color={'#15AABF'}>
+        Orientation
+      </FlowChartBox>
+      <FlowChartBox row={3} column={3} color={'#15AABF'}>
+        Velocity
+      </FlowChartBox>
       <FlowChartArrow row={3} column={5} start={'top'} end={'bottom'}/>
-      <FlowChartBox row={3} column={7} color={'#15AABF'}/>
+      <FlowChartBox row={3} column={7} color={'#15AABF'}>
+        Altitude
+      </FlowChartBox>
       <FlowChartArrow row={3} column={2} start={'left'} end={'right'} arrow/>
       <FlowChartArrow row={4} column={3} start={'top'} end={'bottom'} arrow/>
       <FlowChartArrow row={4} column={5} start={'top'} end={'bottom'}/>
       <FlowChartArrow row={4} column={7} start={'top'} end={'bottom'}/>
-      <FlowChartBox row={5} column={3} color={'#228BE6'}/>
+      <FlowChartBox row={5} column={3} color={'#228BE6'}>
+        Position
+      </FlowChartBox>
       <FlowChartArrow row={5} column={5} start={'top'} end={'bottom'}/>
       <FlowChartArrow row={5} column={7} start={'top'} end={'bottom'}/>
       <FlowChartArrow row={6} column={3} start={'top'} end={'right'}/>
@@ -51,22 +66,32 @@ export function DataFlowSection() {
       <FlowChartArrow row={6} column={5} start={'right'} end={'left'}/>
       <FlowChartArrow row={6} column={6} start={'right'} end={'left'}/>
       <FlowChartArrow row={6} column={7} start={'top'} end={'left'}/>
-      <FlowChartBox row={7} column={3} span={3} color={'#4C6EF5'}/>
+      <FlowChartBox row={7} column={3} span={3} color={'#4C6EF5'}>
+        Sensor Fusion
+      </FlowChartBox>
       <FlowChartArrow row={8} column={3} start={'right'} end={'bottom'} arrow/>
       <FlowChartArrow row={8} column={4} start={'top'} end={'left'}/>
       <FlowChartArrow row={8} column={4} start={'top'} end={'right'}/>
       <FlowChartArrow row={8} column={5} start={'left'} end={'bottom'} arrow/>
-      <FlowChartBox row={9} column={3} color={'#7950F2'}/>
-      <FlowChartBox row={9} column={5} color={'#7950F2'}/>
+      <FlowChartBox row={9} column={3} color={'#7950F2'}>
+        Local Files
+      </FlowChartBox>
+      <FlowChartBox row={9} column={5} color={'#7950F2'}>
+        Delta Compression
+      </FlowChartBox>
       <FlowChartArrow row={9} column={6} start={'left'} end={'right'} arrow/>
-      <FlowChartBox row={9} column={7} color={'#7950F2'}/>
+      <FlowChartBox row={9} column={7} color={'#7950F2'}>
+        Variable Bit Length Compression
+      </FlowChartBox>
       <FlowChartArrow row={10} column={7} start={'top'} end={'bottom'} arrow/>
-      <FlowChartBox row={11} column={7} color={'#BE4BDB'}/>
+      <FlowChartBox row={11} column={7} color={'#BE4BDB'}>
+        Telemetry
+      </FlowChartBox>
     </Box>
   </Stack>
 }
 
-function FlowChartBox(props: { row: number, column: number, color: string, span?: number }) {
+function FlowChartBox(props: PropsWithChildren<{ row: number, column: number, color: string, span?: number }>) {
   const theme = useMantineTheme()
   const gridChildSx: Sx = {
     gridColumnStart: props.column,
@@ -80,17 +105,23 @@ function FlowChartBox(props: { row: number, column: number, color: string, span?
     height: FlowChartBox.height,
     borderRadius: 8,
     backgroundImage: theme.fn.gradient({from: color, to: theme.fn.lighten(color, 0.3), deg: 45}),
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 500,
   }
 
   if (props.span) {
     return <Center sx={gridChildSx}>
       <Box sx={containerSx}>
-        awa
+        {props.children}
       </Box>
     </Center>
   } else {
     return <Box sx={[gridChildSx, containerSx]}>
-      awa
+      {props.children}
     </Box>
   }
 }
