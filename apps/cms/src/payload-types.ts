@@ -26,6 +26,7 @@ export interface MemberGroups {
     name: string;
     members: {
       member: string | User;
+      title?: string;
       id?: string;
     }[];
     id?: string;

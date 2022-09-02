@@ -8,7 +8,7 @@ const MemberGroups: GlobalConfig = {
     read: () => true,
     update: accessOnlyAdmin,
   },
-  admin:{
+  admin: {
     hideAPIURL: true,
   },
   fields: [
@@ -32,6 +32,10 @@ const MemberGroups: GlobalConfig = {
               type: 'relationship',
               relationTo: 'users',
               required: true,
+            },
+            {
+              name: 'title',
+              type: 'text',
             },
           ],
         },
