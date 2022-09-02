@@ -16,6 +16,8 @@ import imageD from './images/d.jpg'
 import imageE from './images/e.jpg'
 import imageF from './images/f.jpg'
 import imageG from './images/g.jpg'
+import imageH from './images/h.jpg'
+import imageI from './images/i.jpg'
 import launchSiteImage from './images/launch_site.jpg'
 
 export const useMarauder1Styles = createStyles(theme => ({
@@ -116,13 +118,15 @@ export default function Marauder1Page() {
             Gallery
           </Title>}
           images={[
-            imageA,
+            imageH,
+            imageI,
             imageB,
+            imageG,
             imageC,
             imageD,
             imageE,
             imageF,
-            imageG,
+            imageA,
             launchSiteImage,
           ]}/>
       </ScrollContext.Provider>

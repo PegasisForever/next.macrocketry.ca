@@ -113,7 +113,7 @@ export function PCB3DSection(props: { scrollY: MotionValue<number> }) {
           <ComponentLabel title={<>Parachute E-Match<br/>Connector</>} x={34.3} y={48.5} arrowDx={-120} arrowDy={50} dividerWidth={190}>
             <Text>3A maximum current</Text>
           </ComponentLabel>
-          <ComponentLabel title={<>GPIO & I2C<br/>Extension</>} x={62} y={48.5} arrowDx={100} arrowDy={150} dividerWidth={190}>
+          <ComponentLabel title={<>GPIO & I<sup>2</sup>C<br/>Extension</>} x={62} y={48.5} arrowDx={100} arrowDy={150} dividerWidth={190}>
             <Text>TVC capable PWM output</Text>
           </ComponentLabel>
         </ComponentLabelContext.Provider>
