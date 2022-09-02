@@ -145,17 +145,10 @@ function ComponentLabel({dividerWidth, arrowDx, arrowDy, ...props}: PropsWithChi
   const yDirection = arrowDy > 0 ? 'down' : 'up'
   arrowDx = Math.abs(arrowDx)
   arrowDy = Math.abs(arrowDy)
-  let xScale = 1
-  if (containerWidth > 1150) {
-    xScale = containerWidth / 1100
+  if (containerWidth !== 0 && containerHeight !== 0) {
+    arrowDx *= Math.max(1, containerWidth / 1100)
+    arrowDy *= Math.max(1, containerHeight / 1000)
   }
-  arrowDx *= xScale
-  let yScale = 1
-  if (containerHeight > 1000) {
-    yScale = containerHeight / 1000
-  }
-  arrowDy *= yScale
-  console.log(xScale)
 
   const svgWidth = arrowDx + dividerWidth + dotSize / 2
   const svgHeight = arrowDy + dotSize / 2
