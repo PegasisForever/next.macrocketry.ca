@@ -13,12 +13,17 @@ import {useElementScroll} from 'framer-motion'
 import {ParallaxContainer} from './ParallaxContainer'
 import {PCB3DSection} from './PCB3DSection'
 import {DataFlowSection} from './DataFlowSection'
+import {VLPSection} from './VLPSection'
 
 export const useVoidLake5Styles = createStyles(theme => ({
   blackSectionBackground: {
     background: theme.fn.linearGradient(180, theme.fn.darken(theme.colors.gray[9], 0.2), theme.colors.gray[9]),
     color: theme.white,
   },
+  title:{
+    fontWeight: 500,
+    fontSize: 48,
+  }
 }))
 
 export default function VoidLake5Page() {
@@ -98,7 +103,7 @@ export default function VoidLake5Page() {
       <PCB2DSection/>
       <PCB3DSection scrollY={scrollY}/>
       <DataFlowSection/>
-      {/*VLP Section*/}
+      <VLPSection/>
       <Box sx={{
         height: '100vh',
         backgroundColor: theme.colors.green[4],

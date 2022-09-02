@@ -7,10 +7,8 @@ export function DataFlowSection() {
   const {classes} = useVoidLake5Styles()
 
   return <Stack p={64} align={'center'} justify={'center'} className={classes.blackSectionBackground}>
-    <Title sx={{
+    <Title className={classes.title} sx={{
       textAlign: 'center',
-      fontWeight: 500,
-      fontSize: 48,
     }}>
       Data Flow
     </Title>
@@ -35,7 +33,9 @@ export function DataFlowSection() {
       <FlowChartBox row={1} column={5} color={'#12B886'}>
         GPS
       </FlowChartBox>
-      <FlowChartBox row={1} column={7} color={'#12B886'}>Baro</FlowChartBox>
+      <FlowChartBox row={1} column={7} color={'#12B886'}>
+        Barometer
+      </FlowChartBox>
       <FlowChartArrow row={2} column={1} start={'top'} end={'bottom'} arrow/>
       <FlowChartArrow row={2} column={3} start={'top'} end={'bottom'} arrow/>
       <FlowChartArrow row={2} column={5} start={'top'} end={'bottom'}/>
