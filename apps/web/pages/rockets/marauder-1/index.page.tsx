@@ -8,7 +8,15 @@ import {PropsWithSideBar, ScrollContext} from '../../contexts'
 import {useElementScroll} from 'framer-motion'
 import Overview from './Overview'
 import LaunchVideo from './LaunchVideo'
-import Gallery from './Gallery'
+import Gallery from '../../components/Gallery'
+import imageA from './images/a.jpg'
+import imageB from './images/b.jpg'
+import imageC from './images/c.jpg'
+import imageD from './images/d.jpg'
+import imageE from './images/e.jpg'
+import imageF from './images/f.jpg'
+import imageG from './images/g.jpg'
+import launchSiteImage from './images/launch_site.jpg'
 
 export const useMarauder1Styles = createStyles(theme => ({
   marauderFont: {
@@ -102,11 +110,23 @@ export default function Marauder1Page() {
         }}>
         </Box>
 
-        <Gallery/>
+        <Gallery
+          blur
+          title={<Title order={1} mt={32} className={classes.title}>
+            Gallery
+          </Title>}
+          images={[
+            imageA,
+            imageB,
+            imageC,
+            imageD,
+            imageE,
+            imageF,
+            imageG,
+            launchSiteImage,
+          ]}/>
       </ScrollContext.Provider>
     </Box>
-
-
   </RightPanelContainer>
 }
 

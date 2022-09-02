@@ -2,7 +2,7 @@ import RightPanelContainer from '../../RightPanelContainer'
 import {GetStaticProps} from 'next'
 import {getSideBarData} from '../../nav/sideBarDataHelper'
 import {PropsWithSideBar} from '../../contexts'
-import {Box, createStyles, Group, Stack, Text, useMantineTheme} from '@mantine/core'
+import {Box, createStyles, Group, Stack, Text, Title} from '@mantine/core'
 import pcbSchema from './images/pcb_schema.png'
 import pcbLayout from './images/pcb_layout.png'
 import pcb2d from './images/pcb_2d.png'
@@ -14,20 +14,25 @@ import {ParallaxContainer} from './ParallaxContainer'
 import {PCB3DSection} from './PCB3DSection'
 import {DataFlowSection} from './DataFlowSection'
 import {VLPSection} from './VLPSection'
+import Gallery from '../../components/Gallery'
+import imageA from './images/a.jpg'
+import imageB from './images/b.jpg'
+import imageC from './images/c.jpg'
+import imageD from './images/d.jpg'
 
 export const useVoidLake5Styles = createStyles(theme => ({
   blackSectionBackground: {
     background: theme.fn.linearGradient(180, theme.fn.darken(theme.colors.gray[9], 0.2), theme.colors.gray[9]),
     color: theme.white,
   },
-  title:{
+  title: {
     fontWeight: 500,
     fontSize: 48,
-  }
+  },
 }))
 
 export default function VoidLake5Page() {
-  const theme = useMantineTheme()
+  const {classes, theme} = useVoidLake5Styles()
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const {scrollY} = useElementScroll(scrollContainerRef)
 
@@ -104,10 +109,19 @@ export default function VoidLake5Page() {
       <PCB3DSection scrollY={scrollY}/>
       <DataFlowSection/>
       <VLPSection/>
-      <Box sx={{
-        height: '100vh',
-        backgroundColor: theme.colors.green[4],
-      }}/>
+      <Gallery
+        className={classes.blackSectionBackground}
+        title={<Title order={1} mt={32} className={classes.title} sx={{
+          lineHeight: 1,
+        }}>
+          Gallery
+        </Title>}
+        images={[
+          imageA,
+          imageB,
+          imageC,
+          imageD,
+        ]}/>
     </Box>
   </RightPanelContainer>
 }
