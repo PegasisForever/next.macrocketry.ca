@@ -2,7 +2,7 @@ import RightPanelContainer from '../../RightPanelContainer'
 import {GetStaticProps} from 'next'
 import {getSideBarData} from '../../nav/sideBarDataHelper'
 import {PropsWithSideBar} from '../../contexts'
-import {Box, Group, Stack, Text, useMantineTheme} from '@mantine/core'
+import {Box, createStyles, Group, Stack, Text, useMantineTheme} from '@mantine/core'
 import pcbSchema from './images/pcb_schema.png'
 import pcbLayout from './images/pcb_layout.png'
 import pcb2d from './images/pcb_2d.png'
@@ -12,6 +12,14 @@ import {useMeasure, useWindowSize} from 'react-use'
 import {useElementScroll} from 'framer-motion'
 import {ParallaxContainer} from './ParallaxContainer'
 import {PCB3DSection} from './PCB3DSection'
+import {DataFlowSection} from './DataFlowSection'
+
+export const useVoidLake5Styles = createStyles(theme => ({
+  blackSectionBackground: {
+    background: theme.fn.linearGradient(180, theme.fn.darken(theme.colors.gray[9], 0.2), theme.colors.gray[9]),
+    color: theme.white,
+  },
+}))
 
 export default function VoidLake5Page() {
   const theme = useMantineTheme()
@@ -89,6 +97,8 @@ export default function VoidLake5Page() {
       <PCBLayoutSection/>
       <PCB2DSection/>
       <PCB3DSection scrollY={scrollY}/>
+      <DataFlowSection/>
+      {/*VLP Section*/}
       <Box sx={{
         height: '100vh',
         backgroundColor: theme.colors.green[4],
