@@ -9,16 +9,16 @@ export async function getSideBarData(): Promise<SideBarData> {
       children: 'Overview',
     },
     {
-      href: `/teams`,
-      children: 'Teams',
-    },
-    {
       href: '/rockets/marauder-1',
       children: 'Rockets',
     },
     {
       href: '/avionics/void-lake-5',
       children: 'Avionics',
+    },
+    {
+      href: '/members',
+      children: 'Members',
     },
     {
       href: '/blogs',

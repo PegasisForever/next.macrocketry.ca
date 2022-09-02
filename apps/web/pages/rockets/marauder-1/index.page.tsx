@@ -60,7 +60,7 @@ export default function Marauder1Page() {
     }
   }, [scrollListener])
 
-  return <RightPanelContainer hrefIndex={2}>
+  return <RightPanelContainer hrefIndex={1}>
     <Text sx={{
       position: 'absolute',
       width: '100%',

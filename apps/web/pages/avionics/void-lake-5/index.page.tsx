@@ -36,7 +36,7 @@ export default function VoidLake5Page() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const {scrollY} = useElementScroll(scrollContainerRef)
 
-  return <RightPanelContainer hrefIndex={3} sx={{
+  return <RightPanelContainer hrefIndex={2} sx={{
     overflowY: 'hidden',
     backgroundColor: theme.colors.gray[9],
   }}>

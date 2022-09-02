@@ -68,9 +68,9 @@ export function SideBarLogo() {
 
 const normalizedSideBarHrefs = [
   '/',
-  '/teams',
   '/rockets',
   '/avionics',
+  '/members',
   '/blogs',
   '/sponsors',
   '/recruitment',
