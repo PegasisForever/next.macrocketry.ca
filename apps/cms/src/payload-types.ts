@@ -18,6 +18,55 @@ export interface Overview {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "member_groups".
+ */
+export interface MemberGroups {
+  id: string;
+  groups?: {
+    name: string;
+    members: {
+      member: string | User;
+      id?: string;
+    }[];
+    id?: string;
+  }[];
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: string;
+  email?: string;
+  resetPasswordToken?: string;
+  resetPasswordExpiration?: string;
+  enableAPIKey?: boolean;
+  apiKey?: string;
+  apiKeyIndex?: string;
+  loginAttempts?: number;
+  lockUntil?: string;
+  name: string;
+  profilePhoto?: string | Media;
+  admin?: boolean;
+  bio?: {
+    [k: string]: unknown;
+  }[];
+  linkedin?: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  ref?: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "team_groups".
  */
 export interface TeamGroups {
@@ -60,39 +109,6 @@ export interface Team {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
- */
-export interface User {
-  id: string;
-  email?: string;
-  resetPasswordToken?: string;
-  resetPasswordExpiration?: string;
-  enableAPIKey?: boolean;
-  apiKey?: string;
-  apiKeyIndex?: string;
-  loginAttempts?: number;
-  lockUntil?: string;
-  name: string;
-  profilePhoto?: string | Media;
-  admin?: boolean;
-  bio?: {
-    [k: string]: unknown;
-  }[];
-  linkedin?: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "sponsors".
  */
 export interface Sponsors {
@@ -130,6 +146,10 @@ export interface Recruitment {
 export interface Blog {
   id: string;
   title: string;
+  coverImage?: string | Media;
+  summary: {
+    [k: string]: unknown;
+  }[];
   content: {
     [k: string]: unknown;
   }[];

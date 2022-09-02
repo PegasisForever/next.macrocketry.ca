@@ -10,6 +10,7 @@ import Overview from './collections/Overview'
 import Recruitment from './collections/Recruitment'
 import Messages from './collections/Messages'
 import {BeforeNavLinks, BigLogo, Logo} from './CustomComponents'
+import MemberGroups from './collections/MemberGroups'
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL ?? 'http://localhost:3001',
@@ -50,6 +51,7 @@ export default buildConfig({
   ],
   globals: [
     Overview,
+    MemberGroups,
     TeamGroups,
     Sponsors,
     Recruitment,

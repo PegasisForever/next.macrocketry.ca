@@ -10,7 +10,7 @@ type PageProp = {}
 export default function Members(props: PageProp) {
   return <RightPanelContainer hrefIndex={3}>
     <MemberGroupTitle>
-      Leadership
+      Leadership Team
     </MemberGroupTitle>
   </RightPanelContainer>
 }
