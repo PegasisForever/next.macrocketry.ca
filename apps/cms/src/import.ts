@@ -6,6 +6,20 @@ import {getStorage} from 'firebase-admin/storage'
 import {generate} from 'generate-password'
 import path from 'path'
 import {TypeWithID} from 'payload/dist/collections/config/types'
+import draftToHtml from 'draftjs-to-html'
+import {jsx} from 'slate-hyperscript'
+import {JSDOM} from 'jsdom'
+
+if (!String.prototype.replaceAll) {
+  String.prototype.replaceAll = function (str, newStr) {
+    // If a regex pattern
+    if (Object.prototype.toString.call(str).toLowerCase() === '[object regexp]') {
+      return this.replace(str, newStr)
+    }
+    // If a string
+    return this.replace(new RegExp(str, 'g'), newStr)
+  }
+}
 
 export async function importFromFirestore() {
   const auth = getAuth()
@@ -47,6 +61,7 @@ export async function importFromFirestore() {
   async function createIfNotExist<T extends TypeWithID = any>(options: {
     collection: string,
     data: Record<string, unknown>,
+    createData?: Record<string, unknown>,
     id: string,
   }) {
     const existing = await payload.find<T>({
@@ -62,7 +77,17 @@ export async function importFromFirestore() {
     if (existing.docs.length === 0) {
       await payload.create<T>({
         collection: options.collection,
-        data: options.data,
+        data: {
+          ...options.data,
+          ...options.createData,
+        },
+        overrideAccess: true,
+      })
+    } else {
+      await payload.update<T>({
+        id: existing.docs[0].id,
+        collection: options.collection,
+        data: options.data as any,
         overrideAccess: true,
       })
     }
@@ -77,6 +102,19 @@ export async function importFromFirestore() {
       imageID = await importImage(dbUser.profileImageRef)
     }
 
+    let bio = undefined
+    try {
+      let html = dbUser.bio ? draftToHtml(JSON.parse(dbUser.bio)) : undefined
+      html = html?.replaceAll('\n', '')?.replaceAll('<p></p>', '')
+      console.log(html)
+      bio = htmlToSlate(html)
+      bio = bio?.filter(block => block.text !== '\n' && block.text !== '')
+      if (bio?.length === 0) bio = undefined
+      console.log(bio)
+    } catch (e) {
+      console.warn(`Failed to convert bio for ${dbUser.name}`, e)
+    }
+
     await createIfNotExist<User>({
       collection: 'users',
       data: {
@@ -84,11 +122,14 @@ export async function importFromFirestore() {
         email: authUser.email,
         admin: dbUser.admin,
         linkedIn: dbUser.links.linkedIn,
+        profilePhoto: imageID,
+        bio,
+      },
+      createData: {
         password: generate({
           length: 20,
           numbers: true,
         }),
-        profilePhoto: imageID,
       },
       id: 'email',
     })
@@ -195,4 +236,58 @@ export async function importFromFirestore() {
     },
     overrideAccess: true,
   })
+}
+
+const {window} = new JSDOM(``, {runScripts: 'outside-only'})
+window.eval('TEXT_NODE = Node.TEXT_NODE')
+window.eval('ELEMENT_NODE = Node.ELEMENT_NODE')
+
+const htmlToSlate = (el, markAttributes = {}) => {
+  if (typeof el === 'string') {
+    el = new JSDOM(el).window.document.body
+  } else if (typeof el === 'undefined') {
+    return null
+  }
+
+  if (el.nodeType === window.TEXT_NODE) {
+    return jsx('text', markAttributes, el.textContent)
+  } else if (el.nodeType !== window.ELEMENT_NODE) {
+    return null
+  }
+
+  const nodeAttributes = {...markAttributes}
+
+  // define attributes for text nodes
+  switch (el.nodeName) {
+    case 'strong':
+      // @ts-ignore
+      nodeAttributes.bold = true
+  }
+
+  const children = Array.from(el.childNodes)
+    .map(node => htmlToSlate(node, nodeAttributes))
+    .flat()
+
+  if (children.length === 0) {
+    children.push(jsx('text', nodeAttributes, ''))
+  }
+
+  switch (el.nodeName) {
+    case 'BODY':
+      return jsx('fragment', {}, children)
+    case 'BR':
+      return '\n'
+    case 'BLOCKQUOTE':
+      return jsx('element', {type: 'quote'}, children)
+    case 'P':
+      return jsx('element', {type: 'paragraph'}, children)
+    case 'A':
+      return jsx(
+        'element',
+        {type: 'link', url: el.getAttribute('href')},
+        children,
+      )
+    default:
+      return children
+  }
 }

@@ -95,7 +95,6 @@ export default function Members(props: PageProp) {
           <Box sx={{
             float: 'left',
             paddingRight: 16,
-            paddingBottom: 16,
           }}>
             <MemberProfilePicture image={openedUser.profilePhoto} alt={''}/>
             <Stack spacing={4} mt={8}>
