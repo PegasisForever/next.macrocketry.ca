@@ -11,7 +11,7 @@ import defaultProfilePhoto from './defaultProfilePhoto.svg'
 import {RichText, RichTextData} from '../components/RichText'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
-import {IconX} from '@tabler/icons'
+import {IconBrandLinkedin, IconMail, IconX} from '@tabler/icons'
 
 type PageQuery = { userId: string[] | undefined }
 
@@ -25,6 +25,7 @@ type Member = {
 type OpenedUser = null | {
   name: string,
   profilePhoto: ProcessedImage | null,
+  email: string,
   bio: RichTextData | null,
   linkedIn: string | null,
 }
@@ -46,7 +47,6 @@ export default function Members(props: PageProp) {
     if (props.openedUser) setOpenedUser(props.openedUser)
   }, [openedUser, props.openedUser])
 
-  console.log(openedUser)
   return <RightPanelContainer hrefIndex={3} sx={{
     padding: 64,
   }}>
@@ -91,14 +91,37 @@ export default function Members(props: PageProp) {
         }}>
           {openedUser.name}
         </Title>
-        <Box mt={16}>
+        <Box mt={24}>
           <Box sx={{
             float: 'left',
+            paddingRight: 16,
+            paddingBottom: 16,
           }}>
             <MemberProfilePicture image={openedUser.profilePhoto} alt={''}/>
-            {openedUser.linkedIn ? <Anchor href={openedUser.linkedIn}>
-              Linkedin
-            </Anchor> : null}
+            <Stack spacing={4} mt={8}>
+              {openedUser.linkedIn ? <Anchor
+                size={'lg'}
+                href={openedUser.linkedIn}
+                sx={{
+                  display: 'flex',
+                  gap: 4,
+                  alignItems: 'center',
+                }}>
+                <IconBrandLinkedin/>
+                LinkedIn
+              </Anchor> : null}
+              <Anchor
+                size={'lg'}
+                href={`mailto:${openedUser.email}`}
+                sx={{
+                  display: 'flex',
+                  gap: 4,
+                  alignItems: 'center',
+                }}>
+                <IconMail/>
+                Email
+              </Anchor>
+            </Stack>
           </Box>
           {openedUser.bio ? <RichText data={openedUser.bio!}/> : null}
         </Box>
@@ -185,8 +208,6 @@ export const getStaticPaths: GetStaticPaths<PageQuery> = async () => {
     paths.push([id])
   }
 
-  console.log(paths)
-
   return {
     paths: paths.map(userId => ({
       params: {
@@ -253,6 +274,7 @@ query gerUser($id: String) {
       url
     }
     bio
+    email
     linkedIn
   }
 }
@@ -261,6 +283,7 @@ query gerUser($id: String) {
     })
     openedUser = {
       name: userRes.User.name,
+      email: userRes.User.email,
       profilePhoto: await prepareImageFromUrl(userRes.User.profilePhoto?.url),
       bio: userRes.User.bio ?? null,
       linkedIn: userRes.User.linkedIn ?? null,

@@ -17,7 +17,8 @@ export type RichTextData = Array<Node | Leaf>
 
 const titleTypeRegex = /^h([1-6])$/
 
-function RichTextNode(props: { data: RichTextData }) {
+function RichTextNode(props: { data: RichTextData, first?: boolean }) {
+  let first = props.first
   return <>
     {props.data.map((node, i) => {
       if ('text' in node) {
@@ -42,19 +43,21 @@ function RichTextNode(props: { data: RichTextData }) {
       }
 
       const titleMatchResult = node.type?.match(titleTypeRegex)
+      const mt = first ? 0 : 'sm'
+      first = false
       if (titleMatchResult?.[1]) {
         const titleOrder = parseInt(titleMatchResult?.[1]) as TitleOrder
-        return <Title order={titleOrder} mt={'sm'} key={i}>
+        return <Title order={titleOrder} mt={mt} key={i}>
           <RichTextNode data={node.children}/>
         </Title>
       } else if (node.type === 'ol') {
-        return <List type={'ordered'} mt={'sm'} key={i}>
+        return <List type={'ordered'} mt={mt} key={i}>
           {node.children.map((child: any, i: number) => <List.Item key={i}>
             <RichTextNode data={child.children}/>
           </List.Item>)}
         </List>
       } else if (node.type === 'ul') {
-        return <List type={'unordered'} mt={'sm'} key={i}>
+        return <List type={'unordered'} mt={mt} key={i}>
           {node.children.map((child: any, i: number) => <List.Item key={i}>
             <RichTextNode data={child.children}/>
           </List.Item>)}
@@ -64,7 +67,7 @@ function RichTextNode(props: { data: RichTextData }) {
           <RichTextNode data={node.children}/>
         </Anchor>
       } else {
-        return <Text mt={'sm'} key={i}>
+        return <Text mt={mt} key={i} size={'lg'}>
           <RichTextNode data={node.children}/>
         </Text>
       }
@@ -74,6 +77,6 @@ function RichTextNode(props: { data: RichTextData }) {
 
 export function RichText({data, ...wrapperProps}: { data: RichTextData } & BoxProps) {
   return <Box {...wrapperProps}>
-    <RichTextNode data={data}/>
+    <RichTextNode data={data} first/>
   </Box>
 }
