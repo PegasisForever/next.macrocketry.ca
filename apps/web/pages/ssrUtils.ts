@@ -3,6 +3,7 @@ import url from 'url'
 import {createHash} from 'crypto'
 import Downloader from 'nodejs-file-downloader'
 import sharp from 'sharp'
+import {promises as fs} from 'fs'
 
 export type ProcessedImage = { url: string, blurURL: string, width: number, height: number }
 
@@ -47,3 +48,28 @@ export async function prepareImageFromUrl(imageUrl: string | null | undefined): 
 export function getGraphQLUrl() {
   return `${process.env.PAYLOAD_INTERNAL_URL}/api/graphql`
 }
+
+async function saveFileCache<T>(fileName: string, data: T): Promise<void> {
+  await fs.writeFile(fileName, JSON.stringify(data))
+}
+
+async function readFileCache<T>(fileName: string): Promise<T | null> {
+  try {
+    const fileContent = await fs.readFile(fileName, 'utf8')
+    return JSON.parse(fileContent)
+  } catch (e) {
+    return null
+  }
+}
+
+export function withFileCache<T>(fileName: string, fn: () => Promise<T>): () => Promise<T> {
+  return async () => {
+    const cache = await readFileCache<T>(fileName)
+    if (cache) return cache
+
+    const data = await fn()
+    await saveFileCache<T>(fileName, data)
+    return data
+  }
+}
+

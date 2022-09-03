@@ -36,3 +36,4 @@ yarn-error.log*
 .turbo
 
 gha-creds-*.json
+/apps/web/.memberGroupsCache.json

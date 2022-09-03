@@ -65,7 +65,7 @@ const Users: CollectionConfig = {
       },
     },
     {
-      name: 'linkedin',
+      name: 'linkedIn',
       type: 'text',
     },
   ],

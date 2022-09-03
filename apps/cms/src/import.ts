@@ -83,7 +83,7 @@ export async function importFromFirestore() {
         name: dbUser.name,
         email: authUser.email,
         admin: dbUser.admin,
-        linkedin: dbUser.links.linkedin,
+        linkedIn: dbUser.links.linkedin,
         password: generate({
           length: 20,
           numbers: true,

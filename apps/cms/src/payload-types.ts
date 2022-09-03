@@ -24,6 +24,7 @@ export interface MemberGroups {
   id: string;
   groups?: {
     name: string;
+    desc?: string;
     members: {
       member: string | User;
       title?: string;
@@ -52,7 +53,7 @@ export interface User {
   bio?: {
     [k: string]: unknown;
   }[];
-  linkedin?: string;
+  linkedIn?: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

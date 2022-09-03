@@ -142,7 +142,7 @@ export const getStaticProps: GetStaticProps<PropsWithSideBar<PageProp>, PageQuer
   if (blogId) {
     res = await request(getGraphQLUrl(), gql`
         query getBlog($id: String) {
-          Blogs (limit:10000000) {
+          Blogs (limit: 10000000) {
             docs {
               id
               title
