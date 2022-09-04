@@ -4,7 +4,7 @@ import {getSideBarData} from './nav/sideBarDataHelper'
 import {Button, Divider, Group, Paper, Stack, Text, Title} from '@mantine/core'
 import {gql, request} from 'graphql-request'
 import {RichText, RichTextData} from './components/RichText'
-import PageTitle from './components/PageTItle'
+import PageTitle from './components/PageTitle'
 import {getGraphQLUrl} from './ssrUtils'
 import {PropsWithSideBar} from './contexts'
 

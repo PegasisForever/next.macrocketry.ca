@@ -1,7 +1,7 @@
 import RightPanelContainer from './RightPanelContainer'
 import {GetStaticProps} from 'next'
 import {getSideBarData} from './nav/sideBarDataHelper'
-import PageTitle from './components/PageTItle'
+import PageTitle from './components/PageTitle'
 import {Box, Button, Group, Stack, Textarea, TextInput, Title, useMantineTheme} from '@mantine/core'
 import {IconSend} from '@tabler/icons'
 import {useForm} from '@mantine/form'

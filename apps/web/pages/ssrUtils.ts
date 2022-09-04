@@ -4,6 +4,8 @@ import {createHash} from 'crypto'
 import Downloader from 'nodejs-file-downloader'
 import sharp from 'sharp'
 import {promises as fs} from 'fs'
+import {RichTextData} from './components/RichText'
+import {gql, request} from 'graphql-request'
 
 export type ProcessedImage = { url: string, blurURL: string, width: number, height: number }
 
@@ -43,6 +45,28 @@ export async function prepareImageFromUrl(imageUrl: string | null | undefined): 
     width,
     height,
   }
+}
+
+export async function prepareRichTextData(data: RichTextData | null | undefined): Promise<RichTextData | null> {
+  if (!data) return null
+  const result: RichTextData = []
+  for (const node of data) {
+    if ('type' in node && node.type === 'upload' && node.relationTo === 'media' && node.value?.id) {
+      const res = await request(getGraphQLUrl(), gql`
+        query getMedia($id: String) {
+          Media(id: $id) {
+            url
+          }
+        }
+      `, {
+        id: node.value?.id,
+      })
+      node.image = await prepareImageFromUrl(res.Media.url) ?? undefined
+    }
+    result.push(node)
+  }
+
+  return result
 }
 
 export function getGraphQLUrl() {

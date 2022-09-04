@@ -3,8 +3,8 @@ import RightPanelContainer from '../RightPanelContainer'
 import {getSideBarData} from '../nav/sideBarDataHelper'
 import {Box, Button, Divider, Group, Stack, Text, Title, useMantineTheme} from '@mantine/core'
 import {RichText, RichTextData} from '../components/RichText'
-import PageTitle from '../components/PageTItle'
-import {getGraphQLUrl, prepareImageFromUrl, ProcessedImage} from '../ssrUtils'
+import PageTitle from '../components/PageTitle'
+import {getGraphQLUrl, prepareImageFromUrl, prepareRichTextData, ProcessedImage} from '../ssrUtils'
 import {gql, request} from 'graphql-request'
 import TimeAgo from 'timeago-react'
 import Image from 'next/image'
@@ -13,6 +13,7 @@ import Link from 'next/link'
 import BlogArticle from './BlogArticle'
 import {AnimatePresence} from 'framer-motion'
 import {PropsWithSideBar} from '../contexts'
+import {Fragment} from 'react'
 
 type BlogMeta = {
   id: string,
@@ -76,6 +77,7 @@ function BlogMetaComponent({meta}: { meta: BlogMeta }) {
 }
 
 export default function BlogsPage(props: PageProp) {
+  console.log(props)
   return <RightPanelContainer hrefIndex={4}>
     <Box sx={{
       position: 'absolute',
@@ -95,10 +97,10 @@ export default function BlogsPage(props: PageProp) {
         }}>
           Blogs
         </PageTitle>
-        {props.blogMetas.map((meta, i) => <>
-          <BlogMetaComponent key={i} meta={meta}/>
+        {props.blogMetas.map((meta, i) => <Fragment key={i}>
+          <BlogMetaComponent meta={meta}/>
           {i !== props.blogMetas.length - 1 ? <Divider/> : null}
-        </>)}
+        </Fragment>)}
       </Stack>
     </Box>
     <AnimatePresence initial={false}>
@@ -211,7 +213,10 @@ export const getStaticProps: GetStaticProps<PropsWithSideBar<PageProp>, PageQuer
     props: {
       sideBarData: await getSideBarData(),
       blogMetas: blogMetas,
-      blog: res.Blog ?? null,
+      blog: res.Blog ? {
+        ...res.Blog,
+        content: await prepareRichTextData(res.Blog.content),
+      } : null,
     },
   }
 }

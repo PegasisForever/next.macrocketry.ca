@@ -15,6 +15,11 @@ const urlMapping = {
 
 const nextConfig = withBundleAnalyzer({
     reactStrictMode: true,
+    images: {
+        domains: [
+            'firebasestorage.googleapis.com',
+        ],
+    },
     pageExtensions: ['page.tsx', 'api.ts'],
     redirects: () => Object.entries(urlMapping).map(([source, destination]) => ({
         source,

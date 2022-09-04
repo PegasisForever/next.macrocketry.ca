@@ -1,4 +1,6 @@
 import {Anchor, Box, BoxProps, List, Text, Title, TitleOrder} from '@mantine/core'
+import {ProcessedImage} from '../ssrUtils'
+import Image from 'next/image'
 
 type Leaf = {
   text: string,
@@ -10,6 +12,11 @@ type Leaf = {
 type Node = {
   type?: string,
   url?: string,
+  image?: ProcessedImage,
+  value?: {
+    id: string,
+  },
+  relationTo?: string,
   children: Array<Node | Leaf>
 }
 
@@ -66,6 +73,20 @@ function RichTextNode(props: { data: RichTextData, first?: boolean }) {
         return <Anchor target={'_blank'} rel={'noreferrer'} href={node.url} key={i}>
           <RichTextNode data={node.children}/>
         </Anchor>
+      } else if (node.image) {
+        return <Box sx={{
+          width: 500,
+        }}>
+          <Image
+            src={node.image.url}
+            layout={'responsive'}
+            width={node.image.width}
+            height={node.image.height}
+            placeholder={'blur'}
+            blurDataURL={node.image.blurURL}
+            alt={''}
+          />
+        </Box>
       } else {
         return <Text mt={mt} key={i} size={'lg'}>
           <RichTextNode data={node.children}/>
