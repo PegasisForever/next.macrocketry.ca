@@ -6,8 +6,9 @@ import sharp from 'sharp'
 import {promises as fs} from 'fs'
 import {RichTextData} from './components/RichText'
 import {gql, request} from 'graphql-request'
+import {StaticImageData} from 'next/dist/client/image'
 
-export type ProcessedImage = { url: string, blurURL: string, width: number, height: number }
+export type ProcessedImage = StaticImageData
 
 export async function prepareImageFromUrl(imageUrl: string | null | undefined): Promise<ProcessedImage | null> {
   if (!imageUrl) return null
@@ -26,8 +27,8 @@ export async function prepareImageFromUrl(imageUrl: string | null | undefined): 
 
   if (!width || !height) {
     return {
-      url: '',
-      blurURL: '',
+      src: '',
+      blurDataURL: '',
       width: 0,
       height: 0,
     }
@@ -40,8 +41,8 @@ export async function prepareImageFromUrl(imageUrl: string | null | undefined): 
     .toBuffer()
 
   return {
-    url: `/build/${fileName}`,
-    blurURL: 'data:image/jpeg;base64,' + blurredImageBuffer.toString('base64'),
+    src: `/build/${fileName}`,
+    blurDataURL: 'data:image/jpeg;base64,' + blurredImageBuffer.toString('base64'),
     width,
     height,
   }

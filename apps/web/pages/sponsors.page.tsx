@@ -46,8 +46,9 @@ function SponsorTierComponent({tier}: { tier: SponsorTier }) {
                     style={{width}}
                     mt={16}>
           <Image layout={'responsive'}
-                 sizes={width + 'px'} width={logo.width} height={logo.height}
-                 src={logo.url} placeholder={'blur'} blurDataURL={logo.blurURL} alt={''}/>
+                 sizes={width + 'px'}
+                 src={logo} placeholder={'blur'}
+                 alt={''}/>
         </Box>
       })}
     </Group>

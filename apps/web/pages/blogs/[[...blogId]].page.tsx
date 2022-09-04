@@ -35,8 +35,6 @@ type PageProp = { blogMetas: BlogMeta[], blog: Blog | null }
 type PageQuery = { blogId: string[] | undefined }
 
 function BlogMetaComponent({meta}: { meta: BlogMeta }) {
-  const theme = useMantineTheme()
-
   return <Group noWrap align={'start'} spacing={32}>
     <Stack spacing={0} align={'start'} sx={{
       flexGrow: 1,
@@ -64,13 +62,10 @@ function BlogMetaComponent({meta}: { meta: BlogMeta }) {
     }}>
       <Image
         style={{
-          borderRadius: theme.radius.sm,
+          borderRadius: 8,
         }}
         layout={'responsive'}
-        src={meta.coverImage.url}
-        blurDataURL={meta.coverImage.blurURL}
-        width={meta.coverImage.width}
-        height={meta.coverImage.height}
+        src={meta.coverImage}
         alt={''}/>
     </Box> : null}
   </Group>

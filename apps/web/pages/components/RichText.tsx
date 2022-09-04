@@ -1,6 +1,8 @@
 import {Anchor, Box, BoxProps, List, Text, Title, TitleOrder} from '@mantine/core'
 import {ProcessedImage} from '../ssrUtils'
-import Image from 'next/image'
+import {ResponsiveImageWrapper} from './ResponsiveImageWrapper'
+import {StaticImageData} from 'next/dist/client/image'
+import {useMeasure, useWindowSize} from 'react-use'
 
 type Leaf = {
   text: string,
@@ -74,19 +76,7 @@ function RichTextNode(props: { data: RichTextData, first?: boolean }) {
           <RichTextNode data={node.children}/>
         </Anchor>
       } else if (node.image) {
-        return <Box sx={{
-          width: 500,
-        }}>
-          <Image
-            src={node.image.url}
-            layout={'responsive'}
-            width={node.image.width}
-            height={node.image.height}
-            placeholder={'blur'}
-            blurDataURL={node.image.blurURL}
-            alt={''}
-          />
-        </Box>
+        return <ImageWrapper src={node.image}/>
       } else {
         return <Text mt={mt} key={i} size={'lg'}>
           <RichTextNode data={node.children}/>
@@ -94,6 +84,17 @@ function RichTextNode(props: { data: RichTextData, first?: boolean }) {
       }
     })}
   </>
+}
+
+function ImageWrapper(props: { src: StaticImageData }) {
+  const {height} = useWindowSize()
+  const [ref, {width}] = useMeasure<HTMLDivElement>()
+
+  return <Box ref={ref} sx={{
+    width: '100%',
+  }}>
+    <ResponsiveImageWrapper src={props.src} maxHeight={height * 0.8} maxWidth={width}/>
+  </Box>
 }
 
 export function RichText({data, ...wrapperProps}: { data: RichTextData } & BoxProps) {

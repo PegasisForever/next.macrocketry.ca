@@ -149,13 +149,10 @@ function MemberProfilePicture({image, alt}: { image: ProcessedImage | null, alt?
       width: 120,
     }}>
     <Image
+      src={image ?? defaultProfilePhoto}
+      placeholder={image ? 'blur' : undefined}
       layout={'responsive'}
       sizes={'120px'}
-      width={image?.width ?? 125}
-      height={image?.height ?? 200}
-      src={image?.url ?? defaultProfilePhoto}
-      placeholder={image ? 'blur' : undefined}
-      blurDataURL={image?.blurURL}
       alt={alt}
     />
   </Box>

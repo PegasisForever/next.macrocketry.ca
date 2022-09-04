@@ -1,9 +1,9 @@
 import {Box, Stack} from '@mantine/core'
 import {memo, ReactNode, useEffect, useState} from 'react'
-import Image from 'next/image'
 import {Carousel, Embla} from '@mantine/carousel'
 import {StaticImageData} from 'next/dist/client/image'
 import {useMeasure} from 'react-use'
+import {ResponsiveImageWrapper} from './ResponsiveImageWrapper'
 
 export default function Gallery({images, title, blur, className}: { images: StaticImageData[], title: ReactNode, blur?: boolean, className?: string }) {
   const [embla, setEmbla] = useState<Embla | null>(null)
@@ -71,15 +71,6 @@ export default function Gallery({images, title, blur, className}: { images: Stat
 
 const ImageWrapper = memo<{ src: StaticImageData }>(function ImageWrapper({src: image}) {
   const [ref, {width, height}] = useMeasure<HTMLDivElement>()
-  let scaledWidth: string | number = '100%'
-  if (width > 0 && height > 0) {
-    const containerRatio = width / height
-    const imageRatio = image.width / image.height
-    if (containerRatio > imageRatio) {
-      const imageScale = image.height / height
-      scaledWidth = image.width / imageScale
-    }
-  }
 
   return <Box ref={ref} sx={{
     display: 'flex',
@@ -87,20 +78,11 @@ const ImageWrapper = memo<{ src: StaticImageData }>(function ImageWrapper({src: 
     alignItems: 'center',
     width: '100%',
     height: '100%',
-    borderRadius: 8,
   }}>
-    <Box style={{
-      width: scaledWidth,
-    }}>
-      <Box
-        component={Image}
-        src={image}
-        placeholder={'blur'}
-        layout={'responsive'}
-        sx={{
-          borderRadius: 8,
-        }}
-      />
-    </Box>
+    <ResponsiveImageWrapper
+      src={image}
+      maxHeight={height}
+      maxWidth={width}
+    />
   </Box>
 })
