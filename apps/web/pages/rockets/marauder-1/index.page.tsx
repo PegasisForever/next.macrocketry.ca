@@ -107,11 +107,6 @@ export default function Marauder1Page() {
         <LaunchVideo/>
         <FlightProfile ref={launchProfileRef}/>
 
-        <Box className={classes.blackSectionBackground} sx={{
-          height: '50vh',
-        }}>
-        </Box>
-
         <Gallery
           blur
           title={<Title order={1} mt={32} className={classes.title}>
